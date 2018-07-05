@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="。。。。">
 <meta property="og:description" content="IO的方式通常分为几种，同步阻塞的BIO、同步非阻塞的NIO、异步非阻塞的AIO。 BIO在JDK1.4出来之前，我们建立网络连接的时候采用BIO模式，需要先在服务端启动一个ServerSocket， 然后在客户端启动Socket来对服务端进行通信，默认情况下服务端需要对每个请求建立一堆线程等待请求， 而客户端发送请求后，先咨询服务端是否有线程相应，如果没有则会一直等待或者遭到拒绝请求，如果有的话">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-05T01:09:48.404Z">
+<meta property="og:updated_time" content="2018-07-05T01:11:01.364Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BIO,NIO,AIO不同">
 <meta name="twitter:description" content="IO的方式通常分为几种，同步阻塞的BIO、同步非阻塞的NIO、异步非阻塞的AIO。 BIO在JDK1.4出来之前，我们建立网络连接的时候采用BIO模式，需要先在服务端启动一个ServerSocket， 然后在客户端启动Socket来对服务端进行通信，默认情况下服务端需要对每个请求建立一堆线程等待请求， 而客户端发送请求后，先咨询服务端是否有线程相应，如果没有则会一直等待或者遭到拒绝请求，如果有的话">
@@ -115,7 +115,8 @@ NIO基于Reactor，当socket有流可读或可写入socket时，操作系统会�
 <h2 id="AIO"><a href="#AIO" class="headerlink" title="AIO"></a>AIO</h2><pre><code>在JDK1.7中，这部分内容被称作NIO.2，主要在java.nio.channels包下增加了下面四个异步通道：
 </code></pre><h3 id="AsynchronousSocketChannel"><a href="#AsynchronousSocketChannel" class="headerlink" title="AsynchronousSocketChannel"></a>AsynchronousSocketChannel</h3><h3 id="AsynchronousServerSocketChannel"><a href="#AsynchronousServerSocketChannel" class="headerlink" title="AsynchronousServerSocketChannel"></a>AsynchronousServerSocketChannel</h3><h3 id="AsynchronousFileChannel"><a href="#AsynchronousFileChannel" class="headerlink" title="AsynchronousFileChannel"></a>AsynchronousFileChannel</h3><h3 id="AsynchronousDatagramChannel"><a href="#AsynchronousDatagramChannel" class="headerlink" title="AsynchronousDatagramChannel"></a>AsynchronousDatagramChannel</h3><pre><code>与NIO不同，当进行读写操作时，只须直接调用API的read或write方法即可。这两种方法均为异步的，对于读
 操作而言，当有流可读取时，操作系统会将可读的流传入read方法的缓冲区，并通知应用程序；对于写操作而言，
-当操作系统将write方法传递的流写入完毕时，操作系统主动通知应用程序。  即可以理解为，read/write方法都是异步的，完成后会主动调用回调函数。  
+当操作系统将write方法传递的流写入完毕时，操作系统主动通知应用程序。  即可以理解为，read/write方法
+都是异步的，完成后会主动调用回调函数。  
 
 其中的read/write方法，会返回一个带回调函数的对象，当执行完读取/写入操作后，直接调用回调函数。
 
@@ -133,7 +134,8 @@ Java BIO ： 同步并阻塞，服务器实现模式为一个连接一个线程�
 Java NIO ： 同步非阻塞，服务器实现模式为一个请求一个线程，即客户端发送的连接请求都会注册到多路复用器上，
 多路复用器轮询到连接有I/O请求时才启动一个线程进行处理。
 
-Java AIO(NIO.2) ： 异步非阻塞，服务器实现模式为一个有效请求一个线程，客户端的I/O请求都是由OS先完成了再通知服务器应用去启动线程进行处理，
+Java AIO(NIO.2) ： 异步非阻塞，服务器实现模式为一个有效请求一个线程，客户端的I/O请求都是由OS先完
+成了再通知服务器应用去启动线程进行处理，
 
 BIO、NIO、AIO适用场景分析:
 
@@ -149,7 +151,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjj7ut6hn0002lk0lp2pnc87e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjj7uuqmf00006w0l83caqnoe" class="article-share-link">Share</a>
       
       
     </footer>
