@@ -8,14 +8,13 @@
   <title>java内存机制 | 。。。。</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="程序计数器：内存空间较小，用于记录字节码执行的行号，多线程切换线程记录执行行数，属于线程私有，并且不会OutOfMemoryError  java虚拟机栈：java方法执行的内存模型，没个方法执行都会创建一个栈帧用于存储局部变量表，操作栈，动态链接，方法出口。 方法的执行过程就是进栈和出栈的过程。所说的堆内存和栈内存中栈就是虚拟机栈，也可以说是虚拟机栈中 的局部变量表。局部变量表存放编译器可知的各">
-<meta name="keywords" content="勤学如春起之苗，不见其增，日有所长。缀学如磨刀之石，不见其损，日有所亏。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java内存机制">
 <meta property="og:url" content="http://yoursite.com/2018/07/04/java内存机制/index.html">
 <meta property="og:site_name" content="。。。。">
 <meta property="og:description" content="程序计数器：内存空间较小，用于记录字节码执行的行号，多线程切换线程记录执行行数，属于线程私有，并且不会OutOfMemoryError  java虚拟机栈：java方法执行的内存模型，没个方法执行都会创建一个栈帧用于存储局部变量表，操作栈，动态链接，方法出口。 方法的执行过程就是进栈和出栈的过程。所说的堆内存和栈内存中栈就是虚拟机栈，也可以说是虚拟机栈中 的局部变量表。局部变量表存放编译器可知的各">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-05T01:06:11.731Z">
+<meta property="og:updated_time" content="2018-07-05T01:49:30.861Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java内存机制">
 <meta name="twitter:description" content="程序计数器：内存空间较小，用于记录字节码执行的行号，多线程切换线程记录执行行数，属于线程私有，并且不会OutOfMemoryError  java虚拟机栈：java方法执行的内存模型，没个方法执行都会创建一个栈帧用于存储局部变量表，操作栈，动态链接，方法出口。 方法的执行过程就是进栈和出栈的过程。所说的堆内存和栈内存中栈就是虚拟机栈，也可以说是虚拟机栈中 的局部变量表。局部变量表存放编译器可知的各">
@@ -43,7 +42,7 @@
       </h1>
       
         <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">学海无涯，止于至善</a>
+          <a href="/" id="subtitle">勤学如春起之苗，不见其增，日有所长。缀学如磨刀之石，不见其损，日有所亏。</a>
         </h2>
       
     </div>
@@ -107,7 +106,7 @@ to survivor空间等；
 无论怎么分存的都是内存对象，
 不需要物理连续地址，需逻辑连续。
 </code></pre><h2 id="方法区："><a href="#方法区：" class="headerlink" title="方法区："></a>方法区：</h2><pre><code>也是各线程共享的内存区域，用于存已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据，
-gc在该区域回收的是常量池    和对数据类型的卸载，会抛出OutOfMemoryError
+gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfMemoryError
 </code></pre><h2 id="运行时常量池："><a href="#运行时常量池：" class="headerlink" title="运行时常量池："></a>运行时常量池：</h2><pre><code>方法区的一部分，class文件除了有类的版本，字段，方法，接口还有常量池，用于放编译期生成的各种字面量和符号引用，
 这部分内容将在类加载后存放到方法区的运行时常量池，
 </code></pre><p>More info: <a href="https://www.cnblogs.com/dingyingsi/p/3760447.html" target="_blank" rel="noopener">更多</a></p>
@@ -115,7 +114,7 @@ gc在该区域回收的是常量池    和对数据类型的卸载，会抛出Ou
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjj7uuqmn00036w0lg3s2bckn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjj7wn40c0004lk0lho4cm3uk" class="article-share-link">Share</a>
       
       
     </footer>
