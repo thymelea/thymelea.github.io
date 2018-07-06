@@ -71,6 +71,44 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ActiveMQ" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/06/ActiveMQ/" class="article-date">
+  <time datetime="2018-07-06T06:51:56.457Z" itemprop="datePublished">2018-07-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/06/ActiveMQ/">ActiveMQ总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="下载ActiveMQ-下载"><a href="#下载ActiveMQ-下载" class="headerlink" title="下载ActiveMQ 下载"></a>下载ActiveMQ <a href="http://activemq.apache.org/" target="_blank" rel="noopener">下载</a></h2><h2 id="生产者："><a href="#生产者：" class="headerlink" title="生产者："></a>生产者：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">        ConnectionFactory connectionFactory=new ActiveMQConnectionFactory( //创建链接工厂</span><br><span class="line">          ActiveMQConnectionFactory.DEFAULT_USER,</span><br><span class="line">          ActiveMQConnectionFactory.DEFAULT_PASSWORD,</span><br><span class="line">          ActiveMQConnectionFactory.DEFAULT_BROKER_BIND_URL</span><br><span class="line">        );</span><br><span class="line">        Connection connection=null;</span><br><span class="line">        Session session=null;</span><br><span class="line">        Destination destination=null;</span><br><span class="line">        MessageProducer messageProducer=null;</span><br><span class="line">        try &#123;</span><br><span class="line">            connection=connectionFactory.createConnection(); //从工厂获取连接</span><br><span class="line">            //connection.setClientID(<span class="string">"2"</span>);//订阅消息发布者时</span><br><span class="line">            connection.start();//打开连接</span><br><span class="line">            session=connection.createSession(Boolean.FALSE,Session.AUTO_ACKNOWLEDGE);//创建session</span><br><span class="line">            // destination=session.createTopic(<span class="string">"topic1"</span>);//创建订阅主题</span><br><span class="line">            destination=session.createQueue(<span class="string">"queuel"</span>);//创建队列</span><br><span class="line">            messageProducer=session.createProducer(destination);//创建生产者</span><br><span class="line">            messageProducer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);//设置消息持久化</span><br><span class="line">            TextMessage textMessage=session.createTextMessage();//创建消息对象</span><br><span class="line">            textMessage.setText(<span class="string">"hello word"</span>);//添加消息内容</span><br><span class="line">            messageProducer.send(textMessage); //发送消息</span><br><span class="line">            //session.commit();//session提交</span><br><span class="line">        &#125; catch (JMSException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;finally &#123;</span><br><span class="line">            try &#123;</span><br><span class="line">                connection.close();//关闭连接</span><br><span class="line">            &#125; catch (JMSException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="消费者"><a href="#消费者" class="headerlink" title="消费者"></a>消费者</h2><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">	public class Comm implements MessageListener &#123;//实现消息监听借口</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        new Comm().mqdemm();</span><br><span class="line">    &#125;</span><br><span class="line">    public void  <span class="function"><span class="title">mqdemm</span></span>()&#123;</span><br><span class="line">        Connection connection=null;</span><br><span class="line">        Session session=null;</span><br><span class="line">        Destination destination=null;</span><br><span class="line">        DeliveryMode deliveryMode=null;</span><br><span class="line">        MessageConsumer messageConsumer=null;</span><br><span class="line">        ConnectionFactory connectionFactory=new ActiveMQConnectionFactory(//创建连接工厂</span><br><span class="line">                ActiveMQConnectionFactory.DEFAULT_USER,</span><br><span class="line">                ActiveMQConnectionFactory.DEFAULT_PASSWORD,</span><br><span class="line">                ActiveMQConnectionFactory.DEFAULT_BROKER_BIND_URL</span><br><span class="line">        );</span><br><span class="line">        try &#123;</span><br><span class="line">            connection=connectionFactory.createConnection();//从工厂获取连接</span><br><span class="line">            //connection.setClientID(<span class="string">"2"</span>);//订阅消息发布者时</span><br><span class="line">            connection.start();//打开连接</span><br><span class="line">            session=connection.createSession(Boolean.FALSE,Session.AUTO_ACKNOWLEDGE);//创建session</span><br><span class="line">            topic=session.createTopic(<span class="string">"topic1"</span>);//创建订阅主题</span><br><span class="line">            destination=session.createQueue(<span class="string">"queuel"</span>);//创建队列</span><br><span class="line">            messageConsumer=session.createConsumer(destination);//创建消费者</span><br><span class="line">            //messageConsumer=session.createDurableSubscriber(topic,<span class="string">"aaaa"</span>);//订阅者</span><br><span class="line">            messageConsumer.setMessageListener(this);//设置监听对象</span><br><span class="line">        &#125; catch (JMSException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;finally &#123;</span><br><span class="line">            try &#123;</span><br><span class="line">                connection.close();//关闭连接</span><br><span class="line">            &#125; catch (JMSException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onMessage(Message message) &#123;//实现接口</span><br><span class="line">        TextMessage nsg = (TextMessage) message;</span><br><span class="line">        try &#123;</span><br><span class="line">            System.out.println(nsg.getText());//打印消息内容</span><br><span class="line">        &#125; catch (JMSException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/06/ActiveMQ/" data-id="cjj9s8qfx0000380l1dpwhgrr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-java内存机制" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/04/java内存机制/" class="article-date">
@@ -115,7 +153,7 @@ gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfM
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjj7wn40c0004lk0lho4cm3uk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjj9s8qhn0005380ly4vkzn5v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -156,7 +194,7 @@ gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfM
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/java并发处理/" data-id="cjj7wn40e0006lk0luxo47mp4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/04/java并发处理/" data-id="cjj9s8qhn0006380l5ejjzyca" class="article-share-link">Share</a>
       
       
     </footer>
@@ -198,7 +236,7 @@ gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfM
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/22/jvmGC机制/" data-id="cjj7wn40d0005lk0lfan439gb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/22/jvmGC机制/" data-id="cjj9s8qhn0007380l7fd1y011" class="article-share-link">Share</a>
       
       
     </footer>
@@ -288,7 +326,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjj7wn4080002lk0lnip72xkh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjj9s8qhn0003380ldi3mc87q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -326,7 +364,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/MySQL时间增加/" data-id="cjj7wn4010000lk0lw3ev8efw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/MySQL时间增加/" data-id="cjj9s8qh70001380lsjijhm99" class="article-share-link">Share</a>
       
       
     </footer>
@@ -371,7 +409,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/20/hello-world/" data-id="cjj7wn40a0003lk0l766o481m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/20/hello-world/" data-id="cjj9s8qhn0004380l0t9yogd1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -412,6 +450,10 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       <ul>
         
           <li>
+            <a href="/2018/07/06/ActiveMQ/">ActiveMQ总结</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/04/java内存机制/">java内存机制</a>
           </li>
         
@@ -425,10 +467,6 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
         
           <li>
             <a href="/2018/06/21/BIO,NIO,AIO不同/">BIO,NIO,AIO不同</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/21/MySQL时间增加/">MySQL 为日期增加一个时间间隔</a>
           </li>
         
       </ul>

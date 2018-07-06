@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>ActiveMQ总结 | 。。。。</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="下载ActiveMQ 下载生产者：1234567891011121314151617181920212223242526272829303132public static void main(String[] args) &amp;#123;        ConnectionFactory connectionFactory=new ActiveMQConnectionFactory( //创建链接工厂">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ActiveMQ总结">
+<meta property="og:url" content="http://yoursite.com/2018/07/06/ActiveMQ/index.html">
+<meta property="og:site_name" content="。。。。">
+<meta property="og:description" content="下载ActiveMQ 下载生产者：1234567891011121314151617181920212223242526272829303132public static void main(String[] args) &amp;#123;        ConnectionFactory connectionFactory=new ActiveMQConnectionFactory( //创建链接工厂">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-06T09:33:06.993Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ActiveMQ总结">
+<meta name="twitter:description" content="下载ActiveMQ 下载生产者：1234567891011121314151617181920212223242526272829303132public static void main(String[] args) &amp;#123;        ConnectionFactory connectionFactory=new ActiveMQConnectionFactory( //创建链接工厂">
+  
+    <link rel="alternate" href="/atom.xml" title="。。。。" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">。。。。</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">勤学如春起之苗，不见其增，日有所长。缀学如磨刀之石，不见其损，日有所亏。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">文章</a>
+        
+          <a class="main-nav-link" href="/log">日志</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ActiveMQ" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/06/ActiveMQ/" class="article-date">
+  <time datetime="2018-07-06T06:51:56.457Z" itemprop="datePublished">2018-07-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ActiveMQ总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="下载ActiveMQ-下载"><a href="#下载ActiveMQ-下载" class="headerlink" title="下载ActiveMQ 下载"></a>下载ActiveMQ <a href="http://activemq.apache.org/" target="_blank" rel="noopener">下载</a></h2><h2 id="生产者："><a href="#生产者：" class="headerlink" title="生产者："></a>生产者：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">        ConnectionFactory connectionFactory=new ActiveMQConnectionFactory( //创建链接工厂</span><br><span class="line">          ActiveMQConnectionFactory.DEFAULT_USER,</span><br><span class="line">          ActiveMQConnectionFactory.DEFAULT_PASSWORD,</span><br><span class="line">          ActiveMQConnectionFactory.DEFAULT_BROKER_BIND_URL</span><br><span class="line">        );</span><br><span class="line">        Connection connection=null;</span><br><span class="line">        Session session=null;</span><br><span class="line">        Destination destination=null;</span><br><span class="line">        MessageProducer messageProducer=null;</span><br><span class="line">        try &#123;</span><br><span class="line">            connection=connectionFactory.createConnection(); //从工厂获取连接</span><br><span class="line">            //connection.setClientID(<span class="string">"2"</span>);//订阅消息发布者时</span><br><span class="line">            connection.start();//打开连接</span><br><span class="line">            session=connection.createSession(Boolean.FALSE,Session.AUTO_ACKNOWLEDGE);//创建session</span><br><span class="line">            // destination=session.createTopic(<span class="string">"topic1"</span>);//创建订阅主题</span><br><span class="line">            destination=session.createQueue(<span class="string">"queuel"</span>);//创建队列</span><br><span class="line">            messageProducer=session.createProducer(destination);//创建生产者</span><br><span class="line">            messageProducer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);//设置消息持久化</span><br><span class="line">            TextMessage textMessage=session.createTextMessage();//创建消息对象</span><br><span class="line">            textMessage.setText(<span class="string">"hello word"</span>);//添加消息内容</span><br><span class="line">            messageProducer.send(textMessage); //发送消息</span><br><span class="line">            //session.commit();//session提交</span><br><span class="line">        &#125; catch (JMSException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;finally &#123;</span><br><span class="line">            try &#123;</span><br><span class="line">                connection.close();//关闭连接</span><br><span class="line">            &#125; catch (JMSException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="消费者"><a href="#消费者" class="headerlink" title="消费者"></a>消费者</h2><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">	public class Comm implements MessageListener &#123;//实现消息监听借口</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        new Comm().mqdemm();</span><br><span class="line">    &#125;</span><br><span class="line">    public void  <span class="function"><span class="title">mqdemm</span></span>()&#123;</span><br><span class="line">        Connection connection=null;</span><br><span class="line">        Session session=null;</span><br><span class="line">        Destination destination=null;</span><br><span class="line">        DeliveryMode deliveryMode=null;</span><br><span class="line">        MessageConsumer messageConsumer=null;</span><br><span class="line">        ConnectionFactory connectionFactory=new ActiveMQConnectionFactory(//创建连接工厂</span><br><span class="line">                ActiveMQConnectionFactory.DEFAULT_USER,</span><br><span class="line">                ActiveMQConnectionFactory.DEFAULT_PASSWORD,</span><br><span class="line">                ActiveMQConnectionFactory.DEFAULT_BROKER_BIND_URL</span><br><span class="line">        );</span><br><span class="line">        try &#123;</span><br><span class="line">            connection=connectionFactory.createConnection();//从工厂获取连接</span><br><span class="line">            //connection.setClientID(<span class="string">"2"</span>);//订阅消息发布者时</span><br><span class="line">            connection.start();//打开连接</span><br><span class="line">            session=connection.createSession(Boolean.FALSE,Session.AUTO_ACKNOWLEDGE);//创建session</span><br><span class="line">            topic=session.createTopic(<span class="string">"topic1"</span>);//创建订阅主题</span><br><span class="line">            destination=session.createQueue(<span class="string">"queuel"</span>);//创建队列</span><br><span class="line">            messageConsumer=session.createConsumer(destination);//创建消费者</span><br><span class="line">            //messageConsumer=session.createDurableSubscriber(topic,<span class="string">"aaaa"</span>);//订阅者</span><br><span class="line">            messageConsumer.setMessageListener(this);//设置监听对象</span><br><span class="line">        &#125; catch (JMSException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;finally &#123;</span><br><span class="line">            try &#123;</span><br><span class="line">                connection.close();//关闭连接</span><br><span class="line">            &#125; catch (JMSException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onMessage(Message message) &#123;//实现接口</span><br><span class="line">        TextMessage nsg = (TextMessage) message;</span><br><span class="line">        try &#123;</span><br><span class="line">            System.out.println(nsg.getText());//打印消息内容</span><br><span class="line">        &#125; catch (JMSException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/06/ActiveMQ/" data-id="cjj9s8qfx0000380l1dpwhgrr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/04/java内存机制/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">java内存机制</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/06/ActiveMQ/">ActiveMQ总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/04/java内存机制/">java内存机制</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/04/java并发处理/">处理并发和同步</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/22/jvmGC机制/">gc垃圾回收机制</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/21/BIO,NIO,AIO不同/">BIO,NIO,AIO不同</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 张博<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">文章</a>
+  
+    <a href="/log" class="mobile-nav-link">日志</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
