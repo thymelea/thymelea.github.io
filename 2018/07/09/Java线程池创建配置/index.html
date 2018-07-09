@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Executors 提供的5中不同的线程池创建配置 | 。。。。</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="newCachedThreadPool():它是一种用于处理大量短时间工作任务的线程池，具有特点：它试图缓存线程并重用，当无线程线程可用，将会创建新的工作线程，若线程闲置超过60秒，则将会终止，并移出线程池，长期闲置这种线程不会消耗什么资源，其内部使用 SynchronousQueue作为工作队列； newFixedThreadPool(int nThread)：重用指定数目nThread的线程，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Executors 提供的5中不同的线程池创建配置">
+<meta property="og:url" content="http://yoursite.com/2018/07/09/Java线程池创建配置/index.html">
+<meta property="og:site_name" content="。。。。">
+<meta property="og:description" content="newCachedThreadPool():它是一种用于处理大量短时间工作任务的线程池，具有特点：它试图缓存线程并重用，当无线程线程可用，将会创建新的工作线程，若线程闲置超过60秒，则将会终止，并移出线程池，长期闲置这种线程不会消耗什么资源，其内部使用 SynchronousQueue作为工作队列； newFixedThreadPool(int nThread)：重用指定数目nThread的线程，">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-09T01:33:03.531Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Executors 提供的5中不同的线程池创建配置">
+<meta name="twitter:description" content="newCachedThreadPool():它是一种用于处理大量短时间工作任务的线程池，具有特点：它试图缓存线程并重用，当无线程线程可用，将会创建新的工作线程，若线程闲置超过60秒，则将会终止，并移出线程池，长期闲置这种线程不会消耗什么资源，其内部使用 SynchronousQueue作为工作队列； newFixedThreadPool(int nThread)：重用指定数目nThread的线程，">
+  
+    <link rel="alternate" href="/atom.xml" title="。。。。" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">。。。。</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">勤学如春起之苗，不见其增，日有所长。缀学如磨刀之石，不见其损，日有所亏。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">文章</a>
+        
+          <a class="main-nav-link" href="/log">日志</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Java线程池创建配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/09/Java线程池创建配置/" class="article-date">
+  <time datetime="2018-07-09T01:02:38.271Z" itemprop="datePublished">2018-07-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Executors 提供的5中不同的线程池创建配置
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="newCachedThreadPool"><a href="#newCachedThreadPool" class="headerlink" title="newCachedThreadPool():"></a>newCachedThreadPool():</h1><h2 id="它是一种用于处理大量短时间工作任务的线程池，具有特点：它试图缓存线程并重用，当无线程线程可用，将会创建新的"><a href="#它是一种用于处理大量短时间工作任务的线程池，具有特点：它试图缓存线程并重用，当无线程线程可用，将会创建新的" class="headerlink" title="它是一种用于处理大量短时间工作任务的线程池，具有特点：它试图缓存线程并重用，当无线程线程可用，将会创建新的"></a>它是一种用于处理大量短时间工作任务的线程池，具有特点：它试图缓存线程并重用，当无线程线程可用，将会创建新的</h2><pre><code>工作线程，若线程闲置超过60秒，则将会终止，并移出线程池，长期闲置这种线程不会消耗什么资源，其内部使用
+SynchronousQueue作为工作队列；
+</code></pre><h1 id="newFixedThreadPool-int-nThread-："><a href="#newFixedThreadPool-int-nThread-：" class="headerlink" title="newFixedThreadPool(int nThread)："></a>newFixedThreadPool(int nThread)：</h1><h2 id="重用指定数目nThread的线程，其背后实现的是无界的工作队列，任何时候最多有nThread个工作线程是活动的，这意味着"><a href="#重用指定数目nThread的线程，其背后实现的是无界的工作队列，任何时候最多有nThread个工作线程是活动的，这意味着" class="headerlink" title="重用指定数目nThread的线程，其背后实现的是无界的工作队列，任何时候最多有nThread个工作线程是活动的，这意味着"></a>重用指定数目nThread的线程，其背后实现的是无界的工作队列，任何时候最多有nThread个工作线程是活动的，这意味着</h2><pre><code>如果任务数量超过线程数目，，将在工作队列中等待空闲线程出现，如果有工作线程退出，将会有线的工作线程创建，以
+保证nThread；
+</code></pre><h1 id="newSingleThreadExecutor"><a href="#newSingleThreadExecutor" class="headerlink" title="newSingleThreadExecutor():"></a>newSingleThreadExecutor():</h1><h2 id="它的特点是工作线程被限制为1，操作一个无界的工作队列，因此它保证所有任务都被顺序执行，最多会有一个工作任务处于"><a href="#它的特点是工作线程被限制为1，操作一个无界的工作队列，因此它保证所有任务都被顺序执行，最多会有一个工作任务处于" class="headerlink" title="它的特点是工作线程被限制为1，操作一个无界的工作队列，因此它保证所有任务都被顺序执行，最多会有一个工作任务处于"></a>它的特点是工作线程被限制为1，操作一个无界的工作队列，因此它保证所有任务都被顺序执行，最多会有一个工作任务处于</h2><pre><code>活动状态，并且不允许使用者改变工作实例，因此可避免改变线程数目；
+</code></pre><h1 id="newSingleThreadScheduledExecutor-和newScheduledThreadPool-int-corePoolSize"><a href="#newSingleThreadScheduledExecutor-和newScheduledThreadPool-int-corePoolSize" class="headerlink" title="newSingleThreadScheduledExecutor()和newScheduledThreadPool(int corePoolSize):"></a>newSingleThreadScheduledExecutor()和newScheduledThreadPool(int corePoolSize):</h1><h2 id="创建的是个ScheduleExecutorService，可以进行定时或周期性的工作调度，区别在于是单一工作线程还是多个工作线程；"><a href="#创建的是个ScheduleExecutorService，可以进行定时或周期性的工作调度，区别在于是单一工作线程还是多个工作线程；" class="headerlink" title="创建的是个ScheduleExecutorService，可以进行定时或周期性的工作调度，区别在于是单一工作线程还是多个工作线程；"></a>创建的是个ScheduleExecutorService，可以进行定时或周期性的工作调度，区别在于是单一工作线程还是多个工作线程；</h2><h1 id="newWorkStealingPool-parallelism"><a href="#newWorkStealingPool-parallelism" class="headerlink" title="newWorkStealingPool(parallelism):"></a>newWorkStealingPool(parallelism):</h1><h2 id="java-8才加入这个创建方式，其内部会构建ForkJoinPool，利用Work-Stealing算法，并行的处理任务，不保证处理顺序。"><a href="#java-8才加入这个创建方式，其内部会构建ForkJoinPool，利用Work-Stealing算法，并行的处理任务，不保证处理顺序。" class="headerlink" title="java 8才加入这个创建方式，其内部会构建ForkJoinPool，利用Work-Stealing算法，并行的处理任务，不保证处理顺序。"></a>java 8才加入这个创建方式，其内部会构建ForkJoinPool，利用Work-Stealing算法，并行的处理任务，不保证处理顺序。</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/09/Java线程池创建配置/" data-id="cjjdlesd00003yw0ldrhy7xvn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/06/ActiveMQ/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ActiveMQ总结</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/09/Java线程池创建配置/">Executors 提供的5中不同的线程池创建配置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/06/ActiveMQ/">ActiveMQ总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/04/java内存机制/">java内存机制</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/04/java并发处理/">处理并发和同步</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/22/jvmGC机制/">gc垃圾回收机制</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 张博<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">文章</a>
+  
+    <a href="/log" class="mobile-nav-link">日志</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -71,6 +71,47 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Java线程池创建配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/09/Java线程池创建配置/" class="article-date">
+  <time datetime="2018-07-09T01:02:38.271Z" itemprop="datePublished">2018-07-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/09/Java线程池创建配置/">Executors 提供的5中不同的线程池创建配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="newCachedThreadPool"><a href="#newCachedThreadPool" class="headerlink" title="newCachedThreadPool():"></a>newCachedThreadPool():</h1><h2 id="它是一种用于处理大量短时间工作任务的线程池，具有特点：它试图缓存线程并重用，当无线程线程可用，将会创建新的"><a href="#它是一种用于处理大量短时间工作任务的线程池，具有特点：它试图缓存线程并重用，当无线程线程可用，将会创建新的" class="headerlink" title="它是一种用于处理大量短时间工作任务的线程池，具有特点：它试图缓存线程并重用，当无线程线程可用，将会创建新的"></a>它是一种用于处理大量短时间工作任务的线程池，具有特点：它试图缓存线程并重用，当无线程线程可用，将会创建新的</h2><pre><code>工作线程，若线程闲置超过60秒，则将会终止，并移出线程池，长期闲置这种线程不会消耗什么资源，其内部使用
+SynchronousQueue作为工作队列；
+</code></pre><h1 id="newFixedThreadPool-int-nThread-："><a href="#newFixedThreadPool-int-nThread-：" class="headerlink" title="newFixedThreadPool(int nThread)："></a>newFixedThreadPool(int nThread)：</h1><h2 id="重用指定数目nThread的线程，其背后实现的是无界的工作队列，任何时候最多有nThread个工作线程是活动的，这意味着"><a href="#重用指定数目nThread的线程，其背后实现的是无界的工作队列，任何时候最多有nThread个工作线程是活动的，这意味着" class="headerlink" title="重用指定数目nThread的线程，其背后实现的是无界的工作队列，任何时候最多有nThread个工作线程是活动的，这意味着"></a>重用指定数目nThread的线程，其背后实现的是无界的工作队列，任何时候最多有nThread个工作线程是活动的，这意味着</h2><pre><code>如果任务数量超过线程数目，，将在工作队列中等待空闲线程出现，如果有工作线程退出，将会有线的工作线程创建，以
+保证nThread；
+</code></pre><h1 id="newSingleThreadExecutor"><a href="#newSingleThreadExecutor" class="headerlink" title="newSingleThreadExecutor():"></a>newSingleThreadExecutor():</h1><h2 id="它的特点是工作线程被限制为1，操作一个无界的工作队列，因此它保证所有任务都被顺序执行，最多会有一个工作任务处于"><a href="#它的特点是工作线程被限制为1，操作一个无界的工作队列，因此它保证所有任务都被顺序执行，最多会有一个工作任务处于" class="headerlink" title="它的特点是工作线程被限制为1，操作一个无界的工作队列，因此它保证所有任务都被顺序执行，最多会有一个工作任务处于"></a>它的特点是工作线程被限制为1，操作一个无界的工作队列，因此它保证所有任务都被顺序执行，最多会有一个工作任务处于</h2><pre><code>活动状态，并且不允许使用者改变工作实例，因此可避免改变线程数目；
+</code></pre><h1 id="newSingleThreadScheduledExecutor-和newScheduledThreadPool-int-corePoolSize"><a href="#newSingleThreadScheduledExecutor-和newScheduledThreadPool-int-corePoolSize" class="headerlink" title="newSingleThreadScheduledExecutor()和newScheduledThreadPool(int corePoolSize):"></a>newSingleThreadScheduledExecutor()和newScheduledThreadPool(int corePoolSize):</h1><h2 id="创建的是个ScheduleExecutorService，可以进行定时或周期性的工作调度，区别在于是单一工作线程还是多个工作线程；"><a href="#创建的是个ScheduleExecutorService，可以进行定时或周期性的工作调度，区别在于是单一工作线程还是多个工作线程；" class="headerlink" title="创建的是个ScheduleExecutorService，可以进行定时或周期性的工作调度，区别在于是单一工作线程还是多个工作线程；"></a>创建的是个ScheduleExecutorService，可以进行定时或周期性的工作调度，区别在于是单一工作线程还是多个工作线程；</h2><h1 id="newWorkStealingPool-parallelism"><a href="#newWorkStealingPool-parallelism" class="headerlink" title="newWorkStealingPool(parallelism):"></a>newWorkStealingPool(parallelism):</h1><h2 id="java-8才加入这个创建方式，其内部会构建ForkJoinPool，利用Work-Stealing算法，并行的处理任务，不保证处理顺序。"><a href="#java-8才加入这个创建方式，其内部会构建ForkJoinPool，利用Work-Stealing算法，并行的处理任务，不保证处理顺序。" class="headerlink" title="java 8才加入这个创建方式，其内部会构建ForkJoinPool，利用Work-Stealing算法，并行的处理任务，不保证处理顺序。"></a>java 8才加入这个创建方式，其内部会构建ForkJoinPool，利用Work-Stealing算法，并行的处理任务，不保证处理顺序。</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/09/Java线程池创建配置/" data-id="cjjdlesd00003yw0ldrhy7xvn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-ActiveMQ" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/06/ActiveMQ/" class="article-date">
@@ -99,7 +140,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/06/ActiveMQ/" data-id="cjj9s8qfx0000380l1dpwhgrr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/06/ActiveMQ/" data-id="cjjdlescs0000yw0lzwcq5ys7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -153,7 +194,7 @@ gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfM
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjj9s8qhn0005380ly4vkzn5v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjjdlesd30005yw0lwg6x8fv9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -194,7 +235,7 @@ gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfM
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/java并发处理/" data-id="cjj9s8qhn0006380l5ejjzyca" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/04/java并发处理/" data-id="cjjdlesd60007yw0lbbq83n2b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -236,7 +277,7 @@ gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfM
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/22/jvmGC机制/" data-id="cjj9s8qhn0007380l7fd1y011" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/22/jvmGC机制/" data-id="cjjdlesdr0008yw0l2dez0ecq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -326,7 +367,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjj9s8qhn0003380ldi3mc87q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjjdlescy0002yw0l3a6cf62l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -364,7 +405,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/MySQL时间增加/" data-id="cjj9s8qh70001380lsjijhm99" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/MySQL时间增加/" data-id="cjjdlesd20004yw0l4tz5h5kp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -409,7 +450,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/20/hello-world/" data-id="cjj9s8qhn0004380l0t9yogd1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/20/hello-world/" data-id="cjjdlesd40006yw0lji9sn97v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -450,6 +491,10 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       <ul>
         
           <li>
+            <a href="/2018/07/09/Java线程池创建配置/">Executors 提供的5中不同的线程池创建配置</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/06/ActiveMQ/">ActiveMQ总结</a>
           </li>
         
@@ -463,10 +508,6 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
         
           <li>
             <a href="/2018/06/22/jvmGC机制/">gc垃圾回收机制</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/21/BIO,NIO,AIO不同/">BIO,NIO,AIO不同</a>
           </li>
         
       </ul>
