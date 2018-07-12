@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Redis 使用 | 。。。。</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="CONFIG SET 和 CONFIG GET修改和查看配置Redis数据5种类型字符串Redis中的字符串是一个字节序列。Redis中的字符串是二进制安全的，这意味着它们的长度不由任何特殊的终止字符决定。因此，可以在一个字符串中存储高达512兆字节的任何内容。set name “abc”; get name散列/哈希Redis散列/哈希是字符串字段和字符串值之间的映射,每个散列/哈希可以存储多达">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis 使用">
+<meta property="og:url" content="http://yoursite.com/2018/07/12/redis语法/index.html">
+<meta property="og:site_name" content="。。。。">
+<meta property="og:description" content="CONFIG SET 和 CONFIG GET修改和查看配置Redis数据5种类型字符串Redis中的字符串是一个字节序列。Redis中的字符串是二进制安全的，这意味着它们的长度不由任何特殊的终止字符决定。因此，可以在一个字符串中存储高达512兆字节的任何内容。set name “abc”; get name散列/哈希Redis散列/哈希是字符串字段和字符串值之间的映射,每个散列/哈希可以存储多达">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-12T06:34:55.142Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Redis 使用">
+<meta name="twitter:description" content="CONFIG SET 和 CONFIG GET修改和查看配置Redis数据5种类型字符串Redis中的字符串是一个字节序列。Redis中的字符串是二进制安全的，这意味着它们的长度不由任何特殊的终止字符决定。因此，可以在一个字符串中存储高达512兆字节的任何内容。set name “abc”; get name散列/哈希Redis散列/哈希是字符串字段和字符串值之间的映射,每个散列/哈希可以存储多达">
+  
+    <link rel="alternate" href="/atom.xml" title="。。。。" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">。。。。</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">勤学如春起之苗，不见其增，日有所长。缀学如磨刀之石，不见其损，日有所亏。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">文章</a>
+        
+          <a class="main-nav-link" href="/log">日志</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-redis语法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/12/redis语法/" class="article-date">
+  <time datetime="2018-07-12T05:49:44.786Z" itemprop="datePublished">2018-07-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Redis 使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="CONFIG-SET-和-CONFIG-GET"><a href="#CONFIG-SET-和-CONFIG-GET" class="headerlink" title="CONFIG SET 和 CONFIG GET"></a>CONFIG SET 和 CONFIG GET</h2><h3 id="修改和查看配置"><a href="#修改和查看配置" class="headerlink" title="修改和查看配置"></a>修改和查看配置</h3><h2 id="Redis数据5种类型"><a href="#Redis数据5种类型" class="headerlink" title="Redis数据5种类型"></a>Redis数据5种类型</h2><h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><h4 id="Redis中的字符串是一个字节序列。Redis中的字符串是二进制安全的，这意味着它们的长度不由任何特殊的终止字符决定。"><a href="#Redis中的字符串是一个字节序列。Redis中的字符串是二进制安全的，这意味着它们的长度不由任何特殊的终止字符决定。" class="headerlink" title="Redis中的字符串是一个字节序列。Redis中的字符串是二进制安全的，这意味着它们的长度不由任何特殊的终止字符决定。"></a>Redis中的字符串是一个字节序列。Redis中的字符串是二进制安全的，这意味着它们的长度不由任何特殊的终止字符决定。</h4><h4 id="因此，可以在一个字符串中存储高达512兆字节"><a href="#因此，可以在一个字符串中存储高达512兆字节" class="headerlink" title="因此，可以在一个字符串中存储高达512兆字节"></a>因此，可以在一个字符串中存储高达512兆字节</h4><h4 id="的任何内容。set-name-“abc”-get-name"><a href="#的任何内容。set-name-“abc”-get-name" class="headerlink" title="的任何内容。set name “abc”; get name"></a>的任何内容。set name “abc”; get name</h4><h3 id="散列-哈希"><a href="#散列-哈希" class="headerlink" title="散列/哈希"></a>散列/哈希</h3><h4 id="Redis散列-哈希是字符串字段和字符串值之间的映射-每个散列-哈希可以存储多达2-32-1个健-值对-超过40亿个-。"><a href="#Redis散列-哈希是字符串字段和字符串值之间的映射-每个散列-哈希可以存储多达2-32-1个健-值对-超过40亿个-。" class="headerlink" title="Redis散列/哈希是字符串字段和字符串值之间的映射,每个散列/哈希可以存储多达2^32 - 1个健-值对(超过40亿个)。"></a>Redis散列/哈希是字符串字段和字符串值之间的映射,每个散列/哈希可以存储多达2^32 - 1个健-值对(超过40亿个)。</h4><h4 id="hmset-name-username-“abc”-password-“123”-points-200-hmget-name-username"><a href="#hmset-name-username-“abc”-password-“123”-points-200-hmget-name-username" class="headerlink" title="hmset name username “abc” password “123” points 200; hmget name username"></a>hmset name username “abc” password “123” points 200; hmget name username</h4><h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><h4 id="Redis列表只是字符串列表，按插入顺序排序。您可以向Redis列表的头部或尾部添加元素。列表的最大长度为"><a href="#Redis列表只是字符串列表，按插入顺序排序。您可以向Redis列表的头部或尾部添加元素。列表的最大长度为" class="headerlink" title="Redis列表只是字符串列表，按插入顺序排序。您可以向Redis列表的头部或尾部添加元素。列表的最大长度为"></a>Redis列表只是字符串列表，按插入顺序排序。您可以向Redis列表的头部或尾部添加元素。列表的最大长度为</h4><h4 id="2-32-1个元素-4294967295，每个列表可容纳超过40亿个元素"><a href="#2-32-1个元素-4294967295，每个列表可容纳超过40亿个元素" class="headerlink" title="2^32 - 1个元素(4294967295，每个列表可容纳超过40亿个元素)"></a>2^32 - 1个元素(4294967295，每个列表可容纳超过40亿个元素)</h4><h4 id="lpush-name-abc-lrange-anme-0-10"><a href="#lpush-name-abc-lrange-anme-0-10" class="headerlink" title="lpush name abc ;lrange anme 0 10"></a>lpush name abc ;lrange anme 0 10</h4><h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><h4 id="Redis集合是字符串的无序集合。在Redis中，您可以添加，删除和测试成员存在的时间O-1-复杂性。一个集合中的最大成员数量为"><a href="#Redis集合是字符串的无序集合。在Redis中，您可以添加，删除和测试成员存在的时间O-1-复杂性。一个集合中的最大成员数量为" class="headerlink" title="Redis集合是字符串的无序集合。在Redis中，您可以添加，删除和测试成员存在的时间O(1)复杂性。一个集合中的最大成员数量为"></a>Redis集合是字符串的无序集合。在Redis中，您可以添加，删除和测试成员存在的时间O(1)复杂性。一个集合中的最大成员数量为</h4><h4 id="2-32-1-即4294967295，每个集合中元素数量可达40亿个-个-被添加了两次，但是由于集合的唯一属性，所以它只算添加一次"><a href="#2-32-1-即4294967295，每个集合中元素数量可达40亿个-个-被添加了两次，但是由于集合的唯一属性，所以它只算添加一次" class="headerlink" title="2^32 - 1(即4294967295，每个集合中元素数量可达40亿个)个,被添加了两次，但是由于集合的唯一属性，所以它只算添加一次"></a>2^32 - 1(即4294967295，每个集合中元素数量可达40亿个)个,被添加了两次，但是由于集合的唯一属性，所以它只算添加一次</h4><h4 id="sadd-name-abc-smembers-name"><a href="#sadd-name-abc-smembers-name" class="headerlink" title="sadd name abc ;smembers name"></a>sadd name abc ;smembers name</h4><h3 id="可排序集合"><a href="#可排序集合" class="headerlink" title="可排序集合"></a>可排序集合</h3><h4 id="Redis可排序集合类似于Redis集合，是不重复的字符集合。同之处在于，排序集合的每个成员都与分数相关联，这个分数用于按"><a href="#Redis可排序集合类似于Redis集合，是不重复的字符集合。同之处在于，排序集合的每个成员都与分数相关联，这个分数用于按" class="headerlink" title="Redis可排序集合类似于Redis集合，是不重复的字符集合。同之处在于，排序集合的每个成员都与分数相关联，这个分数用于按"></a>Redis可排序集合类似于Redis集合，是不重复的字符集合。同之处在于，排序集合的每个成员都与分数相关联，这个分数用于按</h4><h4 id="最小分数到最大分数来排序的排序集合。虽然成员是唯一的，但分数值可以重复。"><a href="#最小分数到最大分数来排序的排序集合。虽然成员是唯一的，但分数值可以重复。" class="headerlink" title="最小分数到最大分数来排序的排序集合。虽然成员是唯一的，但分数值可以重复。"></a>最小分数到最大分数来排序的排序集合。虽然成员是唯一的，但分数值可以重复。</h4><h4 id="zadd-name-0-redise"><a href="#zadd-name-0-redise" class="headerlink" title="zadd name 0 redise"></a>zadd name 0 redise</h4><h4 id="zadd-name-1-sqlist"><a href="#zadd-name-1-sqlist" class="headerlink" title="zadd name 1 sqlist"></a>zadd name 1 sqlist</h4><h4 id="zrangebyscore-name-0-100"><a href="#zrangebyscore-name-0-100" class="headerlink" title="zrangebyscore name 0 100"></a>zrangebyscore name 0 100</h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/12/redis语法/" data-id="cjji6y0gt000abg0lvrmwd1yt" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/12/redis安装笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Redis 安装的坑</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/12/redis语法/">Redis 使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/12/redis安装笔记/">Redis 安装的坑</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/09/Java线程池创建配置/">Executors 提供的5中不同的线程池创建配置</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/06/ActiveMQ/">ActiveMQ总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/04/java内存机制/">java内存机制</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 张博<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">文章</a>
+  
+    <a href="/log" class="mobile-nav-link">日志</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

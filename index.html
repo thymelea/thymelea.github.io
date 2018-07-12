@@ -71,6 +71,42 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-redis语法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/12/redis语法/" class="article-date">
+  <time datetime="2018-07-12T05:49:44.786Z" itemprop="datePublished">2018-07-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/12/redis语法/">Redis 使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="CONFIG-SET-和-CONFIG-GET"><a href="#CONFIG-SET-和-CONFIG-GET" class="headerlink" title="CONFIG SET 和 CONFIG GET"></a>CONFIG SET 和 CONFIG GET</h2><h3 id="修改和查看配置"><a href="#修改和查看配置" class="headerlink" title="修改和查看配置"></a>修改和查看配置</h3><h2 id="Redis数据5种类型"><a href="#Redis数据5种类型" class="headerlink" title="Redis数据5种类型"></a>Redis数据5种类型</h2><h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><h4 id="Redis中的字符串是一个字节序列。Redis中的字符串是二进制安全的，这意味着它们的长度不由任何特殊的终止字符决定。"><a href="#Redis中的字符串是一个字节序列。Redis中的字符串是二进制安全的，这意味着它们的长度不由任何特殊的终止字符决定。" class="headerlink" title="Redis中的字符串是一个字节序列。Redis中的字符串是二进制安全的，这意味着它们的长度不由任何特殊的终止字符决定。"></a>Redis中的字符串是一个字节序列。Redis中的字符串是二进制安全的，这意味着它们的长度不由任何特殊的终止字符决定。</h4><h4 id="因此，可以在一个字符串中存储高达512兆字节"><a href="#因此，可以在一个字符串中存储高达512兆字节" class="headerlink" title="因此，可以在一个字符串中存储高达512兆字节"></a>因此，可以在一个字符串中存储高达512兆字节</h4><h4 id="的任何内容。set-name-“abc”-get-name"><a href="#的任何内容。set-name-“abc”-get-name" class="headerlink" title="的任何内容。set name “abc”; get name"></a>的任何内容。set name “abc”; get name</h4><h3 id="散列-哈希"><a href="#散列-哈希" class="headerlink" title="散列/哈希"></a>散列/哈希</h3><h4 id="Redis散列-哈希是字符串字段和字符串值之间的映射-每个散列-哈希可以存储多达2-32-1个健-值对-超过40亿个-。"><a href="#Redis散列-哈希是字符串字段和字符串值之间的映射-每个散列-哈希可以存储多达2-32-1个健-值对-超过40亿个-。" class="headerlink" title="Redis散列/哈希是字符串字段和字符串值之间的映射,每个散列/哈希可以存储多达2^32 - 1个健-值对(超过40亿个)。"></a>Redis散列/哈希是字符串字段和字符串值之间的映射,每个散列/哈希可以存储多达2^32 - 1个健-值对(超过40亿个)。</h4><h4 id="hmset-name-username-“abc”-password-“123”-points-200-hmget-name-username"><a href="#hmset-name-username-“abc”-password-“123”-points-200-hmget-name-username" class="headerlink" title="hmset name username “abc” password “123” points 200; hmget name username"></a>hmset name username “abc” password “123” points 200; hmget name username</h4><h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><h4 id="Redis列表只是字符串列表，按插入顺序排序。您可以向Redis列表的头部或尾部添加元素。列表的最大长度为"><a href="#Redis列表只是字符串列表，按插入顺序排序。您可以向Redis列表的头部或尾部添加元素。列表的最大长度为" class="headerlink" title="Redis列表只是字符串列表，按插入顺序排序。您可以向Redis列表的头部或尾部添加元素。列表的最大长度为"></a>Redis列表只是字符串列表，按插入顺序排序。您可以向Redis列表的头部或尾部添加元素。列表的最大长度为</h4><h4 id="2-32-1个元素-4294967295，每个列表可容纳超过40亿个元素"><a href="#2-32-1个元素-4294967295，每个列表可容纳超过40亿个元素" class="headerlink" title="2^32 - 1个元素(4294967295，每个列表可容纳超过40亿个元素)"></a>2^32 - 1个元素(4294967295，每个列表可容纳超过40亿个元素)</h4><h4 id="lpush-name-abc-lrange-anme-0-10"><a href="#lpush-name-abc-lrange-anme-0-10" class="headerlink" title="lpush name abc ;lrange anme 0 10"></a>lpush name abc ;lrange anme 0 10</h4><h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><h4 id="Redis集合是字符串的无序集合。在Redis中，您可以添加，删除和测试成员存在的时间O-1-复杂性。一个集合中的最大成员数量为"><a href="#Redis集合是字符串的无序集合。在Redis中，您可以添加，删除和测试成员存在的时间O-1-复杂性。一个集合中的最大成员数量为" class="headerlink" title="Redis集合是字符串的无序集合。在Redis中，您可以添加，删除和测试成员存在的时间O(1)复杂性。一个集合中的最大成员数量为"></a>Redis集合是字符串的无序集合。在Redis中，您可以添加，删除和测试成员存在的时间O(1)复杂性。一个集合中的最大成员数量为</h4><h4 id="2-32-1-即4294967295，每个集合中元素数量可达40亿个-个-被添加了两次，但是由于集合的唯一属性，所以它只算添加一次"><a href="#2-32-1-即4294967295，每个集合中元素数量可达40亿个-个-被添加了两次，但是由于集合的唯一属性，所以它只算添加一次" class="headerlink" title="2^32 - 1(即4294967295，每个集合中元素数量可达40亿个)个,被添加了两次，但是由于集合的唯一属性，所以它只算添加一次"></a>2^32 - 1(即4294967295，每个集合中元素数量可达40亿个)个,被添加了两次，但是由于集合的唯一属性，所以它只算添加一次</h4><h4 id="sadd-name-abc-smembers-name"><a href="#sadd-name-abc-smembers-name" class="headerlink" title="sadd name abc ;smembers name"></a>sadd name abc ;smembers name</h4><h3 id="可排序集合"><a href="#可排序集合" class="headerlink" title="可排序集合"></a>可排序集合</h3><h4 id="Redis可排序集合类似于Redis集合，是不重复的字符集合。同之处在于，排序集合的每个成员都与分数相关联，这个分数用于按"><a href="#Redis可排序集合类似于Redis集合，是不重复的字符集合。同之处在于，排序集合的每个成员都与分数相关联，这个分数用于按" class="headerlink" title="Redis可排序集合类似于Redis集合，是不重复的字符集合。同之处在于，排序集合的每个成员都与分数相关联，这个分数用于按"></a>Redis可排序集合类似于Redis集合，是不重复的字符集合。同之处在于，排序集合的每个成员都与分数相关联，这个分数用于按</h4><h4 id="最小分数到最大分数来排序的排序集合。虽然成员是唯一的，但分数值可以重复。"><a href="#最小分数到最大分数来排序的排序集合。虽然成员是唯一的，但分数值可以重复。" class="headerlink" title="最小分数到最大分数来排序的排序集合。虽然成员是唯一的，但分数值可以重复。"></a>最小分数到最大分数来排序的排序集合。虽然成员是唯一的，但分数值可以重复。</h4><h4 id="zadd-name-0-redise"><a href="#zadd-name-0-redise" class="headerlink" title="zadd name 0 redise"></a>zadd name 0 redise</h4><h4 id="zadd-name-1-sqlist"><a href="#zadd-name-1-sqlist" class="headerlink" title="zadd name 1 sqlist"></a>zadd name 1 sqlist</h4><h4 id="zrangebyscore-name-0-100"><a href="#zrangebyscore-name-0-100" class="headerlink" title="zrangebyscore name 0 100"></a>zrangebyscore name 0 100</h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/12/redis语法/" data-id="cjji6y0gt000abg0lvrmwd1yt" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-redis安装笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/12/redis安装笔记/" class="article-date">
@@ -105,6 +141,7 @@ redis-server.exe redis.conf
 Ok 
 &gt;set foo
 &quot;bar&quot;
+连接远程：redis-cli -h host -p port -a password 例：redis-cli -h 127.0.0.1 -p 6379 -a &quot;mypass&quot;
 </code></pre><h2 id="可视化工具下载"><a href="#可视化工具下载" class="headerlink" title="可视化工具下载"></a>可视化工具下载</h2><pre><code>http://redisdesktop.com/download
 </code></pre><h2 id="检查端口"><a href="#检查端口" class="headerlink" title="检查端口"></a>检查端口</h2><h3 id="root-luo-redis-2-8-3-firewall-cmd-–query-port-6379-tcp"><a href="#root-luo-redis-2-8-3-firewall-cmd-–query-port-6379-tcp" class="headerlink" title="[root@luo redis-2.8.3]# firewall-cmd –query-port=6379/tcp"></a>[root@luo redis-2.8.3]# firewall-cmd –query-port=6379/tcp</h3><h3 id="no"><a href="#no" class="headerlink" title="no"></a>no</h3><h3 id="root-luo-redis-2-8-3-firewall-cmd-–add-port-6379-tcp"><a href="#root-luo-redis-2-8-3-firewall-cmd-–add-port-6379-tcp" class="headerlink" title="[root@luo redis-2.8.3]# firewall-cmd –add-port=6379/tcp"></a>[root@luo redis-2.8.3]# firewall-cmd –add-port=6379/tcp</h3><h3 id="设置密码：config-set-requirepass-1234-密码所在redis-conf-http-images2015-cnblogs-com-blog-758998-201612-758998-20161214214725636-1530839128-png"><a href="#设置密码：config-set-requirepass-1234-密码所在redis-conf-http-images2015-cnblogs-com-blog-758998-201612-758998-20161214214725636-1530839128-png" class="headerlink" title="设置密码：config set requirepass 1234 ![密码所在redis.conf] http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png"></a>设置密码：config set requirepass 1234 ![密码所在redis.conf] <a href="http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png" target="_blank" rel="noopener">http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png</a></h3><h3 id="auth-1234"><a href="#auth-1234" class="headerlink" title="auth 1234"></a>auth 1234</h3><p><code>`</code> bash<br>1.基本配置<br>内存单位的表示</p>
 <p> 1k =&gt; 1000 bytes<br> 1kb =&gt; 1024 bytes<br> 1m =&gt; 1000000 bytes<br> 1mb =&gt; 1024<em>1024 bytes<br> 1g =&gt; 1000000000 bytes<br> 1gb =&gt; 1024</em>1024*1024 bytes</p>
@@ -174,7 +211,7 @@ Ok
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjji0qxpt0009kg0lmwi210gn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjji6y0gt0009bg0l4bw9f4hh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -215,7 +252,7 @@ SynchronousQueue作为工作队列；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/09/Java线程池创建配置/" data-id="cjji0qxpt0004kg0l4a8f3dop" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/09/Java线程池创建配置/" data-id="cjji6y0ge0003bg0lrcs8dyyt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -253,7 +290,7 @@ SynchronousQueue作为工作队列；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/06/ActiveMQ/" data-id="cjji0qxpe0000kg0laertb6hl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/06/ActiveMQ/" data-id="cjji6y0ge0000bg0lvy311x9z" class="article-share-link">Share</a>
       
       
     </footer>
@@ -307,7 +344,7 @@ gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfM
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjji0qxpt0005kg0lx1ylp4zc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjji6y0ge0005bg0lcjukwlfv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -348,7 +385,7 @@ gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfM
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/java并发处理/" data-id="cjji0qxpt0008kg0lre0f0z0k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/04/java并发处理/" data-id="cjji6y0gt0007bg0lafmb555k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -390,7 +427,7 @@ gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfM
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/22/jvmGC机制/" data-id="cjji0qxpt0006kg0l57tm8jm2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/22/jvmGC机制/" data-id="cjji6y0gt0008bg0l5zk577ai" class="article-share-link">Share</a>
       
       
     </footer>
@@ -480,7 +517,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjji0qxpt0003kg0lxmdmh15p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjji6y0ge0002bg0luf5wa3xe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -518,7 +555,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/MySQL时间增加/" data-id="cjji0qxpe0002kg0lcgkvcqg1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/MySQL时间增加/" data-id="cjji6y0ge0004bg0lubhx8404" class="article-share-link">Share</a>
       
       
     </footer>
@@ -563,7 +600,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/20/hello-world/" data-id="cjji0qxpt0007kg0lglbjow1q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/20/hello-world/" data-id="cjji6y0gt0006bg0la3d4ovz9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -604,6 +641,10 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       <ul>
         
           <li>
+            <a href="/2018/07/12/redis语法/">Redis 使用</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/12/redis安装笔记/">Redis 安装的坑</a>
           </li>
         
@@ -617,10 +658,6 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
         
           <li>
             <a href="/2018/07/04/java内存机制/">java内存机制</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/04/java并发处理/">处理并发和同步</a>
           </li>
         
       </ul>
