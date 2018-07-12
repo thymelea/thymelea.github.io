@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="。。。。">
 <meta property="og:description" content="下载Linux下载地址：wget http://download.redis.io/releases/redis-2.8.3.tar.gz windows :https://github.com/dmajkic/redis/downloads 解压：tar xzf redis-2.8.3.tar.zg cd redis-2.8.3 启动linux启动：./redis-server windows启">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-12T03:47:08.131Z">
+<meta property="og:updated_time" content="2018-07-12T03:51:00.457Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis 安装的坑">
 <meta name="twitter:description" content="下载Linux下载地址：wget http://download.redis.io/releases/redis-2.8.3.tar.gz windows :https://github.com/dmajkic/redis/downloads 解压：tar xzf redis-2.8.3.tar.zg cd redis-2.8.3 启动linux启动：./redis-server windows启">
@@ -112,7 +112,7 @@ success
 [密码所在redis.conf]: http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png
 设置密码：config set requirepass 1234 ![密码所在redis.conf]
     auth 1234
-</code></pre><p>·· bash<br>1.基本配置<br>内存单位的表示</p>
+</code></pre><p><code>`</code> bash<br>1.基本配置<br>内存单位的表示</p>
 <h1 id="1k-gt-1000-bytes"><a href="#1k-gt-1000-bytes" class="headerlink" title="1k =&gt; 1000 bytes"></a>1k =&gt; 1000 bytes</h1><h1 id="1kb-gt-1024-bytes"><a href="#1kb-gt-1024-bytes" class="headerlink" title="1kb =&gt; 1024 bytes"></a>1kb =&gt; 1024 bytes</h1><h1 id="1m-gt-1000000-bytes"><a href="#1m-gt-1000000-bytes" class="headerlink" title="1m =&gt; 1000000 bytes"></a>1m =&gt; 1000000 bytes</h1><h1 id="1mb-gt-1024-1024-bytes"><a href="#1mb-gt-1024-1024-bytes" class="headerlink" title="1mb =&gt; 1024*1024 bytes"></a>1mb =&gt; 1024*1024 bytes</h1><h1 id="1g-gt-1000000000-bytes"><a href="#1g-gt-1000000000-bytes" class="headerlink" title="1g =&gt; 1000000000 bytes"></a>1g =&gt; 1000000000 bytes</h1><h1 id="1gb-gt-102410241024-bytes"><a href="#1gb-gt-102410241024-bytes" class="headerlink" title="1gb =&gt; 102410241024 bytes"></a>1gb =&gt; 1024<em>1024</em>1024 bytes</h1><p>单位中不区分大小写1GB 1Gb 1gB是一样的</p>
 <p>后台运行，yes是后台运行，no前台运行，将输出，输出到终端（默认）</p>
 <p>daemonize yes</p>
@@ -174,12 +174,12 @@ success
 <p>此选项如果是“yes”那么Redis的使用数量较少的TCP数据包和更少的带宽将数据发送到，在从主机上延迟40毫秒（linux kernel中的40毫秒）出现。如果是no将在slave中减少延迟，但是流量使用回相对多一些，如果用多个从主机，此处建议设置成yes</p>
 <p>repl-disable-tcp-nodelay no</p>
 <p>从主机的优先级，如果当主主机挂了的时候，将从从主机中选取一个作为其他从机的主，首先优先级的数字最低的将成为主，0是一个特殊的级别，0将永远不会成为主。默认值是100.</p>
-<p>slave-priority 100<br>·· bash</p>
+<p>slave-priority 100<br><code>`</code> bash</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjji0j0oi0008n00l8spy8lpr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjji0nfkl0009280l62y19c8k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -240,11 +240,11 @@ success
           </li>
         
           <li>
-            <a href="/2018/07/04/java并发处理/">处理并发和同步</a>
+            <a href="/2018/07/04/java内存机制/">java内存机制</a>
           </li>
         
           <li>
-            <a href="/2018/07/04/java内存机制/">java内存机制</a>
+            <a href="/2018/07/04/java并发处理/">处理并发和同步</a>
           </li>
         
       </ul>

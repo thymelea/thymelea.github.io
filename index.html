@@ -113,7 +113,7 @@ success
 [密码所在redis.conf]: http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png
 设置密码：config set requirepass 1234 ![密码所在redis.conf]
     auth 1234
-</code></pre><p>·· bash<br>1.基本配置<br>内存单位的表示</p>
+</code></pre><p><code>`</code> bash<br>1.基本配置<br>内存单位的表示</p>
 <h1 id="1k-gt-1000-bytes"><a href="#1k-gt-1000-bytes" class="headerlink" title="1k =&gt; 1000 bytes"></a>1k =&gt; 1000 bytes</h1><h1 id="1kb-gt-1024-bytes"><a href="#1kb-gt-1024-bytes" class="headerlink" title="1kb =&gt; 1024 bytes"></a>1kb =&gt; 1024 bytes</h1><h1 id="1m-gt-1000000-bytes"><a href="#1m-gt-1000000-bytes" class="headerlink" title="1m =&gt; 1000000 bytes"></a>1m =&gt; 1000000 bytes</h1><h1 id="1mb-gt-1024-1024-bytes"><a href="#1mb-gt-1024-1024-bytes" class="headerlink" title="1mb =&gt; 1024*1024 bytes"></a>1mb =&gt; 1024*1024 bytes</h1><h1 id="1g-gt-1000000000-bytes"><a href="#1g-gt-1000000000-bytes" class="headerlink" title="1g =&gt; 1000000000 bytes"></a>1g =&gt; 1000000000 bytes</h1><h1 id="1gb-gt-102410241024-bytes"><a href="#1gb-gt-102410241024-bytes" class="headerlink" title="1gb =&gt; 102410241024 bytes"></a>1gb =&gt; 1024<em>1024</em>1024 bytes</h1><p>单位中不区分大小写1GB 1Gb 1gB是一样的</p>
 <p>后台运行，yes是后台运行，no前台运行，将输出，输出到终端（默认）</p>
 <p>daemonize yes</p>
@@ -175,12 +175,12 @@ success
 <p>此选项如果是“yes”那么Redis的使用数量较少的TCP数据包和更少的带宽将数据发送到，在从主机上延迟40毫秒（linux kernel中的40毫秒）出现。如果是no将在slave中减少延迟，但是流量使用回相对多一些，如果用多个从主机，此处建议设置成yes</p>
 <p>repl-disable-tcp-nodelay no</p>
 <p>从主机的优先级，如果当主主机挂了的时候，将从从主机中选取一个作为其他从机的主，首先优先级的数字最低的将成为主，0是一个特殊的级别，0将永远不会成为主。默认值是100.</p>
-<p>slave-priority 100<br>·· bash</p>
+<p>slave-priority 100<br><code>`</code> bash</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjji0j0oi0008n00l8spy8lpr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjji0nfkl0009280l62y19c8k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -221,7 +221,7 @@ SynchronousQueue作为工作队列；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/09/Java线程池创建配置/" data-id="cjji0j0oi0003n00lkq9xt5ct" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/09/Java线程池创建配置/" data-id="cjji0nfkl0004280lp1vaf1h3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -259,48 +259,7 @@ SynchronousQueue作为工作队列；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/06/ActiveMQ/" data-id="cjji0j0n70000n00loisxw30b" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-java并发处理" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/04/java并发处理/" class="article-date">
-  <time datetime="2018-07-04T09:32:11.913Z" itemprop="datePublished">2018-07-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/04/java并发处理/">处理并发和同步</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="如何处理并发和同步："><a href="#如何处理并发和同步：" class="headerlink" title="如何处理并发和同步："></a>如何处理并发和同步：</h2><h3 id="1-在程序中使用线程的锁机制完成并发控制，"><a href="#1-在程序中使用线程的锁机制完成并发控制，" class="headerlink" title="1. 在程序中使用线程的锁机制完成并发控制，"></a>1. 在程序中使用线程的锁机制完成并发控制，</h3><h3 id="2-在利用数据库的锁机制，如：悲观锁和乐观锁"><a href="#2-在利用数据库的锁机制，如：悲观锁和乐观锁" class="headerlink" title="2. 在利用数据库的锁机制，如：悲观锁和乐观锁"></a>2. 在利用数据库的锁机制，如：悲观锁和乐观锁</h3><h4 id="悲观锁-："><a href="#悲观锁-：" class="headerlink" title="悲观锁 ："></a>悲观锁 ：</h4><pre><code>就是在查询语句后面加上for update，查询时锁住表的字段不可更新操作，直到事务提交，才会释放锁，
-缺点：对于大量数据操作时，资源浪费严重
-</code></pre><h4 id="乐观锁："><a href="#乐观锁：" class="headerlink" title="乐观锁："></a>乐观锁：</h4><pre><code>在表结构基础上添加一个版本冗余字段，没对数据库中数据操作一次该字段进行一次加1，只有比当前版本大的数据才可入库，
-对于大量数据的操作一般都是用乐观锁。
-</code></pre><h2 id="对于大量数据处理："><a href="#对于大量数据处理：" class="headerlink" title="对于大量数据处理："></a>对于大量数据处理：</h2><h3 id="分表存储，如通过时间分，或者某些字段分"><a href="#分表存储，如通过时间分，或者某些字段分" class="headerlink" title="分表存储，如通过时间分，或者某些字段分"></a>分表存储，如通过时间分，或者某些字段分</h3><h3 id="对于大量并发请："><a href="#对于大量并发请：" class="headerlink" title="对于大量并发请："></a>对于大量并发请：</h3><h3 id="1-提高访问带宽，"><a href="#1-提高访问带宽，" class="headerlink" title="1.提高访问带宽，"></a>1.提高访问带宽，</h3><h3 id="2-搭建负载均衡服务器，"><a href="#2-搭建负载均衡服务器，" class="headerlink" title="2.搭建负载均衡服务器，"></a>2.搭建负载均衡服务器，</h3><h3 id="3-oracle分表机制，进行分表，"><a href="#3-oracle分表机制，进行分表，" class="headerlink" title="3.oracle分表机制，进行分表，"></a>3.oracle分表机制，进行分表，</h3><h3 id="4-不持续操作数据库，使用缓存技术，"><a href="#4-不持续操作数据库，使用缓存技术，" class="headerlink" title="4.不持续操作数据库，使用缓存技术，"></a>4.不持续操作数据库，使用缓存技术，</h3><h3 id="5，使用静态页面"><a href="#5，使用静态页面" class="headerlink" title="5，使用静态页面"></a>5，使用静态页面</h3><p>More info: <a href="https://www.cnblogs.com/lr393993507/p/5909804.html" target="_blank" rel="noopener">更多</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/java并发处理/" data-id="cjji0j0oi0006n00lkfgqvq4k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/06/ActiveMQ/" data-id="cjji0nfkl0002280lq14lf605" class="article-share-link">Share</a>
       
       
     </footer>
@@ -354,7 +313,48 @@ gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfM
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjji0j0oi0007n00laup7vgqd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjji0nfkl0007280lyvld0rx9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java并发处理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/04/java并发处理/" class="article-date">
+  <time datetime="2018-07-04T09:32:11.913Z" itemprop="datePublished">2018-07-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/04/java并发处理/">处理并发和同步</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="如何处理并发和同步："><a href="#如何处理并发和同步：" class="headerlink" title="如何处理并发和同步："></a>如何处理并发和同步：</h2><h3 id="1-在程序中使用线程的锁机制完成并发控制，"><a href="#1-在程序中使用线程的锁机制完成并发控制，" class="headerlink" title="1. 在程序中使用线程的锁机制完成并发控制，"></a>1. 在程序中使用线程的锁机制完成并发控制，</h3><h3 id="2-在利用数据库的锁机制，如：悲观锁和乐观锁"><a href="#2-在利用数据库的锁机制，如：悲观锁和乐观锁" class="headerlink" title="2. 在利用数据库的锁机制，如：悲观锁和乐观锁"></a>2. 在利用数据库的锁机制，如：悲观锁和乐观锁</h3><h4 id="悲观锁-："><a href="#悲观锁-：" class="headerlink" title="悲观锁 ："></a>悲观锁 ：</h4><pre><code>就是在查询语句后面加上for update，查询时锁住表的字段不可更新操作，直到事务提交，才会释放锁，
+缺点：对于大量数据操作时，资源浪费严重
+</code></pre><h4 id="乐观锁："><a href="#乐观锁：" class="headerlink" title="乐观锁："></a>乐观锁：</h4><pre><code>在表结构基础上添加一个版本冗余字段，没对数据库中数据操作一次该字段进行一次加1，只有比当前版本大的数据才可入库，
+对于大量数据的操作一般都是用乐观锁。
+</code></pre><h2 id="对于大量数据处理："><a href="#对于大量数据处理：" class="headerlink" title="对于大量数据处理："></a>对于大量数据处理：</h2><h3 id="分表存储，如通过时间分，或者某些字段分"><a href="#分表存储，如通过时间分，或者某些字段分" class="headerlink" title="分表存储，如通过时间分，或者某些字段分"></a>分表存储，如通过时间分，或者某些字段分</h3><h3 id="对于大量并发请："><a href="#对于大量并发请：" class="headerlink" title="对于大量并发请："></a>对于大量并发请：</h3><h3 id="1-提高访问带宽，"><a href="#1-提高访问带宽，" class="headerlink" title="1.提高访问带宽，"></a>1.提高访问带宽，</h3><h3 id="2-搭建负载均衡服务器，"><a href="#2-搭建负载均衡服务器，" class="headerlink" title="2.搭建负载均衡服务器，"></a>2.搭建负载均衡服务器，</h3><h3 id="3-oracle分表机制，进行分表，"><a href="#3-oracle分表机制，进行分表，" class="headerlink" title="3.oracle分表机制，进行分表，"></a>3.oracle分表机制，进行分表，</h3><h3 id="4-不持续操作数据库，使用缓存技术，"><a href="#4-不持续操作数据库，使用缓存技术，" class="headerlink" title="4.不持续操作数据库，使用缓存技术，"></a>4.不持续操作数据库，使用缓存技术，</h3><h3 id="5，使用静态页面"><a href="#5，使用静态页面" class="headerlink" title="5，使用静态页面"></a>5，使用静态页面</h3><p>More info: <a href="https://www.cnblogs.com/lr393993507/p/5909804.html" target="_blank" rel="noopener">更多</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/04/java并发处理/" data-id="cjji0nfkl0008280l2u15a4ir" class="article-share-link">Share</a>
       
       
     </footer>
@@ -396,7 +396,7 @@ gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfM
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/22/jvmGC机制/" data-id="cjji0j0ox0009n00lblh3tq92" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/22/jvmGC机制/" data-id="cjji0nfkl0006280l515x99q4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -486,7 +486,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjji0j0oi0001n00lu258xw2n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjji0nfkl0003280l301bfchs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -524,7 +524,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/MySQL时间增加/" data-id="cjji0j0oi0004n00lnr2wzuzk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/MySQL时间增加/" data-id="cjji0nfk60000280l0r8fhm3h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -569,7 +569,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/20/hello-world/" data-id="cjji0j0oi0005n00l8vbcqb5y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/20/hello-world/" data-id="cjji0nfkl0005280luio0s4bj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -622,11 +622,11 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
           </li>
         
           <li>
-            <a href="/2018/07/04/java并发处理/">处理并发和同步</a>
+            <a href="/2018/07/04/java内存机制/">java内存机制</a>
           </li>
         
           <li>
-            <a href="/2018/07/04/java内存机制/">java内存机制</a>
+            <a href="/2018/07/04/java并发处理/">处理并发和同步</a>
           </li>
         
       </ul>
