@@ -71,6 +71,125 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-redis安装笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/12/redis安装笔记/" class="article-date">
+  <time datetime="2018-07-12T03:28:36.603Z" itemprop="datePublished">2018-07-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/12/redis安装笔记/">Redis 安装的坑</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><pre><code>Linux下载地址：wget http://download.redis.io/releases/redis-2.8.3.tar.gz
+windows :https://github.com/dmajkic/redis/downloads
+解压：tar xzf redis-2.8.3.tar.zg
+cd redis-2.8.3
+</code></pre><h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><pre><code>linux启动：./redis-server
+windows启动：d: &amp; cd D:\Redis\redis-2.4.5
+redis-server.exe redis.conf
+客户端测试是否启动：./redis-cli
+&gt;set foo bar
+Ok 
+&gt;set foo
+&quot;bar&quot;
+</code></pre><h2 id="可视化工具下载"><a href="#可视化工具下载" class="headerlink" title="可视化工具下载"></a>可视化工具下载</h2><pre><code>http://redisdesktop.com/download
+</code></pre><h2 id="检查端口"><a href="#检查端口" class="headerlink" title="检查端口"></a>检查端口</h2><pre><code>[root@luo redis-2.8.3]# firewall-cmd --query-port=6379/tcp
+no 
+[root@luo redis-2.8.3]# firewall-cmd --add-port=6379/tcp
+success
+[密码所在redis.conf]: http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png
+设置密码：config set requirepass 1234 ![密码所在redis.conf]
+    auth 1234
+</code></pre><p>·· bash<br>1.基本配置<br>内存单位的表示</p>
+<h1 id="1k-gt-1000-bytes"><a href="#1k-gt-1000-bytes" class="headerlink" title="1k =&gt; 1000 bytes"></a>1k =&gt; 1000 bytes</h1><h1 id="1kb-gt-1024-bytes"><a href="#1kb-gt-1024-bytes" class="headerlink" title="1kb =&gt; 1024 bytes"></a>1kb =&gt; 1024 bytes</h1><h1 id="1m-gt-1000000-bytes"><a href="#1m-gt-1000000-bytes" class="headerlink" title="1m =&gt; 1000000 bytes"></a>1m =&gt; 1000000 bytes</h1><h1 id="1mb-gt-1024-1024-bytes"><a href="#1mb-gt-1024-1024-bytes" class="headerlink" title="1mb =&gt; 1024*1024 bytes"></a>1mb =&gt; 1024*1024 bytes</h1><h1 id="1g-gt-1000000000-bytes"><a href="#1g-gt-1000000000-bytes" class="headerlink" title="1g =&gt; 1000000000 bytes"></a>1g =&gt; 1000000000 bytes</h1><h1 id="1gb-gt-102410241024-bytes"><a href="#1gb-gt-102410241024-bytes" class="headerlink" title="1gb =&gt; 102410241024 bytes"></a>1gb =&gt; 1024<em>1024</em>1024 bytes</h1><p>单位中不区分大小写1GB 1Gb 1gB是一样的</p>
+<p>后台运行，yes是后台运行，no前台运行，将输出，输出到终端（默认）</p>
+<p>daemonize yes</p>
+<p>如果daemonize参数为yes的话就会产生pid文件，一下是pid文件的定义</p>
+<p>pidfile /usr/local/redis-master/run/redis.pid</p>
+<p>监听的端口</p>
+<p>port 6379</p>
+<p>绑定监听的IP地址</p>
+<p>bind 127.0.0.1</p>
+<p>如果在本地调用redis可以直接用sock文件</p>
+<p>unixsocket /tmp/redis.sock  //sock文件的位置</p>
+<p>unixsocketperm 755            //sock文件的权限</p>
+<p>如果一个链接在N秒内是空闲的，就将其关闭</p>
+<p>timeout 0</p>
+<p>如果对方down了或者中间网络断了发送ACK到客户端在指定的时间内没有收到对方的回应就断开TCP链接（时间单位秒记），此参数会受到内核参数的影响，推荐配置60。</p>
+<p>tcp-keepalive 0</p>
+<p>指定输出消息的级别</p>
+<h1 id="debug-调试级别，详细信息，信息量大"><a href="#debug-调试级别，详细信息，信息量大" class="headerlink" title="debug (调试级别，详细信息，信息量大)"></a>debug (调试级别，详细信息，信息量大)</h1><h1 id="verbose-详细信息，信息量较大"><a href="#verbose-详细信息，信息量较大" class="headerlink" title="verbose (详细信息，信息量较大)"></a>verbose (详细信息，信息量较大)</h1><h1 id="notice-通知，生产环境推荐"><a href="#notice-通知，生产环境推荐" class="headerlink" title="notice (通知，生产环境推荐)"></a>notice (通知，生产环境推荐)</h1><h1 id="warning-错误信息警告信息"><a href="#warning-错误信息警告信息" class="headerlink" title="warning (错误信息警告信息)"></a>warning (错误信息警告信息)</h1><p>loglevel notice</p>
+<p>日志输出文件，默认在前端运行的时候此key的默认值是stdout输出到终端，如果用守护进程运行此key的stdout的时候将日志输入到/dev/null，如果想记录日志，就必须为其指定logfile位置</p>
+<p>logfile /var/log/redis.log</p>
+<p>将日志记录的哦syslog</p>
+<p>syslog-enabled no</p>
+<p>指定syslog的身份</p>
+<p>syslog-ident redis</p>
+<p>指定syslog的级别，必须是LOCAL0-LOCAL7之间</p>
+<p>syslog-facility local0</p>
+<p>设置数据库的数量</p>
+<p>databases 16</p>
+<p>设置数据库的数量。默认数据库DB 0，你可以选择一个不同的per-connection的使用SELECT&lt;dbid&gt;这儿的DBID是一个介于0和’databases’-1</p>
+<p>databases 16</p>
+<p>2.快照配置</p>
+<p>将DB保存到磁盘的规则定义（快照）</p>
+<p>格式：save &lt;seconds&gt; &lt;changes&gt;</p>
+<p>例子：save 900 1  //在900秒（15分钟）内如果至少有1个键值发生变化  就保存</p>
+<pre><code>save 300 10  //在300秒（6分钟）内如果至少有10个键值发生变化  就保存  
+</code></pre><p>save 900 1                      //每一条表示一个存盘点<br>save 300 10<br>save 60 10000</p>
+<p>如果启用如上的快照（RDB），在一个存盘点之后，可能磁盘会坏掉或者权限问题，redis将依然能正常工作</p>
+<p>stop-writes-on-bgsave-error yes</p>
+<p>是否将字符串用LZF压缩到.rdb 数据库中，如果想节省CPU资源可以将其设置成no，但是字符串存储在磁盘上占用空间会很大，默认是yes</p>
+<p>rdbcompression yes</p>
+<p>rdb文件的校验，如果校验将避免文件格式坏掉，如果不校验将在每次操作文件时要付出校验过程的资源新能，将此参数设置为no，将跳过校验</p>
+<p>rdbchecksum yes</p>
+<p>转储数据的文件名</p>
+<p>dbfilename dump.rdb</p>
+<p>redis的工作目录，它会将转储文件存储到这个目录下，并生成一个附加文件</p>
+<p>dir /usr/local/redis-master/db</p>
+<p>3.主从参数<br>如果本地是salve服务器那么配置该项</p>
+<h1 id="slaveof-lt-masterip-gt-lt-masterport-gt"><a href="#slaveof-lt-masterip-gt-lt-masterport-gt" class="headerlink" title="slaveof &lt;masterip&gt; &lt;masterport&gt;"></a>slaveof &lt;masterip&gt; &lt;masterport&gt;</h1><p>slaveof 127.0.0.1 65532</p>
+<p>master的验证密码</p>
+<p>masterauth &lt;master-password&gt;</p>
+<p>当从主机脱离主的链接时，如果此值为yes当客户端查询从时，回响应客户端，如果是第一次同步回返回一个日期数据或这空值，如果设置为no，则返回“SYNC with master in progress”到INFO and SLAVEOF</p>
+<p>slave-serve-stale-data yes</p>
+<p>从服务器只读（默认）</p>
+<p>slave-read-only yes</p>
+<p>从发送ping到主的时间间隔(单位：秒)</p>
+<p>repl-ping-slave-period 10</p>
+<p>批量传输I / O超时和主数据或ping响应超时 默认60s 必须大于repl-ping-slave-period值</p>
+<p>repl-timeout 60</p>
+<p>此选项如果是“yes”那么Redis的使用数量较少的TCP数据包和更少的带宽将数据发送到，在从主机上延迟40毫秒（linux kernel中的40毫秒）出现。如果是no将在slave中减少延迟，但是流量使用回相对多一些，如果用多个从主机，此处建议设置成yes</p>
+<p>repl-disable-tcp-nodelay no</p>
+<p>从主机的优先级，如果当主主机挂了的时候，将从从主机中选取一个作为其他从机的主，首先优先级的数字最低的将成为主，0是一个特殊的级别，0将永远不会成为主。默认值是100.</p>
+<p>slave-priority 100<br>·· bash</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjji0j0oi0008n00l8spy8lpr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Java线程池创建配置" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/09/Java线程池创建配置/" class="article-date">
@@ -102,7 +221,7 @@ SynchronousQueue作为工作队列；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/09/Java线程池创建配置/" data-id="cjjfhwgch00048o0l2a4nfiop" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/09/Java线程池创建配置/" data-id="cjji0j0oi0003n00lkq9xt5ct" class="article-share-link">Share</a>
       
       
     </footer>
@@ -140,7 +259,7 @@ SynchronousQueue作为工作队列；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/06/ActiveMQ/" data-id="cjjfhwgch00028o0lu3lkd0mu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/06/ActiveMQ/" data-id="cjji0j0n70000n00loisxw30b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -181,7 +300,7 @@ SynchronousQueue作为工作队列；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/java并发处理/" data-id="cjjfhwgch00058o0l003pt8lf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/04/java并发处理/" data-id="cjji0j0oi0006n00lkfgqvq4k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -235,7 +354,7 @@ gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfM
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjjfhwgch00078o0lbjwzro9a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjji0j0oi0007n00laup7vgqd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -277,7 +396,7 @@ gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfM
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/22/jvmGC机制/" data-id="cjjfhwgch00088o0lmmo88f6f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/22/jvmGC机制/" data-id="cjji0j0ox0009n00lblh3tq92" class="article-share-link">Share</a>
       
       
     </footer>
@@ -367,7 +486,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjjfhwgch00008o0loi5ejp5f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjji0j0oi0001n00lu258xw2n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -405,7 +524,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/MySQL时间增加/" data-id="cjjfhwgch00038o0leii61qie" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/MySQL时间增加/" data-id="cjji0j0oi0004n00lnr2wzuzk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -450,7 +569,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/20/hello-world/" data-id="cjjfhwgch00068o0ldpyhcu93" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/20/hello-world/" data-id="cjji0j0oi0005n00l8vbcqb5y" class="article-share-link">Share</a>
       
       
     </footer>
@@ -491,6 +610,10 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       <ul>
         
           <li>
+            <a href="/2018/07/12/redis安装笔记/">Redis 安装的坑</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/09/Java线程池创建配置/">Executors 提供的5中不同的线程池创建配置</a>
           </li>
         
@@ -504,10 +627,6 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
         
           <li>
             <a href="/2018/07/04/java内存机制/">java内存机制</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/22/jvmGC机制/">gc垃圾回收机制</a>
           </li>
         
       </ul>
