@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="。。。。">
 <meta property="og:description" content="下载Linux下载地址：wget http://download.redis.io/releases/redis-2.8.3.tar.gz windows :https://github.com/dmajkic/redis/downloads 解压：tar xzf redis-2.8.3.tar.zg cd redis-2.8.3 启动linux启动：./redis-server windows启">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-12T08:06:39.746Z">
+<meta property="og:updated_time" content="2018-07-12T09:23:02.175Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis 安装的坑">
 <meta name="twitter:description" content="下载Linux下载地址：wget http://download.redis.io/releases/redis-2.8.3.tar.gz windows :https://github.com/dmajkic/redis/downloads 解压：tar xzf redis-2.8.3.tar.zg cd redis-2.8.3 启动linux启动：./redis-server windows启">
@@ -106,75 +106,154 @@ Ok
 &quot;bar&quot;
 连接远程：redis-cli -h host -p port -a password 例：redis-cli -h 127.0.0.1 -p 6379 -a &quot;mypass&quot;
 </code></pre><h2 id="可视化工具下载"><a href="#可视化工具下载" class="headerlink" title="可视化工具下载"></a>可视化工具下载</h2><pre><code>http://redisdesktop.com/download
-</code></pre><h2 id="检查端口"><a href="#检查端口" class="headerlink" title="检查端口"></a>检查端口</h2><h3 id="root-luo-redis-2-8-3-firewall-cmd-–query-port-6379-tcp"><a href="#root-luo-redis-2-8-3-firewall-cmd-–query-port-6379-tcp" class="headerlink" title="[root@luo redis-2.8.3]# firewall-cmd –query-port=6379/tcp"></a>[root@luo redis-2.8.3]# firewall-cmd –query-port=6379/tcp</h3><h3 id="no"><a href="#no" class="headerlink" title="no"></a>no</h3><h3 id="root-luo-redis-2-8-3-firewall-cmd-–add-port-6379-tcp"><a href="#root-luo-redis-2-8-3-firewall-cmd-–add-port-6379-tcp" class="headerlink" title="[root@luo redis-2.8.3]# firewall-cmd –add-port=6379/tcp"></a>[root@luo redis-2.8.3]# firewall-cmd –add-port=6379/tcp</h3><h3 id="设置密码：config-set-requirepass-1234-密码所在redis-conf-http-images2015-cnblogs-com-blog-758998-201612-758998-20161214214725636-1530839128-png"><a href="#设置密码：config-set-requirepass-1234-密码所在redis-conf-http-images2015-cnblogs-com-blog-758998-201612-758998-20161214214725636-1530839128-png" class="headerlink" title="设置密码：config set requirepass 1234 ![密码所在redis.conf] http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png"></a>设置密码：config set requirepass 1234 ![密码所在redis.conf] <a href="http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png" target="_blank" rel="noopener">http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png</a></h3><h3 id="auth-1234"><a href="#auth-1234" class="headerlink" title="auth 1234"></a>auth 1234</h3><p><code>`</code> bash<br>1.基本配置<br>内存单位的表示</p>
-<p> 1k =&gt; 1000 bytes<br> 1kb =&gt; 1024 bytes<br> 1m =&gt; 1000000 bytes<br> 1mb =&gt; 1024<em>1024 bytes<br> 1g =&gt; 1000000000 bytes<br> 1gb =&gt; 1024</em>1024*1024 bytes</p>
-<p>单位中不区分大小写1GB 1Gb 1gB是一样的</p>
-<p>后台运行，yes是后台运行，no前台运行，将输出，输出到终端（默认）</p>
-<p>daemonize yes</p>
-<p>如果daemonize参数为yes的话就会产生pid文件，一下是pid文件的定义</p>
-<p>pidfile /usr/local/redis-master/run/redis.pid</p>
-<p>监听的端口</p>
-<p>port 6379</p>
-<p>绑定监听的IP地址</p>
-<p>bind 127.0.0.1</p>
-<p>如果在本地调用redis可以直接用sock文件</p>
-<p>unixsocket /tmp/redis.sock  //sock文件的位置</p>
-<p>unixsocketperm 755            //sock文件的权限</p>
-<p>如果一个链接在N秒内是空闲的，就将其关闭</p>
-<p>timeout 0</p>
-<p>如果对方down了或者中间网络断了发送ACK到客户端在指定的时间内没有收到对方的回应就断开TCP链接（时间单位秒记），此参数会受到内核参数的影响，推荐配置60。</p>
-<p>tcp-keepalive 0</p>
-<p>指定输出消息的级别</p>
-<h1 id="debug-调试级别，详细信息，信息量大"><a href="#debug-调试级别，详细信息，信息量大" class="headerlink" title="debug (调试级别，详细信息，信息量大)"></a>debug (调试级别，详细信息，信息量大)</h1><h1 id="verbose-详细信息，信息量较大"><a href="#verbose-详细信息，信息量较大" class="headerlink" title="verbose (详细信息，信息量较大)"></a>verbose (详细信息，信息量较大)</h1><h1 id="notice-通知，生产环境推荐"><a href="#notice-通知，生产环境推荐" class="headerlink" title="notice (通知，生产环境推荐)"></a>notice (通知，生产环境推荐)</h1><h1 id="warning-错误信息警告信息"><a href="#warning-错误信息警告信息" class="headerlink" title="warning (错误信息警告信息)"></a>warning (错误信息警告信息)</h1><p>loglevel notice</p>
-<p>日志输出文件，默认在前端运行的时候此key的默认值是stdout输出到终端，如果用守护进程运行此key的stdout的时候将日志输入到/dev/null，如果想记录日志，就必须为其指定logfile位置</p>
-<p>logfile /var/log/redis.log</p>
-<p>将日志记录的哦syslog</p>
-<p>syslog-enabled no</p>
-<p>指定syslog的身份</p>
-<p>syslog-ident redis</p>
-<p>指定syslog的级别，必须是LOCAL0-LOCAL7之间</p>
-<p>syslog-facility local0</p>
-<p>设置数据库的数量</p>
-<p>databases 16</p>
-<p>设置数据库的数量。默认数据库DB 0，你可以选择一个不同的per-connection的使用SELECT&lt;dbid&gt;这儿的DBID是一个介于0和’databases’-1</p>
-<p>databases 16</p>
-<p>2.快照配置</p>
-<p>将DB保存到磁盘的规则定义（快照）</p>
-<p>格式：save &lt;seconds&gt; &lt;changes&gt;</p>
-<p>例子：save 900 1  //在900秒（15分钟）内如果至少有1个键值发生变化  就保存</p>
-<pre><code>save 300 10  //在300秒（6分钟）内如果至少有10个键值发生变化  就保存  
-</code></pre><p>save 900 1                      //每一条表示一个存盘点<br>save 300 10<br>save 60 10000</p>
-<p>如果启用如上的快照（RDB），在一个存盘点之后，可能磁盘会坏掉或者权限问题，redis将依然能正常工作</p>
-<p>stop-writes-on-bgsave-error yes</p>
-<p>是否将字符串用LZF压缩到.rdb 数据库中，如果想节省CPU资源可以将其设置成no，但是字符串存储在磁盘上占用空间会很大，默认是yes</p>
-<p>rdbcompression yes</p>
-<p>rdb文件的校验，如果校验将避免文件格式坏掉，如果不校验将在每次操作文件时要付出校验过程的资源新能，将此参数设置为no，将跳过校验</p>
-<p>rdbchecksum yes</p>
-<p>转储数据的文件名</p>
-<p>dbfilename dump.rdb</p>
-<p>redis的工作目录，它会将转储文件存储到这个目录下，并生成一个附加文件</p>
-<p>dir /usr/local/redis-master/db</p>
-<p>3.主从参数<br>如果本地是salve服务器那么配置该项</p>
-<h1 id="slaveof-lt-masterip-gt-lt-masterport-gt"><a href="#slaveof-lt-masterip-gt-lt-masterport-gt" class="headerlink" title="slaveof &lt;masterip&gt; &lt;masterport&gt;"></a>slaveof &lt;masterip&gt; &lt;masterport&gt;</h1><p>slaveof 127.0.0.1 65532</p>
-<p>master的验证密码</p>
-<p>masterauth &lt;master-password&gt;</p>
-<p>当从主机脱离主的链接时，如果此值为yes当客户端查询从时，回响应客户端，如果是第一次同步回返回一个日期数据或这空值，如果设置为no，则返回“SYNC with master in progress”到INFO and SLAVEOF</p>
-<p>slave-serve-stale-data yes</p>
-<p>从服务器只读（默认）</p>
-<p>slave-read-only yes</p>
-<p>从发送ping到主的时间间隔(单位：秒)</p>
-<p>repl-ping-slave-period 10</p>
-<p>批量传输I / O超时和主数据或ping响应超时 默认60s 必须大于repl-ping-slave-period值</p>
-<p>repl-timeout 60</p>
-<p>此选项如果是“yes”那么Redis的使用数量较少的TCP数据包和更少的带宽将数据发送到，在从主机上延迟40毫秒（linux kernel中的40毫秒）出现。如果是no将在slave中减少延迟，但是流量使用回相对多一些，如果用多个从主机，此处建议设置成yes</p>
-<p>repl-disable-tcp-nodelay no</p>
-<p>从主机的优先级，如果当主主机挂了的时候，将从从主机中选取一个作为其他从机的主，首先优先级的数字最低的将成为主，0是一个特殊的级别，0将永远不会成为主。默认值是100.</p>
-<p>slave-priority 100<br><code>`</code> bash</p>
+</code></pre><h2 id="检查端口"><a href="#检查端口" class="headerlink" title="检查端口"></a>检查端口</h2><h3 id="root-luo-redis-2-8-3-firewall-cmd-–query-port-6379-tcp"><a href="#root-luo-redis-2-8-3-firewall-cmd-–query-port-6379-tcp" class="headerlink" title="[root@luo redis-2.8.3]# firewall-cmd –query-port=6379/tcp"></a>[root@luo redis-2.8.3]# firewall-cmd –query-port=6379/tcp</h3><h3 id="no"><a href="#no" class="headerlink" title="no"></a>no</h3><h3 id="root-luo-redis-2-8-3-firewall-cmd-–add-port-6379-tcp"><a href="#root-luo-redis-2-8-3-firewall-cmd-–add-port-6379-tcp" class="headerlink" title="[root@luo redis-2.8.3]# firewall-cmd –add-port=6379/tcp"></a>[root@luo redis-2.8.3]# firewall-cmd –add-port=6379/tcp</h3><h3 id="设置密码：config-set-requirepass-1234-密码所在redis-conf-http-images2015-cnblogs-com-blog-758998-201612-758998-20161214214725636-1530839128-png"><a href="#设置密码：config-set-requirepass-1234-密码所在redis-conf-http-images2015-cnblogs-com-blog-758998-201612-758998-20161214214725636-1530839128-png" class="headerlink" title="设置密码：config set requirepass 1234 ![密码所在redis.conf] http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png"></a>设置密码：config set requirepass 1234 ![密码所在redis.conf] <a href="http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png" target="_blank" rel="noopener">http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png</a></h3><h3 id="auth-1234"><a href="#auth-1234" class="headerlink" title="auth 1234"></a>auth 1234</h3><pre><code class="bash">1.基本配置
+内存单位的表示
+
+ 1k =&amp;gt; 1000 bytes
+ 1kb =&amp;gt; 1024 bytes
+ 1m =&amp;gt; 1000000 bytes
+ 1mb =&amp;gt; 1024*1024 bytes
+ 1g =&amp;gt; 1000000000 bytes
+ 1gb =&amp;gt; 1024*1024*1024 bytes
+
+单位中不区分大小写1GB 1Gb 1gB是一样的
+
+后台运行，yes是后台运行，no前台运行，将输出，输出到终端（默认）
+
+daemonize yes
+
+如果daemonize参数为yes的话就会产生pid文件，一下是pid文件的定义
+
+pidfile /usr/<span class="built_in">local</span>/redis-master/run/redis.pid
+
+监听的端口
+
+port 6379
+
+绑定监听的IP地址
+
+<span class="built_in">bind</span> 127.0.0.1
+
+如果在本地调用redis可以直接用sock文件
+
+unixsocket /tmp/redis.sock  //sock文件的位置
+
+unixsocketperm 755            //sock文件的权限
+
+如果一个链接在N秒内是空闲的，就将其关闭
+
+timeout 0
+
+如果对方down了或者中间网络断了发送ACK到客户端在指定的时间内没有收到对方的回应就断开TCP链接（时间单位秒记），此参数会受到内核参数的影响，推荐配置60。
+
+tcp-keepalive 0
+
+指定输出消息的级别
+
+<span class="comment"># debug (调试级别，详细信息，信息量大)</span>
+<span class="comment"># verbose (详细信息，信息量较大)</span>
+<span class="comment"># notice (通知，生产环境推荐)</span>
+<span class="comment"># warning (错误信息警告信息)</span>
+
+loglevel notice
+
+日志输出文件，默认在前端运行的时候此key的默认值是stdout输出到终端，如果用守护进程运行此key的stdout的时候将日志输入到/dev/null，如果想记录日志，就必须为其指定logfile位置
+
+logfile /var/<span class="built_in">log</span>/redis.log
+
+将日志记录的哦syslog
+
+syslog-enabled no
+
+指定syslog的身份
+
+syslog-ident redis
+
+指定syslog的级别，必须是LOCAL0-LOCAL7之间
+
+syslog-facility local0
+
+设置数据库的数量
+
+databases 16
+
+设置数据库的数量。默认数据库DB 0，你可以选择一个不同的per-connection的使用SELECT&amp;lt;dbid&amp;gt;这儿的DBID是一个介于0和<span class="string">'databases'</span>-1
+
+databases 16
+
+2.快照配置
+
+将DB保存到磁盘的规则定义（快照）
+
+格式：save &amp;lt;seconds&amp;gt; &amp;lt;changes&amp;gt;
+
+例子：save 900 1  //在900秒（15分钟）内如果至少有1个键值发生变化  就保存
+
+            save 300 10  //在300秒（6分钟）内如果至少有10个键值发生变化  就保存  
+save 900 1                      //每一条表示一个存盘点
+save 300 10
+save 60 10000
+
+如果启用如上的快照（RDB），在一个存盘点之后，可能磁盘会坏掉或者权限问题，redis将依然能正常工作
+
+stop-writes-on-bgsave-error yes
+
+是否将字符串用LZF压缩到.rdb 数据库中，如果想节省CPU资源可以将其设置成no，但是字符串存储在磁盘上占用空间会很大，默认是yes
+
+rdbcompression yes
+
+rdb文件的校验，如果校验将避免文件格式坏掉，如果不校验将在每次操作文件时要付出校验过程的资源新能，将此参数设置为no，将跳过校验
+
+rdbchecksum yes
+
+转储数据的文件名
+
+dbfilename dump.rdb
+
+redis的工作目录，它会将转储文件存储到这个目录下，并生成一个附加文件
+
+dir /usr/<span class="built_in">local</span>/redis-master/db
+
+3.主从参数
+如果本地是salve服务器那么配置该项
+
+<span class="comment"># slaveof &amp;lt;masterip&amp;gt; &amp;lt;masterport&amp;gt;</span>
+
+slaveof 127.0.0.1 65532
+
+master的验证密码
+
+masterauth &amp;lt;master-password&amp;gt;
+
+当从主机脱离主的链接时，如果此值为yes当客户端查询从时，回响应客户端，如果是第一次同步回返回一个日期数据或这空值，如果设置为no，则返回“SYNC with master <span class="keyword">in</span> progress”到INFO and SLAVEOF
+
+slave-serve-stale-data yes
+
+从服务器只读（默认）
+
+slave-read-only yes
+
+从发送ping到主的时间间隔(单位：秒)
+
+repl-ping-slave-period 10
+
+批量传输I / O超时和主数据或ping响应超时 默认60s 必须大于repl-ping-slave-period值
+
+repl-timeout 60
+
+此选项如果是“yes”那么Redis的使用数量较少的TCP数据包和更少的带宽将数据发送到，在从主机上延迟40毫秒（linux kernel中的40毫秒）出现。如果是no将在slave中减少延迟，但是流量使用回相对多一些，如果用多个从主机，此处建议设置成yes
+
+repl-disable-tcp-nodelay no
+
+从主机的优先级，如果当主主机挂了的时候，将从从主机中选取一个作为其他从机的主，首先优先级的数字最低的将成为主，0是一个特殊的级别，0将永远不会成为主。默认值是100.
+
+slave-priority 100
+</code></pre>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjjicdir30008hk0lxmmchc8t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjjicjmj200099s0l8d6537y1" class="article-share-link">Share</a>
       
       
     </footer>

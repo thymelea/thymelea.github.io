@@ -93,83 +93,105 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="CONFIG-SET-和-CONFIG-GET"><a href="#CONFIG-SET-和-CONFIG-GET" class="headerlink" title="CONFIG SET 和 CONFIG GET"></a>CONFIG SET 和 CONFIG GET</h2><h3 id="修改和查看配置"><a href="#修改和查看配置" class="headerlink" title="修改和查看配置"></a>修改和查看配置</h3><h2 id="Redis数据5种类型"><a href="#Redis数据5种类型" class="headerlink" title="Redis数据5种类型"></a>Redis数据5种类型</h2><h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><h4 id="Redis中的字符串是一个字节序列。Redis中的字符串是二进制安全的，这意味着它们的长度不由任何特殊的终止字符决定。"><a href="#Redis中的字符串是一个字节序列。Redis中的字符串是二进制安全的，这意味着它们的长度不由任何特殊的终止字符决定。" class="headerlink" title="Redis中的字符串是一个字节序列。Redis中的字符串是二进制安全的，这意味着它们的长度不由任何特殊的终止字符决定。"></a>Redis中的字符串是一个字节序列。Redis中的字符串是二进制安全的，这意味着它们的长度不由任何特殊的终止字符决定。</h4><h4 id="因此，可以在一个字符串中存储高达512兆字节"><a href="#因此，可以在一个字符串中存储高达512兆字节" class="headerlink" title="因此，可以在一个字符串中存储高达512兆字节"></a>因此，可以在一个字符串中存储高达512兆字节</h4><h4 id="的任何内容。set-name-“abc”-get-name"><a href="#的任何内容。set-name-“abc”-get-name" class="headerlink" title="的任何内容。set name “abc”; get name"></a>的任何内容。set name “abc”; get name</h4><h3 id="散列-哈希"><a href="#散列-哈希" class="headerlink" title="散列/哈希"></a>散列/哈希</h3><h4 id="Redis散列-哈希是字符串字段和字符串值之间的映射-每个散列-哈希可以存储多达2-32-1个健-值对-超过40亿个-。"><a href="#Redis散列-哈希是字符串字段和字符串值之间的映射-每个散列-哈希可以存储多达2-32-1个健-值对-超过40亿个-。" class="headerlink" title="Redis散列/哈希是字符串字段和字符串值之间的映射,每个散列/哈希可以存储多达2^32 - 1个健-值对(超过40亿个)。"></a>Redis散列/哈希是字符串字段和字符串值之间的映射,每个散列/哈希可以存储多达2^32 - 1个健-值对(超过40亿个)。</h4><h4 id="hmset-name-username-“abc”-password-“123”-points-200-hmget-name-username-hgetall-name"><a href="#hmset-name-username-“abc”-password-“123”-points-200-hmget-name-username-hgetall-name" class="headerlink" title="hmset name username “abc” password “123” points 200; hmget name username ;hgetall name"></a>hmset name username “abc” password “123” points 200; hmget name username ;hgetall name</h4><h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><h4 id="Redis列表只是字符串列表，按插入顺序排序。您可以向Redis列表的头部或尾部添加元素。列表的最大长度为"><a href="#Redis列表只是字符串列表，按插入顺序排序。您可以向Redis列表的头部或尾部添加元素。列表的最大长度为" class="headerlink" title="Redis列表只是字符串列表，按插入顺序排序。您可以向Redis列表的头部或尾部添加元素。列表的最大长度为"></a>Redis列表只是字符串列表，按插入顺序排序。您可以向Redis列表的头部或尾部添加元素。列表的最大长度为</h4><h4 id="2-32-1个元素-4294967295，每个列表可容纳超过40亿个元素"><a href="#2-32-1个元素-4294967295，每个列表可容纳超过40亿个元素" class="headerlink" title="2^32 - 1个元素(4294967295，每个列表可容纳超过40亿个元素)"></a>2^32 - 1个元素(4294967295，每个列表可容纳超过40亿个元素)</h4><h4 id="lpush-name-abc-lrange-anme-0-10"><a href="#lpush-name-abc-lrange-anme-0-10" class="headerlink" title="lpush name abc ;lrange anme 0 10"></a>lpush name abc ;lrange anme 0 10</h4><h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><h4 id="Redis集合是字符串的无序集合。在Redis中，您可以添加，删除和测试成员存在的时间O-1-复杂性。一个集合中的最大成员数量为"><a href="#Redis集合是字符串的无序集合。在Redis中，您可以添加，删除和测试成员存在的时间O-1-复杂性。一个集合中的最大成员数量为" class="headerlink" title="Redis集合是字符串的无序集合。在Redis中，您可以添加，删除和测试成员存在的时间O(1)复杂性。一个集合中的最大成员数量为"></a>Redis集合是字符串的无序集合。在Redis中，您可以添加，删除和测试成员存在的时间O(1)复杂性。一个集合中的最大成员数量为</h4><h4 id="2-32-1-即4294967295，每个集合中元素数量可达40亿个-个-被添加了两次，但是由于集合的唯一属性，所以它只算添加一次"><a href="#2-32-1-即4294967295，每个集合中元素数量可达40亿个-个-被添加了两次，但是由于集合的唯一属性，所以它只算添加一次" class="headerlink" title="2^32 - 1(即4294967295，每个集合中元素数量可达40亿个)个,被添加了两次，但是由于集合的唯一属性，所以它只算添加一次"></a>2^32 - 1(即4294967295，每个集合中元素数量可达40亿个)个,被添加了两次，但是由于集合的唯一属性，所以它只算添加一次</h4><h4 id="sadd-name-abc-smembers-name"><a href="#sadd-name-abc-smembers-name" class="headerlink" title="sadd name abc ;smembers name"></a>sadd name abc ;smembers name</h4><h3 id="可排序集合"><a href="#可排序集合" class="headerlink" title="可排序集合"></a>可排序集合</h3><h4 id="Redis可排序集合类似于Redis集合，是不重复的字符集合。同之处在于，排序集合的每个成员都与分数相关联，这个分数用于按"><a href="#Redis可排序集合类似于Redis集合，是不重复的字符集合。同之处在于，排序集合的每个成员都与分数相关联，这个分数用于按" class="headerlink" title="Redis可排序集合类似于Redis集合，是不重复的字符集合。同之处在于，排序集合的每个成员都与分数相关联，这个分数用于按"></a>Redis可排序集合类似于Redis集合，是不重复的字符集合。同之处在于，排序集合的每个成员都与分数相关联，这个分数用于按</h4><h4 id="最小分数到最大分数来排序的排序集合。虽然成员是唯一的，但分数值可以重复。"><a href="#最小分数到最大分数来排序的排序集合。虽然成员是唯一的，但分数值可以重复。" class="headerlink" title="最小分数到最大分数来排序的排序集合。虽然成员是唯一的，但分数值可以重复。"></a>最小分数到最大分数来排序的排序集合。虽然成员是唯一的，但分数值可以重复。</h4><h4 id="zadd-name-0-redise"><a href="#zadd-name-0-redise" class="headerlink" title="zadd name 0 redise"></a>zadd name 0 redise</h4><h4 id="zadd-name-1-sqlist"><a href="#zadd-name-1-sqlist" class="headerlink" title="zadd name 1 sqlist"></a>zadd name 1 sqlist</h4><h4 id="zrangebyscore-name-0-100"><a href="#zrangebyscore-name-0-100" class="headerlink" title="zrangebyscore name 0 100"></a>zrangebyscore name 0 100</h4><h2 id="客户端订阅"><a href="#客户端订阅" class="headerlink" title="客户端订阅"></a>客户端订阅</h2><h3 id="SUBSCRIBE-redisChat-—-gt-一个客户端订阅名为“redisChat”的信道"><a href="#SUBSCRIBE-redisChat-—-gt-一个客户端订阅名为“redisChat”的信道" class="headerlink" title="SUBSCRIBE redisChat —&gt;一个客户端订阅名为“redisChat”的信道"></a>SUBSCRIBE redisChat —&gt;一个客户端订阅名为“redisChat”的信道</h3><h3 id="PUBLISH-redisChat-“Redis-is-a-great-caching-technique”"><a href="#PUBLISH-redisChat-“Redis-is-a-great-caching-technique”" class="headerlink" title="PUBLISH redisChat “Redis is a great caching technique”"></a>PUBLISH redisChat “Redis is a great caching technique”</h3><h3 id="PUBLISH-redisChat-“Learn-redis-by-yiibai”"><a href="#PUBLISH-redisChat-“Learn-redis-by-yiibai”" class="headerlink" title="PUBLISH redisChat “Learn redis by yiibai”"></a>PUBLISH redisChat “Learn redis by yiibai”</h3><h3 id="—-gt-两个客户端在名称为“redisChat”的相同信道上发布消息，并且上述订阅的客户端接收消息"><a href="#—-gt-两个客户端在名称为“redisChat”的相同信道上发布消息，并且上述订阅的客户端接收消息" class="headerlink" title="—&gt;两个客户端在名称为“redisChat”的相同信道上发布消息，并且上述订阅的客户端接收消息"></a>—&gt;两个客户端在名称为“redisChat”的相同信道上发布消息，并且上述订阅的客户端接收消息</h3><h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><h3 id="multi事务命令，传递一个应该在事务中执行的命令列表，exec执行事务命令"><a href="#multi事务命令，传递一个应该在事务中执行的命令列表，exec执行事务命令" class="headerlink" title="multi事务命令，传递一个应该在事务中执行的命令列表，exec执行事务命令"></a>multi事务命令，传递一个应该在事务中执行的命令列表，exec执行事务命令</h3><p><code>`</code> bash<br>redis 127.0.0.1:6379&gt; MULTI<br>OK<br>redis 127.0.0.1:6379&gt; SET mykey “redis”<br>QUEUED<br>redis 127.0.0.1:6379&gt; GET mykey<br>QUEUED<br>redis 127.0.0.1:6379&gt; INCR visitors<br>QUEUED<br>redis 127.0.0.1:6379&gt; EXEC<br>1) OK<br>2) “redis”<br>3) (integer) 1</p>
-<p><code>`</code> bash</p>
-<h2 id="Redis脚本"><a href="#Redis脚本" class="headerlink" title="Redis脚本"></a>Redis脚本</h2><h3 id="Redis脚本用于使用Lua解释器来执行脚本。从Redis-2-6-0版开始内置到Redis中。使用脚本的命令是EVAL命令。"><a href="#Redis脚本用于使用Lua解释器来执行脚本。从Redis-2-6-0版开始内置到Redis中。使用脚本的命令是EVAL命令。" class="headerlink" title="Redis脚本用于使用Lua解释器来执行脚本。从Redis 2.6.0版开始内置到Redis中。使用脚本的命令是EVAL命令。"></a>Redis脚本用于使用Lua解释器来执行脚本。从Redis 2.6.0版开始内置到Redis中。使用脚本的命令是EVAL命令。</h3><h3 id="redis-127-0-0-1-6379-gt-EVAL-script-numkeys-key-key-…-arg-arg-…"><a href="#redis-127-0-0-1-6379-gt-EVAL-script-numkeys-key-key-…-arg-arg-…" class="headerlink" title="redis 127.0.0.1:6379&gt; EVAL script numkeys key [key …] arg [arg …]"></a>redis 127.0.0.1:6379&gt; EVAL script numkeys key [key …] arg [arg …]</h3><h2 id="最大客户数"><a href="#最大客户数" class="headerlink" title="最大客户数"></a>最大客户数</h2><h3 id="config-get-maxclients"><a href="#config-get-maxclients" class="headerlink" title="config get maxclients"></a>config get maxclients</h3><h2 id="jedis-jar-Java连接"><a href="#jedis-jar-Java连接" class="headerlink" title="jedis.jar Java连接"></a>jedis.jar Java连接</h2><h3 id="单个连接"><a href="#单个连接" class="headerlink" title="单个连接"></a>单个连接</h3><p><code>`</code> bash<br>public class JedisTest {</p>
-<pre><code>public static void main(String[] args) {
+        <h2 id="CONFIG-SET-和-CONFIG-GET"><a href="#CONFIG-SET-和-CONFIG-GET" class="headerlink" title="CONFIG SET 和 CONFIG GET"></a>CONFIG SET 和 CONFIG GET</h2><h3 id="修改和查看配置"><a href="#修改和查看配置" class="headerlink" title="修改和查看配置"></a>修改和查看配置</h3><h2 id="Redis数据5种类型"><a href="#Redis数据5种类型" class="headerlink" title="Redis数据5种类型"></a>Redis数据5种类型</h2><h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><h4 id="Redis中的字符串是一个字节序列。Redis中的字符串是二进制安全的，这意味着它们的长度不由任何特殊的终止字符决定。"><a href="#Redis中的字符串是一个字节序列。Redis中的字符串是二进制安全的，这意味着它们的长度不由任何特殊的终止字符决定。" class="headerlink" title="Redis中的字符串是一个字节序列。Redis中的字符串是二进制安全的，这意味着它们的长度不由任何特殊的终止字符决定。"></a>Redis中的字符串是一个字节序列。Redis中的字符串是二进制安全的，这意味着它们的长度不由任何特殊的终止字符决定。</h4><h4 id="因此，可以在一个字符串中存储高达512兆字节"><a href="#因此，可以在一个字符串中存储高达512兆字节" class="headerlink" title="因此，可以在一个字符串中存储高达512兆字节"></a>因此，可以在一个字符串中存储高达512兆字节</h4><h4 id="的任何内容。set-name-“abc”-get-name"><a href="#的任何内容。set-name-“abc”-get-name" class="headerlink" title="的任何内容。set name “abc”; get name"></a>的任何内容。set name “abc”; get name</h4><h3 id="散列-哈希"><a href="#散列-哈希" class="headerlink" title="散列/哈希"></a>散列/哈希</h3><h4 id="Redis散列-哈希是字符串字段和字符串值之间的映射-每个散列-哈希可以存储多达2-32-1个健-值对-超过40亿个-。"><a href="#Redis散列-哈希是字符串字段和字符串值之间的映射-每个散列-哈希可以存储多达2-32-1个健-值对-超过40亿个-。" class="headerlink" title="Redis散列/哈希是字符串字段和字符串值之间的映射,每个散列/哈希可以存储多达2^32 - 1个健-值对(超过40亿个)。"></a>Redis散列/哈希是字符串字段和字符串值之间的映射,每个散列/哈希可以存储多达2^32 - 1个健-值对(超过40亿个)。</h4><h4 id="hmset-name-username-“abc”-password-“123”-points-200-hmget-name-username-hgetall-name"><a href="#hmset-name-username-“abc”-password-“123”-points-200-hmget-name-username-hgetall-name" class="headerlink" title="hmset name username “abc” password “123” points 200; hmget name username ;hgetall name"></a>hmset name username “abc” password “123” points 200; hmget name username ;hgetall name</h4><h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><h4 id="Redis列表只是字符串列表，按插入顺序排序。您可以向Redis列表的头部或尾部添加元素。列表的最大长度为"><a href="#Redis列表只是字符串列表，按插入顺序排序。您可以向Redis列表的头部或尾部添加元素。列表的最大长度为" class="headerlink" title="Redis列表只是字符串列表，按插入顺序排序。您可以向Redis列表的头部或尾部添加元素。列表的最大长度为"></a>Redis列表只是字符串列表，按插入顺序排序。您可以向Redis列表的头部或尾部添加元素。列表的最大长度为</h4><h4 id="2-32-1个元素-4294967295，每个列表可容纳超过40亿个元素"><a href="#2-32-1个元素-4294967295，每个列表可容纳超过40亿个元素" class="headerlink" title="2^32 - 1个元素(4294967295，每个列表可容纳超过40亿个元素)"></a>2^32 - 1个元素(4294967295，每个列表可容纳超过40亿个元素)</h4><h4 id="lpush-name-abc-lrange-anme-0-10"><a href="#lpush-name-abc-lrange-anme-0-10" class="headerlink" title="lpush name abc ;lrange anme 0 10"></a>lpush name abc ;lrange anme 0 10</h4><h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><h4 id="Redis集合是字符串的无序集合。在Redis中，您可以添加，删除和测试成员存在的时间O-1-复杂性。一个集合中的最大成员数量为"><a href="#Redis集合是字符串的无序集合。在Redis中，您可以添加，删除和测试成员存在的时间O-1-复杂性。一个集合中的最大成员数量为" class="headerlink" title="Redis集合是字符串的无序集合。在Redis中，您可以添加，删除和测试成员存在的时间O(1)复杂性。一个集合中的最大成员数量为"></a>Redis集合是字符串的无序集合。在Redis中，您可以添加，删除和测试成员存在的时间O(1)复杂性。一个集合中的最大成员数量为</h4><h4 id="2-32-1-即4294967295，每个集合中元素数量可达40亿个-个-被添加了两次，但是由于集合的唯一属性，所以它只算添加一次"><a href="#2-32-1-即4294967295，每个集合中元素数量可达40亿个-个-被添加了两次，但是由于集合的唯一属性，所以它只算添加一次" class="headerlink" title="2^32 - 1(即4294967295，每个集合中元素数量可达40亿个)个,被添加了两次，但是由于集合的唯一属性，所以它只算添加一次"></a>2^32 - 1(即4294967295，每个集合中元素数量可达40亿个)个,被添加了两次，但是由于集合的唯一属性，所以它只算添加一次</h4><h4 id="sadd-name-abc-smembers-name"><a href="#sadd-name-abc-smembers-name" class="headerlink" title="sadd name abc ;smembers name"></a>sadd name abc ;smembers name</h4><h3 id="可排序集合"><a href="#可排序集合" class="headerlink" title="可排序集合"></a>可排序集合</h3><h4 id="Redis可排序集合类似于Redis集合，是不重复的字符集合。同之处在于，排序集合的每个成员都与分数相关联，这个分数用于按"><a href="#Redis可排序集合类似于Redis集合，是不重复的字符集合。同之处在于，排序集合的每个成员都与分数相关联，这个分数用于按" class="headerlink" title="Redis可排序集合类似于Redis集合，是不重复的字符集合。同之处在于，排序集合的每个成员都与分数相关联，这个分数用于按"></a>Redis可排序集合类似于Redis集合，是不重复的字符集合。同之处在于，排序集合的每个成员都与分数相关联，这个分数用于按</h4><h4 id="最小分数到最大分数来排序的排序集合。虽然成员是唯一的，但分数值可以重复。"><a href="#最小分数到最大分数来排序的排序集合。虽然成员是唯一的，但分数值可以重复。" class="headerlink" title="最小分数到最大分数来排序的排序集合。虽然成员是唯一的，但分数值可以重复。"></a>最小分数到最大分数来排序的排序集合。虽然成员是唯一的，但分数值可以重复。</h4><h4 id="zadd-name-0-redise"><a href="#zadd-name-0-redise" class="headerlink" title="zadd name 0 redise"></a>zadd name 0 redise</h4><h4 id="zadd-name-1-sqlist"><a href="#zadd-name-1-sqlist" class="headerlink" title="zadd name 1 sqlist"></a>zadd name 1 sqlist</h4><h4 id="zrangebyscore-name-0-100"><a href="#zrangebyscore-name-0-100" class="headerlink" title="zrangebyscore name 0 100"></a>zrangebyscore name 0 100</h4><h2 id="客户端订阅"><a href="#客户端订阅" class="headerlink" title="客户端订阅"></a>客户端订阅</h2><h3 id="SUBSCRIBE-redisChat-—-gt-一个客户端订阅名为“redisChat”的信道"><a href="#SUBSCRIBE-redisChat-—-gt-一个客户端订阅名为“redisChat”的信道" class="headerlink" title="SUBSCRIBE redisChat —&gt;一个客户端订阅名为“redisChat”的信道"></a>SUBSCRIBE redisChat —&gt;一个客户端订阅名为“redisChat”的信道</h3><h3 id="PUBLISH-redisChat-“Redis-is-a-great-caching-technique”"><a href="#PUBLISH-redisChat-“Redis-is-a-great-caching-technique”" class="headerlink" title="PUBLISH redisChat “Redis is a great caching technique”"></a>PUBLISH redisChat “Redis is a great caching technique”</h3><h3 id="PUBLISH-redisChat-“Learn-redis-by-yiibai”"><a href="#PUBLISH-redisChat-“Learn-redis-by-yiibai”" class="headerlink" title="PUBLISH redisChat “Learn redis by yiibai”"></a>PUBLISH redisChat “Learn redis by yiibai”</h3><h3 id="—-gt-两个客户端在名称为“redisChat”的相同信道上发布消息，并且上述订阅的客户端接收消息"><a href="#—-gt-两个客户端在名称为“redisChat”的相同信道上发布消息，并且上述订阅的客户端接收消息" class="headerlink" title="—&gt;两个客户端在名称为“redisChat”的相同信道上发布消息，并且上述订阅的客户端接收消息"></a>—&gt;两个客户端在名称为“redisChat”的相同信道上发布消息，并且上述订阅的客户端接收消息</h3><h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><h3 id="multi事务命令，传递一个应该在事务中执行的命令列表，exec执行事务命令"><a href="#multi事务命令，传递一个应该在事务中执行的命令列表，exec执行事务命令" class="headerlink" title="multi事务命令，传递一个应该在事务中执行的命令列表，exec执行事务命令"></a>multi事务命令，传递一个应该在事务中执行的命令列表，exec执行事务命令</h3><pre><code class="bash">redis 127.0.0.1:6379&gt; MULTI 
+OK 
+redis 127.0.0.1:6379&gt; SET mykey <span class="string">"redis"</span> 
+QUEUED 
+redis 127.0.0.1:6379&gt; GET mykey 
+QUEUED 
+redis 127.0.0.1:6379&gt; INCR visitors 
+QUEUED 
+redis 127.0.0.1:6379&gt; EXEC  
+1) OK 
+2) <span class="string">"redis"</span> 
+3) (<span class="built_in">integer</span>) 1
 
-    Jedis jedis=new Jedis(&quot;192.168.1.107&quot;,6379); // 创建客户端 设置IP和端口
-
-    jedis.auth(&quot;1234&quot;); // 设置密码
-
-    jedis.set(&quot;name&quot;, &quot;java知识分享网&quot;); // 设置值
-
-    String value=jedis.get(&quot;name&quot;); // 获取值
-
-    System.out.println(value);
-
-    jedis.close(); // 释放连接资源
-
-}
-</code></pre><p>}<br><code>`</code> bash</p>
-<h3 id="连接池"><a href="#连接池" class="headerlink" title="连接池"></a>连接池</h3><p><code>`</code> bash<br>public class JedisTest {</p>
-<pre><code>public static void main(String[] args) {
-
-    JedisPoolConfig config=new JedisPoolConfig(); // 连接池的配置对象
-
-    config.setMaxTotal(100); // 设置最大连接数
-
-    config.setMaxIdle(10); // 设置最大空闲连接数
+</code></pre>
+<h2 id="Redis脚本"><a href="#Redis脚本" class="headerlink" title="Redis脚本"></a>Redis脚本</h2><h3 id="Redis脚本用于使用Lua解释器来执行脚本。从Redis-2-6-0版开始内置到Redis中。使用脚本的命令是EVAL命令。"><a href="#Redis脚本用于使用Lua解释器来执行脚本。从Redis-2-6-0版开始内置到Redis中。使用脚本的命令是EVAL命令。" class="headerlink" title="Redis脚本用于使用Lua解释器来执行脚本。从Redis 2.6.0版开始内置到Redis中。使用脚本的命令是EVAL命令。"></a>Redis脚本用于使用Lua解释器来执行脚本。从Redis 2.6.0版开始内置到Redis中。使用脚本的命令是EVAL命令。</h3><h3 id="redis-127-0-0-1-6379-gt-EVAL-script-numkeys-key-key-…-arg-arg-…"><a href="#redis-127-0-0-1-6379-gt-EVAL-script-numkeys-key-key-…-arg-arg-…" class="headerlink" title="redis 127.0.0.1:6379&gt; EVAL script numkeys key [key …] arg [arg …]"></a>redis 127.0.0.1:6379&gt; EVAL script numkeys key [key …] arg [arg …]</h3><h2 id="最大客户数"><a href="#最大客户数" class="headerlink" title="最大客户数"></a>最大客户数</h2><h3 id="config-get-maxclients"><a href="#config-get-maxclients" class="headerlink" title="config get maxclients"></a>config get maxclients</h3><h2 id="jedis-jar-Java连接"><a href="#jedis-jar-Java连接" class="headerlink" title="jedis.jar Java连接"></a>jedis.jar Java连接</h2><h3 id="单个连接"><a href="#单个连接" class="headerlink" title="单个连接"></a>单个连接</h3><pre><code class="bash">public class JedisTest {
 
 
 
-    JedisPool jedisPool=new JedisPool(config,&quot;192.168.1.107&quot;,6379);
+    public static void main(String[] args) {
 
+        Jedis jedis=new Jedis(<span class="string">"192.168.1.107"</span>,6379); // 创建客户端 设置IP和端口
 
+        jedis.auth(<span class="string">"1234"</span>); // 设置密码
 
-    Jedis jedis=null;
+        jedis.set(<span class="string">"name"</span>, <span class="string">"java知识分享网"</span>); // 设置值
 
-    try{
-
-        jedis=jedisPool.getResource(); // 获取连接
-
-        jedis.auth(&quot;1234&quot;); // 设置密码
-
-        jedis.set(&quot;name&quot;, &quot;java知识分享网&quot;); // 设置值
-
-        String value=jedis.get(&quot;name&quot;); // 获取值
+        String value=jedis.get(<span class="string">"name"</span>); // 获取值
 
         System.out.println(value);
 
+        jedis.close(); // 释放连接资源
+
+    }
+
+}
+</code></pre>
+<h3 id="连接池"><a href="#连接池" class="headerlink" title="连接池"></a>连接池</h3><pre><code class="bash">public class JedisTest {
 
 
-    }catch(Exception e){
 
-        e.printStackTrace();
+    public static void main(String[] args) {
 
-    }finally{
+        JedisPoolConfig config=new JedisPoolConfig(); // 连接池的配置对象
 
-        if(jedis!=null){
+        config.setMaxTotal(100); // 设置最大连接数
 
-            jedis.close();
+        config.setMaxIdle(10); // 设置最大空闲连接数
 
-        }
 
-        if(jedisPool!=null){
 
-            jedisPool.close();
+        JedisPool jedisPool=new JedisPool(config,<span class="string">"192.168.1.107"</span>,6379);
+
+
+
+        Jedis jedis=null;
+
+        try{
+
+            jedis=jedisPool.getResource(); // 获取连接
+
+            jedis.auth(<span class="string">"1234"</span>); // 设置密码
+
+            jedis.set(<span class="string">"name"</span>, <span class="string">"java知识分享网"</span>); // 设置值
+
+            String value=jedis.get(<span class="string">"name"</span>); // 获取值
+
+            System.out.println(value);
+
+
+
+        }catch(Exception e){
+
+            e.printStackTrace();
+
+        }finally{
+
+            <span class="keyword">if</span>(jedis!=null){
+
+                jedis.close();
+
+            }
+
+            <span class="keyword">if</span>(jedisPool!=null){
+
+                jedisPool.close();
+
+            }
 
         }
 
     }
 
 }
-</code></pre><p>}<br><code>`</code> bash</p>
+</code></pre>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/12/redis语法/" data-id="cjjicdirj0009hk0ljqswhedg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/12/redis语法/" data-id="cjjicjmj2000a9s0lrysoy1vx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -215,75 +237,154 @@ Ok
 &quot;bar&quot;
 连接远程：redis-cli -h host -p port -a password 例：redis-cli -h 127.0.0.1 -p 6379 -a &quot;mypass&quot;
 </code></pre><h2 id="可视化工具下载"><a href="#可视化工具下载" class="headerlink" title="可视化工具下载"></a>可视化工具下载</h2><pre><code>http://redisdesktop.com/download
-</code></pre><h2 id="检查端口"><a href="#检查端口" class="headerlink" title="检查端口"></a>检查端口</h2><h3 id="root-luo-redis-2-8-3-firewall-cmd-–query-port-6379-tcp"><a href="#root-luo-redis-2-8-3-firewall-cmd-–query-port-6379-tcp" class="headerlink" title="[root@luo redis-2.8.3]# firewall-cmd –query-port=6379/tcp"></a>[root@luo redis-2.8.3]# firewall-cmd –query-port=6379/tcp</h3><h3 id="no"><a href="#no" class="headerlink" title="no"></a>no</h3><h3 id="root-luo-redis-2-8-3-firewall-cmd-–add-port-6379-tcp"><a href="#root-luo-redis-2-8-3-firewall-cmd-–add-port-6379-tcp" class="headerlink" title="[root@luo redis-2.8.3]# firewall-cmd –add-port=6379/tcp"></a>[root@luo redis-2.8.3]# firewall-cmd –add-port=6379/tcp</h3><h3 id="设置密码：config-set-requirepass-1234-密码所在redis-conf-http-images2015-cnblogs-com-blog-758998-201612-758998-20161214214725636-1530839128-png"><a href="#设置密码：config-set-requirepass-1234-密码所在redis-conf-http-images2015-cnblogs-com-blog-758998-201612-758998-20161214214725636-1530839128-png" class="headerlink" title="设置密码：config set requirepass 1234 ![密码所在redis.conf] http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png"></a>设置密码：config set requirepass 1234 ![密码所在redis.conf] <a href="http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png" target="_blank" rel="noopener">http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png</a></h3><h3 id="auth-1234"><a href="#auth-1234" class="headerlink" title="auth 1234"></a>auth 1234</h3><p><code>`</code> bash<br>1.基本配置<br>内存单位的表示</p>
-<p> 1k =&gt; 1000 bytes<br> 1kb =&gt; 1024 bytes<br> 1m =&gt; 1000000 bytes<br> 1mb =&gt; 1024<em>1024 bytes<br> 1g =&gt; 1000000000 bytes<br> 1gb =&gt; 1024</em>1024*1024 bytes</p>
-<p>单位中不区分大小写1GB 1Gb 1gB是一样的</p>
-<p>后台运行，yes是后台运行，no前台运行，将输出，输出到终端（默认）</p>
-<p>daemonize yes</p>
-<p>如果daemonize参数为yes的话就会产生pid文件，一下是pid文件的定义</p>
-<p>pidfile /usr/local/redis-master/run/redis.pid</p>
-<p>监听的端口</p>
-<p>port 6379</p>
-<p>绑定监听的IP地址</p>
-<p>bind 127.0.0.1</p>
-<p>如果在本地调用redis可以直接用sock文件</p>
-<p>unixsocket /tmp/redis.sock  //sock文件的位置</p>
-<p>unixsocketperm 755            //sock文件的权限</p>
-<p>如果一个链接在N秒内是空闲的，就将其关闭</p>
-<p>timeout 0</p>
-<p>如果对方down了或者中间网络断了发送ACK到客户端在指定的时间内没有收到对方的回应就断开TCP链接（时间单位秒记），此参数会受到内核参数的影响，推荐配置60。</p>
-<p>tcp-keepalive 0</p>
-<p>指定输出消息的级别</p>
-<h1 id="debug-调试级别，详细信息，信息量大"><a href="#debug-调试级别，详细信息，信息量大" class="headerlink" title="debug (调试级别，详细信息，信息量大)"></a>debug (调试级别，详细信息，信息量大)</h1><h1 id="verbose-详细信息，信息量较大"><a href="#verbose-详细信息，信息量较大" class="headerlink" title="verbose (详细信息，信息量较大)"></a>verbose (详细信息，信息量较大)</h1><h1 id="notice-通知，生产环境推荐"><a href="#notice-通知，生产环境推荐" class="headerlink" title="notice (通知，生产环境推荐)"></a>notice (通知，生产环境推荐)</h1><h1 id="warning-错误信息警告信息"><a href="#warning-错误信息警告信息" class="headerlink" title="warning (错误信息警告信息)"></a>warning (错误信息警告信息)</h1><p>loglevel notice</p>
-<p>日志输出文件，默认在前端运行的时候此key的默认值是stdout输出到终端，如果用守护进程运行此key的stdout的时候将日志输入到/dev/null，如果想记录日志，就必须为其指定logfile位置</p>
-<p>logfile /var/log/redis.log</p>
-<p>将日志记录的哦syslog</p>
-<p>syslog-enabled no</p>
-<p>指定syslog的身份</p>
-<p>syslog-ident redis</p>
-<p>指定syslog的级别，必须是LOCAL0-LOCAL7之间</p>
-<p>syslog-facility local0</p>
-<p>设置数据库的数量</p>
-<p>databases 16</p>
-<p>设置数据库的数量。默认数据库DB 0，你可以选择一个不同的per-connection的使用SELECT&lt;dbid&gt;这儿的DBID是一个介于0和’databases’-1</p>
-<p>databases 16</p>
-<p>2.快照配置</p>
-<p>将DB保存到磁盘的规则定义（快照）</p>
-<p>格式：save &lt;seconds&gt; &lt;changes&gt;</p>
-<p>例子：save 900 1  //在900秒（15分钟）内如果至少有1个键值发生变化  就保存</p>
-<pre><code>save 300 10  //在300秒（6分钟）内如果至少有10个键值发生变化  就保存  
-</code></pre><p>save 900 1                      //每一条表示一个存盘点<br>save 300 10<br>save 60 10000</p>
-<p>如果启用如上的快照（RDB），在一个存盘点之后，可能磁盘会坏掉或者权限问题，redis将依然能正常工作</p>
-<p>stop-writes-on-bgsave-error yes</p>
-<p>是否将字符串用LZF压缩到.rdb 数据库中，如果想节省CPU资源可以将其设置成no，但是字符串存储在磁盘上占用空间会很大，默认是yes</p>
-<p>rdbcompression yes</p>
-<p>rdb文件的校验，如果校验将避免文件格式坏掉，如果不校验将在每次操作文件时要付出校验过程的资源新能，将此参数设置为no，将跳过校验</p>
-<p>rdbchecksum yes</p>
-<p>转储数据的文件名</p>
-<p>dbfilename dump.rdb</p>
-<p>redis的工作目录，它会将转储文件存储到这个目录下，并生成一个附加文件</p>
-<p>dir /usr/local/redis-master/db</p>
-<p>3.主从参数<br>如果本地是salve服务器那么配置该项</p>
-<h1 id="slaveof-lt-masterip-gt-lt-masterport-gt"><a href="#slaveof-lt-masterip-gt-lt-masterport-gt" class="headerlink" title="slaveof &lt;masterip&gt; &lt;masterport&gt;"></a>slaveof &lt;masterip&gt; &lt;masterport&gt;</h1><p>slaveof 127.0.0.1 65532</p>
-<p>master的验证密码</p>
-<p>masterauth &lt;master-password&gt;</p>
-<p>当从主机脱离主的链接时，如果此值为yes当客户端查询从时，回响应客户端，如果是第一次同步回返回一个日期数据或这空值，如果设置为no，则返回“SYNC with master in progress”到INFO and SLAVEOF</p>
-<p>slave-serve-stale-data yes</p>
-<p>从服务器只读（默认）</p>
-<p>slave-read-only yes</p>
-<p>从发送ping到主的时间间隔(单位：秒)</p>
-<p>repl-ping-slave-period 10</p>
-<p>批量传输I / O超时和主数据或ping响应超时 默认60s 必须大于repl-ping-slave-period值</p>
-<p>repl-timeout 60</p>
-<p>此选项如果是“yes”那么Redis的使用数量较少的TCP数据包和更少的带宽将数据发送到，在从主机上延迟40毫秒（linux kernel中的40毫秒）出现。如果是no将在slave中减少延迟，但是流量使用回相对多一些，如果用多个从主机，此处建议设置成yes</p>
-<p>repl-disable-tcp-nodelay no</p>
-<p>从主机的优先级，如果当主主机挂了的时候，将从从主机中选取一个作为其他从机的主，首先优先级的数字最低的将成为主，0是一个特殊的级别，0将永远不会成为主。默认值是100.</p>
-<p>slave-priority 100<br><code>`</code> bash</p>
+</code></pre><h2 id="检查端口"><a href="#检查端口" class="headerlink" title="检查端口"></a>检查端口</h2><h3 id="root-luo-redis-2-8-3-firewall-cmd-–query-port-6379-tcp"><a href="#root-luo-redis-2-8-3-firewall-cmd-–query-port-6379-tcp" class="headerlink" title="[root@luo redis-2.8.3]# firewall-cmd –query-port=6379/tcp"></a>[root@luo redis-2.8.3]# firewall-cmd –query-port=6379/tcp</h3><h3 id="no"><a href="#no" class="headerlink" title="no"></a>no</h3><h3 id="root-luo-redis-2-8-3-firewall-cmd-–add-port-6379-tcp"><a href="#root-luo-redis-2-8-3-firewall-cmd-–add-port-6379-tcp" class="headerlink" title="[root@luo redis-2.8.3]# firewall-cmd –add-port=6379/tcp"></a>[root@luo redis-2.8.3]# firewall-cmd –add-port=6379/tcp</h3><h3 id="设置密码：config-set-requirepass-1234-密码所在redis-conf-http-images2015-cnblogs-com-blog-758998-201612-758998-20161214214725636-1530839128-png"><a href="#设置密码：config-set-requirepass-1234-密码所在redis-conf-http-images2015-cnblogs-com-blog-758998-201612-758998-20161214214725636-1530839128-png" class="headerlink" title="设置密码：config set requirepass 1234 ![密码所在redis.conf] http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png"></a>设置密码：config set requirepass 1234 ![密码所在redis.conf] <a href="http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png" target="_blank" rel="noopener">http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png</a></h3><h3 id="auth-1234"><a href="#auth-1234" class="headerlink" title="auth 1234"></a>auth 1234</h3><pre><code class="bash">1.基本配置
+内存单位的表示
+
+ 1k =&amp;gt; 1000 bytes
+ 1kb =&amp;gt; 1024 bytes
+ 1m =&amp;gt; 1000000 bytes
+ 1mb =&amp;gt; 1024*1024 bytes
+ 1g =&amp;gt; 1000000000 bytes
+ 1gb =&amp;gt; 1024*1024*1024 bytes
+
+单位中不区分大小写1GB 1Gb 1gB是一样的
+
+后台运行，yes是后台运行，no前台运行，将输出，输出到终端（默认）
+
+daemonize yes
+
+如果daemonize参数为yes的话就会产生pid文件，一下是pid文件的定义
+
+pidfile /usr/<span class="built_in">local</span>/redis-master/run/redis.pid
+
+监听的端口
+
+port 6379
+
+绑定监听的IP地址
+
+<span class="built_in">bind</span> 127.0.0.1
+
+如果在本地调用redis可以直接用sock文件
+
+unixsocket /tmp/redis.sock  //sock文件的位置
+
+unixsocketperm 755            //sock文件的权限
+
+如果一个链接在N秒内是空闲的，就将其关闭
+
+timeout 0
+
+如果对方down了或者中间网络断了发送ACK到客户端在指定的时间内没有收到对方的回应就断开TCP链接（时间单位秒记），此参数会受到内核参数的影响，推荐配置60。
+
+tcp-keepalive 0
+
+指定输出消息的级别
+
+<span class="comment"># debug (调试级别，详细信息，信息量大)</span>
+<span class="comment"># verbose (详细信息，信息量较大)</span>
+<span class="comment"># notice (通知，生产环境推荐)</span>
+<span class="comment"># warning (错误信息警告信息)</span>
+
+loglevel notice
+
+日志输出文件，默认在前端运行的时候此key的默认值是stdout输出到终端，如果用守护进程运行此key的stdout的时候将日志输入到/dev/null，如果想记录日志，就必须为其指定logfile位置
+
+logfile /var/<span class="built_in">log</span>/redis.log
+
+将日志记录的哦syslog
+
+syslog-enabled no
+
+指定syslog的身份
+
+syslog-ident redis
+
+指定syslog的级别，必须是LOCAL0-LOCAL7之间
+
+syslog-facility local0
+
+设置数据库的数量
+
+databases 16
+
+设置数据库的数量。默认数据库DB 0，你可以选择一个不同的per-connection的使用SELECT&amp;lt;dbid&amp;gt;这儿的DBID是一个介于0和<span class="string">'databases'</span>-1
+
+databases 16
+
+2.快照配置
+
+将DB保存到磁盘的规则定义（快照）
+
+格式：save &amp;lt;seconds&amp;gt; &amp;lt;changes&amp;gt;
+
+例子：save 900 1  //在900秒（15分钟）内如果至少有1个键值发生变化  就保存
+
+            save 300 10  //在300秒（6分钟）内如果至少有10个键值发生变化  就保存  
+save 900 1                      //每一条表示一个存盘点
+save 300 10
+save 60 10000
+
+如果启用如上的快照（RDB），在一个存盘点之后，可能磁盘会坏掉或者权限问题，redis将依然能正常工作
+
+stop-writes-on-bgsave-error yes
+
+是否将字符串用LZF压缩到.rdb 数据库中，如果想节省CPU资源可以将其设置成no，但是字符串存储在磁盘上占用空间会很大，默认是yes
+
+rdbcompression yes
+
+rdb文件的校验，如果校验将避免文件格式坏掉，如果不校验将在每次操作文件时要付出校验过程的资源新能，将此参数设置为no，将跳过校验
+
+rdbchecksum yes
+
+转储数据的文件名
+
+dbfilename dump.rdb
+
+redis的工作目录，它会将转储文件存储到这个目录下，并生成一个附加文件
+
+dir /usr/<span class="built_in">local</span>/redis-master/db
+
+3.主从参数
+如果本地是salve服务器那么配置该项
+
+<span class="comment"># slaveof &amp;lt;masterip&amp;gt; &amp;lt;masterport&amp;gt;</span>
+
+slaveof 127.0.0.1 65532
+
+master的验证密码
+
+masterauth &amp;lt;master-password&amp;gt;
+
+当从主机脱离主的链接时，如果此值为yes当客户端查询从时，回响应客户端，如果是第一次同步回返回一个日期数据或这空值，如果设置为no，则返回“SYNC with master <span class="keyword">in</span> progress”到INFO and SLAVEOF
+
+slave-serve-stale-data yes
+
+从服务器只读（默认）
+
+slave-read-only yes
+
+从发送ping到主的时间间隔(单位：秒)
+
+repl-ping-slave-period 10
+
+批量传输I / O超时和主数据或ping响应超时 默认60s 必须大于repl-ping-slave-period值
+
+repl-timeout 60
+
+此选项如果是“yes”那么Redis的使用数量较少的TCP数据包和更少的带宽将数据发送到，在从主机上延迟40毫秒（linux kernel中的40毫秒）出现。如果是no将在slave中减少延迟，但是流量使用回相对多一些，如果用多个从主机，此处建议设置成yes
+
+repl-disable-tcp-nodelay no
+
+从主机的优先级，如果当主主机挂了的时候，将从从主机中选取一个作为其他从机的主，首先优先级的数字最低的将成为主，0是一个特殊的级别，0将永远不会成为主。默认值是100.
+
+slave-priority 100
+</code></pre>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjjicdir30008hk0lxmmchc8t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjjicjmj200099s0l8d6537y1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -324,7 +425,7 @@ SynchronousQueue作为工作队列；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/09/Java线程池创建配置/" data-id="cjjicdir30001hk0ldtmwv52t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/09/Java线程池创建配置/" data-id="cjjicjmim00039s0l5h7fxup3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -362,7 +463,7 @@ SynchronousQueue作为工作队列；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/06/ActiveMQ/" data-id="cjjicdiqo0000hk0l88n7k31e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/06/ActiveMQ/" data-id="cjjicjmi700009s0lkpmxzgot" class="article-share-link">Share</a>
       
       
     </footer>
@@ -416,7 +517,7 @@ gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfM
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjjicdir30003hk0lzrbq74vf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjjicjmim00069s0lnr8llcb4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -457,7 +558,7 @@ gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfM
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/java并发处理/" data-id="cjjicdir30007hk0l6ml0jw0s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/04/java并发处理/" data-id="cjjicjmim00079s0lhq2uw9ay" class="article-share-link">Share</a>
       
       
     </footer>
@@ -499,7 +600,7 @@ gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfM
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/22/jvmGC机制/" data-id="cjjicdir30006hk0ljcl4lkhj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/22/jvmGC机制/" data-id="cjjicjmim00059s0lvw5amn3m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -589,7 +690,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjjicdir30004hk0l3gtqmuyc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjjicjmim00029s0lor02zsta" class="article-share-link">Share</a>
       
       
     </footer>
@@ -627,7 +728,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/MySQL时间增加/" data-id="cjjicdir30002hk0lifaaw7vk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/MySQL时间增加/" data-id="cjjicjmim00049s0leilji71f" class="article-share-link">Share</a>
       
       
     </footer>
@@ -672,7 +773,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/20/hello-world/" data-id="cjjicdir30005hk0lgcfa7olq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/20/hello-world/" data-id="cjjicjmim00089s0lh62isfn2" class="article-share-link">Share</a>
       
       
     </footer>
