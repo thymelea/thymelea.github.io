@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="。。。。">
 <meta property="og:description" content="下载Linux下载地址：wget http://download.redis.io/releases/redis-2.8.3.tar.gz windows :https://github.com/dmajkic/redis/downloads 解压：tar xzf redis-2.8.3.tar.zg cd redis-2.8.3 启动linux启动：./redis-server windows启">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-12T03:51:00.457Z">
+<meta property="og:updated_time" content="2018-07-12T03:53:29.257Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis 安装的坑">
 <meta name="twitter:description" content="下载Linux下载地址：wget http://download.redis.io/releases/redis-2.8.3.tar.gz windows :https://github.com/dmajkic/redis/downloads 解压：tar xzf redis-2.8.3.tar.zg cd redis-2.8.3 启动linux启动：./redis-server windows启">
@@ -105,15 +105,9 @@ Ok
 &gt;set foo
 &quot;bar&quot;
 </code></pre><h2 id="可视化工具下载"><a href="#可视化工具下载" class="headerlink" title="可视化工具下载"></a>可视化工具下载</h2><pre><code>http://redisdesktop.com/download
-</code></pre><h2 id="检查端口"><a href="#检查端口" class="headerlink" title="检查端口"></a>检查端口</h2><pre><code>[root@luo redis-2.8.3]# firewall-cmd --query-port=6379/tcp
-no 
-[root@luo redis-2.8.3]# firewall-cmd --add-port=6379/tcp
-success
-[密码所在redis.conf]: http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png
-设置密码：config set requirepass 1234 ![密码所在redis.conf]
-    auth 1234
-</code></pre><p><code>`</code> bash<br>1.基本配置<br>内存单位的表示</p>
-<h1 id="1k-gt-1000-bytes"><a href="#1k-gt-1000-bytes" class="headerlink" title="1k =&gt; 1000 bytes"></a>1k =&gt; 1000 bytes</h1><h1 id="1kb-gt-1024-bytes"><a href="#1kb-gt-1024-bytes" class="headerlink" title="1kb =&gt; 1024 bytes"></a>1kb =&gt; 1024 bytes</h1><h1 id="1m-gt-1000000-bytes"><a href="#1m-gt-1000000-bytes" class="headerlink" title="1m =&gt; 1000000 bytes"></a>1m =&gt; 1000000 bytes</h1><h1 id="1mb-gt-1024-1024-bytes"><a href="#1mb-gt-1024-1024-bytes" class="headerlink" title="1mb =&gt; 1024*1024 bytes"></a>1mb =&gt; 1024*1024 bytes</h1><h1 id="1g-gt-1000000000-bytes"><a href="#1g-gt-1000000000-bytes" class="headerlink" title="1g =&gt; 1000000000 bytes"></a>1g =&gt; 1000000000 bytes</h1><h1 id="1gb-gt-102410241024-bytes"><a href="#1gb-gt-102410241024-bytes" class="headerlink" title="1gb =&gt; 102410241024 bytes"></a>1gb =&gt; 1024<em>1024</em>1024 bytes</h1><p>单位中不区分大小写1GB 1Gb 1gB是一样的</p>
+</code></pre><h2 id="检查端口"><a href="#检查端口" class="headerlink" title="检查端口"></a>检查端口</h2><h3 id="root-luo-redis-2-8-3-firewall-cmd-–query-port-6379-tcp"><a href="#root-luo-redis-2-8-3-firewall-cmd-–query-port-6379-tcp" class="headerlink" title="[root@luo redis-2.8.3]# firewall-cmd –query-port=6379/tcp"></a>[root@luo redis-2.8.3]# firewall-cmd –query-port=6379/tcp</h3><h3 id="no"><a href="#no" class="headerlink" title="no"></a>no</h3><h3 id="root-luo-redis-2-8-3-firewall-cmd-–add-port-6379-tcp"><a href="#root-luo-redis-2-8-3-firewall-cmd-–add-port-6379-tcp" class="headerlink" title="[root@luo redis-2.8.3]# firewall-cmd –add-port=6379/tcp"></a>[root@luo redis-2.8.3]# firewall-cmd –add-port=6379/tcp</h3><h3 id="设置密码：config-set-requirepass-1234-密码所在redis-conf-http-images2015-cnblogs-com-blog-758998-201612-758998-20161214214725636-1530839128-png"><a href="#设置密码：config-set-requirepass-1234-密码所在redis-conf-http-images2015-cnblogs-com-blog-758998-201612-758998-20161214214725636-1530839128-png" class="headerlink" title="设置密码：config set requirepass 1234 ![密码所在redis.conf] http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png"></a>设置密码：config set requirepass 1234 ![密码所在redis.conf] <a href="http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png" target="_blank" rel="noopener">http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png</a></h3><h3 id="auth-1234"><a href="#auth-1234" class="headerlink" title="auth 1234"></a>auth 1234</h3><p><code>`</code> bash<br>1.基本配置<br>内存单位的表示</p>
+<p> 1k =&gt; 1000 bytes<br> 1kb =&gt; 1024 bytes<br> 1m =&gt; 1000000 bytes<br> 1mb =&gt; 1024<em>1024 bytes<br> 1g =&gt; 1000000000 bytes<br> 1gb =&gt; 1024</em>1024*1024 bytes</p>
+<p>单位中不区分大小写1GB 1Gb 1gB是一样的</p>
 <p>后台运行，yes是后台运行，no前台运行，将输出，输出到终端（默认）</p>
 <p>daemonize yes</p>
 <p>如果daemonize参数为yes的话就会产生pid文件，一下是pid文件的定义</p>
@@ -179,7 +173,7 @@ success
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjji0nfkl0009280l62y19c8k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjji0qxpt0009kg0lmwi210gn" class="article-share-link">Share</a>
       
       
     </footer>

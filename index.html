@@ -106,15 +106,9 @@ Ok
 &gt;set foo
 &quot;bar&quot;
 </code></pre><h2 id="可视化工具下载"><a href="#可视化工具下载" class="headerlink" title="可视化工具下载"></a>可视化工具下载</h2><pre><code>http://redisdesktop.com/download
-</code></pre><h2 id="检查端口"><a href="#检查端口" class="headerlink" title="检查端口"></a>检查端口</h2><pre><code>[root@luo redis-2.8.3]# firewall-cmd --query-port=6379/tcp
-no 
-[root@luo redis-2.8.3]# firewall-cmd --add-port=6379/tcp
-success
-[密码所在redis.conf]: http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png
-设置密码：config set requirepass 1234 ![密码所在redis.conf]
-    auth 1234
-</code></pre><p><code>`</code> bash<br>1.基本配置<br>内存单位的表示</p>
-<h1 id="1k-gt-1000-bytes"><a href="#1k-gt-1000-bytes" class="headerlink" title="1k =&gt; 1000 bytes"></a>1k =&gt; 1000 bytes</h1><h1 id="1kb-gt-1024-bytes"><a href="#1kb-gt-1024-bytes" class="headerlink" title="1kb =&gt; 1024 bytes"></a>1kb =&gt; 1024 bytes</h1><h1 id="1m-gt-1000000-bytes"><a href="#1m-gt-1000000-bytes" class="headerlink" title="1m =&gt; 1000000 bytes"></a>1m =&gt; 1000000 bytes</h1><h1 id="1mb-gt-1024-1024-bytes"><a href="#1mb-gt-1024-1024-bytes" class="headerlink" title="1mb =&gt; 1024*1024 bytes"></a>1mb =&gt; 1024*1024 bytes</h1><h1 id="1g-gt-1000000000-bytes"><a href="#1g-gt-1000000000-bytes" class="headerlink" title="1g =&gt; 1000000000 bytes"></a>1g =&gt; 1000000000 bytes</h1><h1 id="1gb-gt-102410241024-bytes"><a href="#1gb-gt-102410241024-bytes" class="headerlink" title="1gb =&gt; 102410241024 bytes"></a>1gb =&gt; 1024<em>1024</em>1024 bytes</h1><p>单位中不区分大小写1GB 1Gb 1gB是一样的</p>
+</code></pre><h2 id="检查端口"><a href="#检查端口" class="headerlink" title="检查端口"></a>检查端口</h2><h3 id="root-luo-redis-2-8-3-firewall-cmd-–query-port-6379-tcp"><a href="#root-luo-redis-2-8-3-firewall-cmd-–query-port-6379-tcp" class="headerlink" title="[root@luo redis-2.8.3]# firewall-cmd –query-port=6379/tcp"></a>[root@luo redis-2.8.3]# firewall-cmd –query-port=6379/tcp</h3><h3 id="no"><a href="#no" class="headerlink" title="no"></a>no</h3><h3 id="root-luo-redis-2-8-3-firewall-cmd-–add-port-6379-tcp"><a href="#root-luo-redis-2-8-3-firewall-cmd-–add-port-6379-tcp" class="headerlink" title="[root@luo redis-2.8.3]# firewall-cmd –add-port=6379/tcp"></a>[root@luo redis-2.8.3]# firewall-cmd –add-port=6379/tcp</h3><h3 id="设置密码：config-set-requirepass-1234-密码所在redis-conf-http-images2015-cnblogs-com-blog-758998-201612-758998-20161214214725636-1530839128-png"><a href="#设置密码：config-set-requirepass-1234-密码所在redis-conf-http-images2015-cnblogs-com-blog-758998-201612-758998-20161214214725636-1530839128-png" class="headerlink" title="设置密码：config set requirepass 1234 ![密码所在redis.conf] http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png"></a>设置密码：config set requirepass 1234 ![密码所在redis.conf] <a href="http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png" target="_blank" rel="noopener">http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png</a></h3><h3 id="auth-1234"><a href="#auth-1234" class="headerlink" title="auth 1234"></a>auth 1234</h3><p><code>`</code> bash<br>1.基本配置<br>内存单位的表示</p>
+<p> 1k =&gt; 1000 bytes<br> 1kb =&gt; 1024 bytes<br> 1m =&gt; 1000000 bytes<br> 1mb =&gt; 1024<em>1024 bytes<br> 1g =&gt; 1000000000 bytes<br> 1gb =&gt; 1024</em>1024*1024 bytes</p>
+<p>单位中不区分大小写1GB 1Gb 1gB是一样的</p>
 <p>后台运行，yes是后台运行，no前台运行，将输出，输出到终端（默认）</p>
 <p>daemonize yes</p>
 <p>如果daemonize参数为yes的话就会产生pid文件，一下是pid文件的定义</p>
@@ -180,7 +174,7 @@ success
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjji0nfkl0009280l62y19c8k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjji0qxpt0009kg0lmwi210gn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -221,7 +215,7 @@ SynchronousQueue作为工作队列；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/09/Java线程池创建配置/" data-id="cjji0nfkl0004280lp1vaf1h3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/09/Java线程池创建配置/" data-id="cjji0qxpt0004kg0l4a8f3dop" class="article-share-link">Share</a>
       
       
     </footer>
@@ -259,7 +253,7 @@ SynchronousQueue作为工作队列；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/06/ActiveMQ/" data-id="cjji0nfkl0002280lq14lf605" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/06/ActiveMQ/" data-id="cjji0qxpe0000kg0laertb6hl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -313,7 +307,7 @@ gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfM
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjji0nfkl0007280lyvld0rx9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjji0qxpt0005kg0lx1ylp4zc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -354,7 +348,7 @@ gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfM
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/java并发处理/" data-id="cjji0nfkl0008280l2u15a4ir" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/04/java并发处理/" data-id="cjji0qxpt0008kg0lre0f0z0k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -396,7 +390,7 @@ gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfM
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/22/jvmGC机制/" data-id="cjji0nfkl0006280l515x99q4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/22/jvmGC机制/" data-id="cjji0qxpt0006kg0l57tm8jm2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -486,7 +480,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjji0nfkl0003280l301bfchs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjji0qxpt0003kg0lxmdmh15p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -524,7 +518,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/MySQL时间增加/" data-id="cjji0nfk60000280l0r8fhm3h" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/MySQL时间增加/" data-id="cjji0qxpe0002kg0lcgkvcqg1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -569,7 +563,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/20/hello-world/" data-id="cjji0nfkl0005280luio0s4bj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/20/hello-world/" data-id="cjji0qxpt0007kg0lglbjow1q" class="article-share-link">Share</a>
       
       
     </footer>
