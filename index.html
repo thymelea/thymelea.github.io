@@ -71,6 +71,72 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-springboot对配置文件的加载" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/16/springboot对配置文件的加载/" class="article-date">
+  <time datetime="2018-07-16T01:01:56.720Z" itemprop="datePublished">2018-07-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/16/springboot对配置文件的加载/">springboot对配置文件的加载</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Springboot默认使用的配置文件是application-properties文件，但为方便改为application-yml"><a href="#Springboot默认使用的配置文件是application-properties文件，但为方便改为application-yml" class="headerlink" title="Springboot默认使用的配置文件是application.properties文件，但为方便改为application.yml"></a>Springboot默认使用的配置文件是application.properties文件，但为方便改为application.yml</h2><h2 id="文件属性加载分两种，"><a href="#文件属性加载分两种，" class="headerlink" title="文件属性加载分两种，"></a>文件属性加载分两种，</h2><h3 id="Value和-ConfigurationProperties"><a href="#Value和-ConfigurationProperties" class="headerlink" title="@Value和@ConfigurationProperties"></a>@Value和@ConfigurationProperties</h3><h4 id="Value：加载单个属性，一个一个的属性制定-ConfigurationProperties通过配置文件相同部分的路径进行匹配属性名"><a href="#Value：加载单个属性，一个一个的属性制定-ConfigurationProperties通过配置文件相同部分的路径进行匹配属性名" class="headerlink" title="@Value：加载单个属性，一个一个的属性制定@ConfigurationProperties通过配置文件相同部分的路径进行匹配属性名"></a>@Value：加载单个属性，一个一个的属性制定@ConfigurationProperties通过配置文件相同部分的路径进行匹配属性名</h4><h4 id="Value：支持SpEL表达式，-configurationProperties不支持"><a href="#Value：支持SpEL表达式，-configurationProperties不支持" class="headerlink" title="@Value：支持SpEL表达式，@configurationProperties不支持"></a>@Value：支持SpEL表达式，@configurationProperties不支持</h4><h4 id="Value：不支持JSR303数据校验，-configuration支持"><a href="#Value：不支持JSR303数据校验，-configuration支持" class="headerlink" title="@Value：不支持JSR303数据校验，@configuration支持"></a>@Value：不支持JSR303数据校验，@configuration支持</h4><h4 id="value：不支持复杂数据类型封装，-configuration支持"><a href="#value：不支持复杂数据类型封装，-configuration支持" class="headerlink" title="@value：不支持复杂数据类型封装，@configuration支持"></a>@value：不支持复杂数据类型封装，@configuration支持</h4><p>例：</p>
+<pre><code class="bash">spring:
+    redis:
+        database: 0 <span class="comment"># Redis数据库索引（默认为0）</span>
+        host: 106.15.189.149 <span class="comment">#Redis服务器地址</span>
+        port: 6379 <span class="comment"># Redis服务器连接端口</span>
+        password: 1234 <span class="comment">#Redis服务器连接密码（默认为空）</span>
+        timeout: 10000 <span class="comment"># 连接超时时间（毫秒）</span>
+</code></pre>
+<pre><code class="bash">@Configuration
+@EnableCaching
+@Validated //JSR303数据校验
+@ConfigurationProperties(prefix=<span class="string">"spring.redis"</span>)
+public class RedisConfig extends CachingConfigurerSupport {
+    protected static final Logger logger = LoggerFactory.getLogger(UserController.class);
+//    @Value(<span class="string">"<span class="variable">${spring.redis.host}</span>"</span>)
+     @NotNull  //JSR303数据校验@Email
+    String host;
+//    @Value(<span class="string">"<span class="variable">${spring.redis.port}</span>"</span>)
+     @NotNull
+    int port;
+//    @Value(<span class="string">"<span class="variable">${spring.redis.password}</span>"</span>)
+    String password;
+//    @Value(<span class="string">"<span class="variable">${spring.redis.database}</span>"</span>)
+    int database;
+//    @Value(<span class="string">"<span class="variable">${spring.redis.timeout}</span>"</span>)
+//        @Value(timeout=<span class="comment">#{10*100}) //支持EL表达式</span>
+    int timeout;
+
+</code></pre>
+<h2 id="Redis数据5种类型"><a href="#Redis数据5种类型" class="headerlink" title="Redis数据5种类型"></a>Redis数据5种类型</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/16/springboot对配置文件的加载/" data-id="cjjnkzu8j0009k40lret2kh4g" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-redis语法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/12/redis语法/" class="article-date">
@@ -191,7 +257,7 @@ redis 127.0.0.1:6379&gt; EXEC
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/12/redis语法/" data-id="cjjicjmj2000a9s0lrysoy1vx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/12/redis语法/" data-id="cjjnkzu8j0008k40lt9ru7rck" class="article-share-link">Share</a>
       
       
     </footer>
@@ -384,7 +450,7 @@ slave-priority 100
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjjicjmj200099s0l8d6537y1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjjnkzu8j0007k40lz8mbab8p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -425,7 +491,7 @@ SynchronousQueue作为工作队列；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/09/Java线程池创建配置/" data-id="cjjicjmim00039s0l5h7fxup3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/09/Java线程池创建配置/" data-id="cjjnkzu8j0003k40lv3wq706k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -463,7 +529,48 @@ SynchronousQueue作为工作队列；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/06/ActiveMQ/" data-id="cjjicjmi700009s0lkpmxzgot" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/06/ActiveMQ/" data-id="cjjnkzu7n0000k40llza6tvyu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java并发处理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/04/java并发处理/" class="article-date">
+  <time datetime="2018-07-04T09:32:11.913Z" itemprop="datePublished">2018-07-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/04/java并发处理/">处理并发和同步</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="如何处理并发和同步："><a href="#如何处理并发和同步：" class="headerlink" title="如何处理并发和同步："></a>如何处理并发和同步：</h2><h3 id="1-在程序中使用线程的锁机制完成并发控制，"><a href="#1-在程序中使用线程的锁机制完成并发控制，" class="headerlink" title="1. 在程序中使用线程的锁机制完成并发控制，"></a>1. 在程序中使用线程的锁机制完成并发控制，</h3><h3 id="2-在利用数据库的锁机制，如：悲观锁和乐观锁"><a href="#2-在利用数据库的锁机制，如：悲观锁和乐观锁" class="headerlink" title="2. 在利用数据库的锁机制，如：悲观锁和乐观锁"></a>2. 在利用数据库的锁机制，如：悲观锁和乐观锁</h3><h4 id="悲观锁-："><a href="#悲观锁-：" class="headerlink" title="悲观锁 ："></a>悲观锁 ：</h4><pre><code>就是在查询语句后面加上for update，查询时锁住表的字段不可更新操作，直到事务提交，才会释放锁，
+缺点：对于大量数据操作时，资源浪费严重
+</code></pre><h4 id="乐观锁："><a href="#乐观锁：" class="headerlink" title="乐观锁："></a>乐观锁：</h4><pre><code>在表结构基础上添加一个版本冗余字段，没对数据库中数据操作一次该字段进行一次加1，只有比当前版本大的数据才可入库，
+对于大量数据的操作一般都是用乐观锁。
+</code></pre><h2 id="对于大量数据处理："><a href="#对于大量数据处理：" class="headerlink" title="对于大量数据处理："></a>对于大量数据处理：</h2><h3 id="分表存储，如通过时间分，或者某些字段分"><a href="#分表存储，如通过时间分，或者某些字段分" class="headerlink" title="分表存储，如通过时间分，或者某些字段分"></a>分表存储，如通过时间分，或者某些字段分</h3><h3 id="对于大量并发请："><a href="#对于大量并发请：" class="headerlink" title="对于大量并发请："></a>对于大量并发请：</h3><h3 id="1-提高访问带宽，"><a href="#1-提高访问带宽，" class="headerlink" title="1.提高访问带宽，"></a>1.提高访问带宽，</h3><h3 id="2-搭建负载均衡服务器，"><a href="#2-搭建负载均衡服务器，" class="headerlink" title="2.搭建负载均衡服务器，"></a>2.搭建负载均衡服务器，</h3><h3 id="3-oracle分表机制，进行分表，"><a href="#3-oracle分表机制，进行分表，" class="headerlink" title="3.oracle分表机制，进行分表，"></a>3.oracle分表机制，进行分表，</h3><h3 id="4-不持续操作数据库，使用缓存技术，"><a href="#4-不持续操作数据库，使用缓存技术，" class="headerlink" title="4.不持续操作数据库，使用缓存技术，"></a>4.不持续操作数据库，使用缓存技术，</h3><h3 id="5，使用静态页面"><a href="#5，使用静态页面" class="headerlink" title="5，使用静态页面"></a>5，使用静态页面</h3><p>More info: <a href="https://www.cnblogs.com/lr393993507/p/5909804.html" target="_blank" rel="noopener">更多</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/04/java并发处理/" data-id="cjjnkzu8j0006k40lwu98mhng" class="article-share-link">Share</a>
       
       
     </footer>
@@ -517,48 +624,7 @@ gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfM
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjjicjmim00069s0lnr8llcb4" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-java并发处理" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/04/java并发处理/" class="article-date">
-  <time datetime="2018-07-04T09:32:11.913Z" itemprop="datePublished">2018-07-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/04/java并发处理/">处理并发和同步</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="如何处理并发和同步："><a href="#如何处理并发和同步：" class="headerlink" title="如何处理并发和同步："></a>如何处理并发和同步：</h2><h3 id="1-在程序中使用线程的锁机制完成并发控制，"><a href="#1-在程序中使用线程的锁机制完成并发控制，" class="headerlink" title="1. 在程序中使用线程的锁机制完成并发控制，"></a>1. 在程序中使用线程的锁机制完成并发控制，</h3><h3 id="2-在利用数据库的锁机制，如：悲观锁和乐观锁"><a href="#2-在利用数据库的锁机制，如：悲观锁和乐观锁" class="headerlink" title="2. 在利用数据库的锁机制，如：悲观锁和乐观锁"></a>2. 在利用数据库的锁机制，如：悲观锁和乐观锁</h3><h4 id="悲观锁-："><a href="#悲观锁-：" class="headerlink" title="悲观锁 ："></a>悲观锁 ：</h4><pre><code>就是在查询语句后面加上for update，查询时锁住表的字段不可更新操作，直到事务提交，才会释放锁，
-缺点：对于大量数据操作时，资源浪费严重
-</code></pre><h4 id="乐观锁："><a href="#乐观锁：" class="headerlink" title="乐观锁："></a>乐观锁：</h4><pre><code>在表结构基础上添加一个版本冗余字段，没对数据库中数据操作一次该字段进行一次加1，只有比当前版本大的数据才可入库，
-对于大量数据的操作一般都是用乐观锁。
-</code></pre><h2 id="对于大量数据处理："><a href="#对于大量数据处理：" class="headerlink" title="对于大量数据处理："></a>对于大量数据处理：</h2><h3 id="分表存储，如通过时间分，或者某些字段分"><a href="#分表存储，如通过时间分，或者某些字段分" class="headerlink" title="分表存储，如通过时间分，或者某些字段分"></a>分表存储，如通过时间分，或者某些字段分</h3><h3 id="对于大量并发请："><a href="#对于大量并发请：" class="headerlink" title="对于大量并发请："></a>对于大量并发请：</h3><h3 id="1-提高访问带宽，"><a href="#1-提高访问带宽，" class="headerlink" title="1.提高访问带宽，"></a>1.提高访问带宽，</h3><h3 id="2-搭建负载均衡服务器，"><a href="#2-搭建负载均衡服务器，" class="headerlink" title="2.搭建负载均衡服务器，"></a>2.搭建负载均衡服务器，</h3><h3 id="3-oracle分表机制，进行分表，"><a href="#3-oracle分表机制，进行分表，" class="headerlink" title="3.oracle分表机制，进行分表，"></a>3.oracle分表机制，进行分表，</h3><h3 id="4-不持续操作数据库，使用缓存技术，"><a href="#4-不持续操作数据库，使用缓存技术，" class="headerlink" title="4.不持续操作数据库，使用缓存技术，"></a>4.不持续操作数据库，使用缓存技术，</h3><h3 id="5，使用静态页面"><a href="#5，使用静态页面" class="headerlink" title="5，使用静态页面"></a>5，使用静态页面</h3><p>More info: <a href="https://www.cnblogs.com/lr393993507/p/5909804.html" target="_blank" rel="noopener">更多</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/java并发处理/" data-id="cjjicjmim00079s0lhq2uw9ay" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjjnkzu8j0005k40lz1xx2g85" class="article-share-link">Share</a>
       
       
     </footer>
@@ -600,7 +666,7 @@ gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfM
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/22/jvmGC机制/" data-id="cjjicjmim00059s0lvw5amn3m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/22/jvmGC机制/" data-id="cjjnkzu8j000ak40lad59qaks" class="article-share-link">Share</a>
       
       
     </footer>
@@ -690,7 +756,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjjicjmim00029s0lor02zsta" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjjnkzu830001k40ll4ipb8pc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -728,52 +794,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/MySQL时间增加/" data-id="cjjicjmim00049s0leilji71f" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/20/hello-world/" class="article-date">
-  <time datetime="2018-06-20T03:57:25.286Z" itemprop="datePublished">2018-06-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/20/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/20/hello-world/" data-id="cjjicjmim00089s0lh62isfn2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/MySQL时间增加/" data-id="cjjnkzu8j0004k40ley5ioeus" class="article-share-link">Share</a>
       
       
     </footer>
@@ -784,6 +805,11 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
 
   
 
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
 
 </section>
         
@@ -814,6 +840,10 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       <ul>
         
           <li>
+            <a href="/2018/07/16/springboot对配置文件的加载/">springboot对配置文件的加载</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/12/redis语法/">Redis 使用</a>
           </li>
         
@@ -827,10 +857,6 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
         
           <li>
             <a href="/2018/07/06/ActiveMQ/">ActiveMQ总结</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/04/java内存机制/">java内存机制</a>
           </li>
         
       </ul>
