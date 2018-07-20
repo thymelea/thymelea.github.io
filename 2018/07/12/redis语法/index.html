@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="。。。。">
 <meta property="og:description" content="CONFIG SET 和 CONFIG GET修改和查看配置Redis数据5种类型字符串Redis中的字符串是一个字节序列。Redis中的字符串是二进制安全的，这意味着它们的长度不由任何特殊的终止字符决定。因此，可以在一个字符串中存储高达512兆字节的任何内容。set name “abc”; get name散列/哈希Redis散列/哈希是字符串字段和字符串值之间的映射,每个散列/哈希可以存储多达">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-12T09:35:15.628Z">
+<meta property="og:updated_time" content="2018-07-20T02:41:33.930Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis 使用">
 <meta name="twitter:description" content="CONFIG SET 和 CONFIG GET修改和查看配置Redis数据5种类型字符串Redis中的字符串是一个字节序列。Redis中的字符串是二进制安全的，这意味着它们的长度不由任何特殊的终止字符决定。因此，可以在一个字符串中存储高达512兆字节的任何内容。set name “abc”; get name散列/哈希Redis散列/哈希是字符串字段和字符串值之间的映射,每个散列/哈希可以存储多达">
@@ -106,23 +106,23 @@ redis 127.0.0.1:6379&gt; EXEC
 3) (<span class="built_in">integer</span>) 1
 
 </code></pre>
-<h2 id="Redis脚本"><a href="#Redis脚本" class="headerlink" title="Redis脚本"></a>Redis脚本</h2><h3 id="Redis脚本用于使用Lua解释器来执行脚本。从Redis-2-6-0版开始内置到Redis中。使用脚本的命令是EVAL命令。"><a href="#Redis脚本用于使用Lua解释器来执行脚本。从Redis-2-6-0版开始内置到Redis中。使用脚本的命令是EVAL命令。" class="headerlink" title="Redis脚本用于使用Lua解释器来执行脚本。从Redis 2.6.0版开始内置到Redis中。使用脚本的命令是EVAL命令。"></a>Redis脚本用于使用Lua解释器来执行脚本。从Redis 2.6.0版开始内置到Redis中。使用脚本的命令是EVAL命令。</h3><h3 id="redis-127-0-0-1-6379-gt-EVAL-script-numkeys-key-key-…-arg-arg-…"><a href="#redis-127-0-0-1-6379-gt-EVAL-script-numkeys-key-key-…-arg-arg-…" class="headerlink" title="redis 127.0.0.1:6379&gt; EVAL script numkeys key [key …] arg [arg …]"></a>redis 127.0.0.1:6379&gt; EVAL script numkeys key [key …] arg [arg …]</h3><h2 id="最大客户数"><a href="#最大客户数" class="headerlink" title="最大客户数"></a>最大客户数</h2><h3 id="config-get-maxclients"><a href="#config-get-maxclients" class="headerlink" title="config get maxclients"></a>config get maxclients</h3><h2 id="jedis-jar-Java连接"><a href="#jedis-jar-Java连接" class="headerlink" title="jedis.jar Java连接"></a>jedis.jar Java连接</h2><h3 id="单个连接"><a href="#单个连接" class="headerlink" title="单个连接"></a>单个连接</h3><pre><code class="bash">public class JedisTest {
+<h2 id="Redis脚本"><a href="#Redis脚本" class="headerlink" title="Redis脚本"></a>Redis脚本</h2><h3 id="Redis脚本用于使用Lua解释器来执行脚本。从Redis-2-6-0版开始内置到Redis中。使用脚本的命令是EVAL命令。"><a href="#Redis脚本用于使用Lua解释器来执行脚本。从Redis-2-6-0版开始内置到Redis中。使用脚本的命令是EVAL命令。" class="headerlink" title="Redis脚本用于使用Lua解释器来执行脚本。从Redis 2.6.0版开始内置到Redis中。使用脚本的命令是EVAL命令。"></a>Redis脚本用于使用Lua解释器来执行脚本。从Redis 2.6.0版开始内置到Redis中。使用脚本的命令是EVAL命令。</h3><h3 id="redis-127-0-0-1-6379-gt-EVAL-script-numkeys-key-key-…-arg-arg-…"><a href="#redis-127-0-0-1-6379-gt-EVAL-script-numkeys-key-key-…-arg-arg-…" class="headerlink" title="redis 127.0.0.1:6379&gt; EVAL script numkeys key [key …] arg [arg …]"></a>redis 127.0.0.1:6379&gt; EVAL script numkeys key [key …] arg [arg …]</h3><h2 id="最大客户数"><a href="#最大客户数" class="headerlink" title="最大客户数"></a>最大客户数</h2><h3 id="config-get-maxclients"><a href="#config-get-maxclients" class="headerlink" title="config get maxclients"></a>config get maxclients</h3><h2 id="jedis-jar-Java连接"><a href="#jedis-jar-Java连接" class="headerlink" title="jedis.jar Java连接"></a>jedis.jar Java连接</h2><h3 id="单个连接"><a href="#单个连接" class="headerlink" title="单个连接"></a>单个连接</h3><pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JedisTest</span> </span>{
 
 
 
-    public static void main(String[] args) {
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
 
-        Jedis jedis=new Jedis(<span class="string">"192.168.1.107"</span>,6379); // 创建客户端 设置IP和端口
+        Jedis jedis=<span class="keyword">new</span> Jedis(<span class="string">"192.168.1.107"</span>,<span class="number">6379</span>); <span class="comment">// 创建客户端 设置IP和端口</span>
 
-        jedis.auth(<span class="string">"1234"</span>); // 设置密码
+        jedis.auth(<span class="string">"1234"</span>); <span class="comment">// 设置密码</span>
 
-        jedis.set(<span class="string">"name"</span>, <span class="string">"java知识分享网"</span>); // 设置值
+        jedis.set(<span class="string">"name"</span>, <span class="string">"java知识分享网"</span>); <span class="comment">// 设置值</span>
 
-        String value=jedis.get(<span class="string">"name"</span>); // 获取值
+        String value=jedis.get(<span class="string">"name"</span>); <span class="comment">// 获取值</span>
 
         System.out.println(value);
 
-        jedis.close(); // 释放连接资源
+        jedis.close(); <span class="comment">// 释放连接资源</span>
 
     }
 
@@ -190,7 +190,7 @@ redis 127.0.0.1:6379&gt; EXEC
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/12/redis语法/" data-id="cjjo2obng0007uo0lfn053qvk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/12/redis语法/" data-id="cjjtdqpxh0006hk0ld971n76p" class="article-share-link">Share</a>
       
       
     </footer>
