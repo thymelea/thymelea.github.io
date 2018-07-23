@@ -96,7 +96,8 @@
         <pre><code class="text">## Springboot默认使用的配置文件是application.properties文件，但为方便改为application.yml
 ## 文件属性加载分两种，
 ### @Value和@ConfigurationProperties
-#### @Value：加载单个属性，一个一个的属性制定@ConfigurationProperties通过配置文件相同部分的路径进行匹配属性名
+#### @Value：加载单个属性，一个一个的属性制定@ConfigurationProperties通过配置文件相同部分的路
+    径进行匹配属性名
 #### @Value：支持SpEL表达式，@configurationProperties不支持
 #### @Value：不支持JSR303数据校验，@configuration支持
 #### @value：不支持复杂数据类型封装，@configuration支持
@@ -136,7 +137,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/16/springboot对配置文件的加载/" data-id="cjjy1xmty000aqc0lf5mdk6wk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/16/springboot对配置文件的加载/" data-id="cjjy2n4uq000bkw0lv0nc65eq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -174,12 +175,14 @@
 <span class="comment">## Redis数据5种类型</span>
 
 <span class="comment">### 字符串 </span>
-<span class="comment">#### Redis中的字符串是一个字节序列。Redis中的字符串是二进制安全的，这意味着它们的长度不由任何特殊的终止字符决定。</span>
+<span class="comment">#### Redis中的字符串是一个字节序列。Redis中的字符串是二进制安全的，这意味着它们的长度不由任何特殊的</span>
+    终止字符决定。
 <span class="comment">#### 因此，可以在一个字符串中存储高达512兆字节</span>
 <span class="comment">#### 的任何内容。set name "abc"; get name</span>
 
 <span class="comment">### 散列/哈希</span>
-<span class="comment">#### Redis散列/哈希是字符串字段和字符串值之间的映射,每个散列/哈希可以存储多达2^32 - 1个健-值对(超过40亿个)。</span>
+<span class="comment">#### Redis散列/哈希是字符串字段和字符串值之间的映射,每个散列/哈希可以存储多达2^32 - 1个健-值</span>
+    对(超过40亿个)。
 <span class="comment">#### hmset name username "abc" password "123" points 200; hmget name username ;hgetall name</span>
 
 <span class="comment">### 列表                                                              </span>
@@ -188,12 +191,15 @@
 <span class="comment">#### lpush name abc ;lrange anme 0 10</span>
 
 <span class="comment">###    集合 </span>
-<span class="comment">#### Redis集合是字符串的无序集合。在Redis中，您可以添加，删除和测试成员存在的时间O(1)复杂性。一个集合中的最大成员数量为</span>
-<span class="comment">#### 2^32 - 1(即4294967295，每个集合中元素数量可达40亿个)个,被添加了两次，但是由于集合的唯一属性，所以它只算添加一次</span>
+<span class="comment">#### Redis集合是字符串的无序集合。在Redis中，您可以添加，删除和测试成员存在的时间O(1)复杂性。一个集合</span>
+    中的最大成员数量为
+<span class="comment">#### 2^32 - 1(即4294967295，每个集合中元素数量可达40亿个)个,被添加了两次，但是由于集合的唯一属性，所</span>
+    以它只算添加一次
 <span class="comment">#### sadd name abc ;smembers name</span>
 
 <span class="comment">###    可排序集合</span>
-<span class="comment">#### Redis可排序集合类似于Redis集合，是不重复的字符集合。同之处在于，排序集合的每个成员都与分数相关联，这个分数用于按</span>
+<span class="comment">#### Redis可排序集合类似于Redis集合，是不重复的字符集合。同之处在于，排序集合的每个成员都与分数相关联，</span>
+    这个分数用于按
 <span class="comment">#### 最小分数到最大分数来排序的排序集合。虽然成员是唯一的，但分数值可以重复。</span>
 <span class="comment">#### zadd name 0 redise</span>
 <span class="comment">#### zadd name 1 sqlist</span>
@@ -204,7 +210,8 @@
 
 <span class="comment">### PUBLISH redisChat "Redis is a great caching technique"</span>
 <span class="comment">### PUBLISH redisChat "Learn redis by yiibai" </span>
-<span class="comment">### ---&gt;两个客户端在名称为“redisChat”的相同信道上发布消息，并且上述订阅的客户端接收消息</span>
+<span class="comment">### ---&gt;两个客户端在名称为“redisChat”的相同信道上发布消息，并且上述订阅的</span>
+    客户端接收消息
 
 <span class="comment">## 事务 </span>
 <span class="comment">### multi事务命令，传递一个应该在事务中执行的命令列表，exec执行事务命令</span>
@@ -224,7 +231,8 @@ redis 127.0.0.1:6379&gt; EXEC
 
 </code></pre>
 <pre><code class="bash"><span class="comment">## Redis脚本</span>
-<span class="comment">### Redis脚本用于使用Lua解释器来执行脚本。从Redis 2.6.0版开始内置到Redis中。使用脚本的命令是EVAL命令。</span>
+<span class="comment">### Redis脚本用于使用Lua解释器来执行脚本。从Redis 2.6.0版开始内置到Redis中。使用脚本</span>
+    的命令是EVAL命令。
 <span class="comment">### redis 127.0.0.1:6379&gt; EVAL script numkeys key [key ...] arg [arg ...]</span>
 <span class="comment">## 最大客户数</span>
 <span class="comment">### config get maxclients</span>
@@ -316,7 +324,7 @@ redis 127.0.0.1:6379&gt; EXEC
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/12/redis语法/" data-id="cjjy1xmtz000bqc0lc6l33hpd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/12/redis语法/" data-id="cjjy2n4uo000akw0lu0uggt5g" class="article-share-link">Share</a>
       
       
     </footer>
@@ -348,21 +356,34 @@ redis 127.0.0.1:6379&gt; EXEC
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><pre><code>Linux下载地址：wget http://download.redis.io/releases/redis-2.8.3.tar.gz
-windows :https://github.com/dmajkic/redis/downloads
-解压：tar xzf redis-2.8.3.tar.zg
-cd redis-2.8.3
-</code></pre><h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><pre><code>linux启动：./redis-server
-windows启动：d: &amp; cd D:\Redis\redis-2.4.5
-redis-server.exe redis.conf
-客户端测试是否启动：./redis-cli
-&gt;set foo bar
-Ok 
-&gt;set foo
-&quot;bar&quot;
-连接远程：redis-cli -h host -p port -a password 例：redis-cli -h 127.0.0.1 -p 6379 -a &quot;mypass&quot;
-</code></pre><h2 id="可视化工具下载"><a href="#可视化工具下载" class="headerlink" title="可视化工具下载"></a>可视化工具下载</h2><pre><code>http://redisdesktop.com/download
-</code></pre><h2 id="检查端口"><a href="#检查端口" class="headerlink" title="检查端口"></a>检查端口</h2><h3 id="root-luo-redis-2-8-3-firewall-cmd-–query-port-6379-tcp"><a href="#root-luo-redis-2-8-3-firewall-cmd-–query-port-6379-tcp" class="headerlink" title="[root@luo redis-2.8.3]# firewall-cmd –query-port=6379/tcp"></a>[root@luo redis-2.8.3]# firewall-cmd –query-port=6379/tcp</h3><h3 id="no"><a href="#no" class="headerlink" title="no"></a>no</h3><h3 id="root-luo-redis-2-8-3-firewall-cmd-–add-port-6379-tcp"><a href="#root-luo-redis-2-8-3-firewall-cmd-–add-port-6379-tcp" class="headerlink" title="[root@luo redis-2.8.3]# firewall-cmd –add-port=6379/tcp"></a>[root@luo redis-2.8.3]# firewall-cmd –add-port=6379/tcp</h3><h3 id="设置密码：config-set-requirepass-1234-密码所在redis-conf-http-images2015-cnblogs-com-blog-758998-201612-758998-20161214214725636-1530839128-png"><a href="#设置密码：config-set-requirepass-1234-密码所在redis-conf-http-images2015-cnblogs-com-blog-758998-201612-758998-20161214214725636-1530839128-png" class="headerlink" title="设置密码：config set requirepass 1234 ![密码所在redis.conf] http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png"></a>设置密码：config set requirepass 1234 ![密码所在redis.conf] <a href="http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png" target="_blank" rel="noopener">http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png</a></h3><h3 id="auth-1234"><a href="#auth-1234" class="headerlink" title="auth 1234"></a>auth 1234</h3><pre><code class="bash">1.基本配置
+        <pre><code class="text">## 下载
+    Linux下载地址：wget http://download.redis.io/releases/redis-2.8.3.tar.gz
+    windows :https://github.com/dmajkic/redis/downloads
+    解压：tar xzf redis-2.8.3.tar.zg
+    cd redis-2.8.3
+
+## 启动
+    linux启动：./redis-server
+    windows启动：d: &amp; cd D:\Redis\redis-2.4.5
+    redis-server.exe redis.conf
+    客户端测试是否启动：./redis-cli
+    &gt;set foo bar
+    Ok 
+    &gt;set foo
+    &quot;bar&quot;
+    连接远程：redis-cli -h host -p port -a password 
+    例：redis-cli -h 127.0.0.1 -p 6379 -a &quot;mypass&quot;
+## 可视化工具下载
+    http://redisdesktop.com/download
+## 检查端口                                                               
+###    [root@luo redis-2.8.3]# firewall-cmd --query-port=6379/tcp
+###    no 
+###    [root@luo redis-2.8.3]# firewall-cmd --add-port=6379/tcp
+###    设置密码：config set requirepass 1234 
+![密码所在redis.conf](http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png)
+###        auth 1234
+</code></pre>
+<pre><code class="bash">1.基本配置
 内存单位的表示
 
  1k =&amp;gt; 1000 bytes
@@ -400,7 +421,8 @@ unixsocketperm 755            //sock文件的权限
 
 timeout 0
 
-如果对方down了或者中间网络断了发送ACK到客户端在指定的时间内没有收到对方的回应就断开TCP链接（时间单位秒记），此参数会受到内核参数的影响，推荐配置60。
+如果对方down了或者中间网络断了发送ACK到客户端在指定的时间内没有收到对方的回应就断开TCP链接   
+（时间单位秒记），此参数会受到内核参数的影响，推荐配置60。
 
 tcp-keepalive 0
 
@@ -413,7 +435,8 @@ tcp-keepalive 0
 
 loglevel notice
 
-日志输出文件，默认在前端运行的时候此key的默认值是stdout输出到终端，如果用守护进程运行此key的stdout的时候将日志输入到/dev/null，如果想记录日志，就必须为其指定logfile位置
+日志输出文件，默认在前端运行的时候此key的默认值是stdout输出到终端，如果用守护进程运行此key的stdout  
+的时候将日志输入到/dev/null，如果想记录日志，就必须为其指定logfile位置
 
 logfile /var/<span class="built_in">log</span>/redis.log
 
@@ -433,7 +456,8 @@ syslog-facility local0
 
 databases 16
 
-设置数据库的数量。默认数据库DB 0，你可以选择一个不同的per-connection的使用SELECT&amp;lt;dbid&amp;gt;这儿的DBID是一个介于0和<span class="string">'databases'</span>-1
+设置数据库的数量。默认数据库DB 0，你可以选择一个不同的per-connection的使用SELECT&amp;lt;dbid&amp;gt;这儿的  
+DBID是一个介于0和<span class="string">'databases'</span>-1
 
 databases 16
 
@@ -454,11 +478,13 @@ save 60 10000
 
 stop-writes-on-bgsave-error yes
 
-是否将字符串用LZF压缩到.rdb 数据库中，如果想节省CPU资源可以将其设置成no，但是字符串存储在磁盘上占用空间会很大，默认是yes
+是否将字符串用LZF压缩到.rdb 数据库中，如果想节省CPU资源可以将其设置成no，但是字符串存储在磁盘上占用  
+空间会很大，默认是yes
 
 rdbcompression yes
 
-rdb文件的校验，如果校验将避免文件格式坏掉，如果不校验将在每次操作文件时要付出校验过程的资源新能，将此参数设置为no，将跳过校验
+rdb文件的校验，如果校验将避免文件格式坏掉，如果不校验将在每次操作文件时要付出校验过程的资源新能，  
+将此参数设置为no，将跳过校验
 
 rdbchecksum yes
 
@@ -481,7 +507,8 @@ master的验证密码
 
 masterauth &amp;lt;master-password&amp;gt;
 
-当从主机脱离主的链接时，如果此值为yes当客户端查询从时，回响应客户端，如果是第一次同步回返回一个日期数据或这空值，如果设置为no，则返回“SYNC with master <span class="keyword">in</span> progress”到INFO and SLAVEOF
+当从主机脱离主的链接时，如果此值为yes当客户端查询从时，回响应客户端，如果是第一次同步回返回一个  
+日期数据或这空值，如果设置为no，则返回“SYNC with master <span class="keyword">in</span> progress”到INFO and SLAVEOF
 
 slave-serve-stale-data yes
 
@@ -497,11 +524,14 @@ repl-ping-slave-period 10
 
 repl-timeout 60
 
-此选项如果是“yes”那么Redis的使用数量较少的TCP数据包和更少的带宽将数据发送到，在从主机上延迟40毫秒（linux kernel中的40毫秒）出现。如果是no将在slave中减少延迟，但是流量使用回相对多一些，如果用多个从主机，此处建议设置成yes
+此选项如果是“yes”那么Redis的使用数量较少的TCP数据包和更少的带宽将数据发送到，在从主机上延迟40毫秒  
+（linux kernel中的40毫秒）出现。如果是no将在slave中减少延迟，但是流量使用回相对多一些，如果用多个  
+从主机，此处建议设置成yes
 
 repl-disable-tcp-nodelay no
 
-从主机的优先级，如果当主主机挂了的时候，将从从主机中选取一个作为其他从机的主，首先优先级的数字最低的将成为主，0是一个特殊的级别，0将永远不会成为主。默认值是100.
+从主机的优先级，如果当主主机挂了的时候，将从从主机中选取一个作为其他从机的主，首先优先级的数字最低  
+的将成为主，0是一个特殊的级别，0将永远不会成为主。默认值是100.
 
 slave-priority 100
 </code></pre>
@@ -509,7 +539,7 @@ slave-priority 100
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjjy1xmtw0009qc0l8ifvw0z2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjjy2n4un0009kw0lupovxb68" class="article-share-link">Share</a>
       
       
     </footer>
@@ -541,16 +571,27 @@ slave-priority 100
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="newCachedThreadPool"><a href="#newCachedThreadPool" class="headerlink" title="newCachedThreadPool():"></a>newCachedThreadPool():</h1><h2 id="它是一种用于处理大量短时间工作任务的线程池，具有特点：它试图缓存线程并重用，当无线程线程可用，将会创建新的"><a href="#它是一种用于处理大量短时间工作任务的线程池，具有特点：它试图缓存线程并重用，当无线程线程可用，将会创建新的" class="headerlink" title="它是一种用于处理大量短时间工作任务的线程池，具有特点：它试图缓存线程并重用，当无线程线程可用，将会创建新的"></a>它是一种用于处理大量短时间工作任务的线程池，具有特点：它试图缓存线程并重用，当无线程线程可用，将会创建新的</h2><pre><code>工作线程，若线程闲置超过60秒，则将会终止，并移出线程池，长期闲置这种线程不会消耗什么资源，其内部使用
-SynchronousQueue作为工作队列；
-</code></pre><h1 id="newFixedThreadPool-int-nThread-："><a href="#newFixedThreadPool-int-nThread-：" class="headerlink" title="newFixedThreadPool(int nThread)："></a>newFixedThreadPool(int nThread)：</h1><h2 id="重用指定数目nThread的线程，其背后实现的是无界的工作队列，任何时候最多有nThread个工作线程是活动的，这意味着"><a href="#重用指定数目nThread的线程，其背后实现的是无界的工作队列，任何时候最多有nThread个工作线程是活动的，这意味着" class="headerlink" title="重用指定数目nThread的线程，其背后实现的是无界的工作队列，任何时候最多有nThread个工作线程是活动的，这意味着"></a>重用指定数目nThread的线程，其背后实现的是无界的工作队列，任何时候最多有nThread个工作线程是活动的，这意味着</h2><pre><code>如果任务数量超过线程数目，，将在工作队列中等待空闲线程出现，如果有工作线程退出，将会有线的工作线程创建，以
-保证nThread；
-</code></pre><h1 id="newSingleThreadExecutor"><a href="#newSingleThreadExecutor" class="headerlink" title="newSingleThreadExecutor():"></a>newSingleThreadExecutor():</h1><h2 id="它的特点是工作线程被限制为1，操作一个无界的工作队列，因此它保证所有任务都被顺序执行，最多会有一个工作任务处于"><a href="#它的特点是工作线程被限制为1，操作一个无界的工作队列，因此它保证所有任务都被顺序执行，最多会有一个工作任务处于" class="headerlink" title="它的特点是工作线程被限制为1，操作一个无界的工作队列，因此它保证所有任务都被顺序执行，最多会有一个工作任务处于"></a>它的特点是工作线程被限制为1，操作一个无界的工作队列，因此它保证所有任务都被顺序执行，最多会有一个工作任务处于</h2><pre><code>活动状态，并且不允许使用者改变工作实例，因此可避免改变线程数目；
-</code></pre><h1 id="newSingleThreadScheduledExecutor-和newScheduledThreadPool-int-corePoolSize"><a href="#newSingleThreadScheduledExecutor-和newScheduledThreadPool-int-corePoolSize" class="headerlink" title="newSingleThreadScheduledExecutor()和newScheduledThreadPool(int corePoolSize):"></a>newSingleThreadScheduledExecutor()和newScheduledThreadPool(int corePoolSize):</h1><h2 id="创建的是个ScheduleExecutorService，可以进行定时或周期性的工作调度，区别在于是单一工作线程还是多个工作线程；"><a href="#创建的是个ScheduleExecutorService，可以进行定时或周期性的工作调度，区别在于是单一工作线程还是多个工作线程；" class="headerlink" title="创建的是个ScheduleExecutorService，可以进行定时或周期性的工作调度，区别在于是单一工作线程还是多个工作线程；"></a>创建的是个ScheduleExecutorService，可以进行定时或周期性的工作调度，区别在于是单一工作线程还是多个工作线程；</h2><h1 id="newWorkStealingPool-parallelism"><a href="#newWorkStealingPool-parallelism" class="headerlink" title="newWorkStealingPool(parallelism):"></a>newWorkStealingPool(parallelism):</h1><h2 id="java-8才加入这个创建方式，其内部会构建ForkJoinPool，利用Work-Stealing算法，并行的处理任务，不保证处理顺序。"><a href="#java-8才加入这个创建方式，其内部会构建ForkJoinPool，利用Work-Stealing算法，并行的处理任务，不保证处理顺序。" class="headerlink" title="java 8才加入这个创建方式，其内部会构建ForkJoinPool，利用Work-Stealing算法，并行的处理任务，不保证处理顺序。"></a>java 8才加入这个创建方式，其内部会构建ForkJoinPool，利用Work-Stealing算法，并行的处理任务，不保证处理顺序。</h2>
+        <pre><code class="text"># newCachedThreadPool():
+## 它是一种用于处理大量短时间工作任务的线程池，具有特点：它试图缓存线程并重用，当无线程线程可用，将会创建新的
+    工作线程，若线程闲置超过60秒，则将会终止，并移出线程池，长期闲置这种线程不会消耗什么资源，其内部使用
+    SynchronousQueue作为工作队列；
+# newFixedThreadPool(int nThread)：
+## 重用指定数目nThread的线程，其背后实现的是无界的工作队列，任何时候最多有nThread个工作线程是活动的，这意味着
+    如果任务数量超过线程数目，，将在工作队列中等待空闲线程出现，如果有工作线程退出，将会有线的工作线程创建，以
+    保证nThread；
+# newSingleThreadExecutor():
+## 它的特点是工作线程被限制为1，操作一个无界的工作队列，因此它保证所有任务都被顺序执行，最多会有一个工作任务处于
+    活动状态，并且不允许使用者改变工作实例，因此可避免改变线程数目；
+# newSingleThreadScheduledExecutor()和newScheduledThreadPool(int corePoolSize):
+## 创建的是个ScheduleExecutorService，可以进行定时或周期性的工作调度，区别在于是单一工作线程还是多个工作线程；
+# newWorkStealingPool(parallelism):
+## java 8才加入这个创建方式，其内部会构建ForkJoinPool，利用Work-Stealing算法，并行的处理任务，不保证处理顺序。
+</code></pre>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/09/Java线程池创建配置/" data-id="cjjy1xmtp0003qc0l6u3znmqs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/09/Java线程池创建配置/" data-id="cjjy2n4uf0003kw0lqh3vyz5q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -587,7 +628,7 @@ SynchronousQueue作为工作队列；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/06/ActiveMQ/" data-id="cjjy1xmtn0002qc0lf5qaowzz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/06/ActiveMQ/" data-id="cjjy2n4u60000kw0l7zkbcah7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -619,16 +660,16 @@ SynchronousQueue作为工作队列；
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="如何处理并发和同步："><a href="#如何处理并发和同步：" class="headerlink" title="如何处理并发和同步："></a>如何处理并发和同步：</h2><h3 id="1-在程序中使用线程的锁机制完成并发控制，"><a href="#1-在程序中使用线程的锁机制完成并发控制，" class="headerlink" title="1. 在程序中使用线程的锁机制完成并发控制，"></a>1. 在程序中使用线程的锁机制完成并发控制，</h3><h3 id="2-在利用数据库的锁机制，如：悲观锁和乐观锁"><a href="#2-在利用数据库的锁机制，如：悲观锁和乐观锁" class="headerlink" title="2. 在利用数据库的锁机制，如：悲观锁和乐观锁"></a>2. 在利用数据库的锁机制，如：悲观锁和乐观锁</h3><h4 id="悲观锁-："><a href="#悲观锁-：" class="headerlink" title="悲观锁 ："></a>悲观锁 ：</h4><pre><code>就是在查询语句后面加上for update，查询时锁住表的字段不可更新操作，直到事务提交，才会释放锁，
+        <h2 id="如何处理并发和同步："><a href="#如何处理并发和同步：" class="headerlink" title="如何处理并发和同步："></a>如何处理并发和同步：</h2><h3 id="1-在程序中使用线程的锁机制完成并发控制，"><a href="#1-在程序中使用线程的锁机制完成并发控制，" class="headerlink" title="1. 在程序中使用线程的锁机制完成并发控制，"></a>1. 在程序中使用线程的锁机制完成并发控制，</h3><h3 id="2-在利用数据库的锁机制，如：悲观锁和乐观锁"><a href="#2-在利用数据库的锁机制，如：悲观锁和乐观锁" class="headerlink" title="2. 在利用数据库的锁机制，如：悲观锁和乐观锁"></a>2. 在利用数据库的锁机制，如：悲观锁和乐观锁</h3><h4 id="悲观锁-："><a href="#悲观锁-：" class="headerlink" title="悲观锁 ："></a>悲观锁 ：</h4><pre><code>就是在查询语句后面加上for update，查询时锁住表的字段不可更新操作，直到事务提交，才会释放锁，  
 缺点：对于大量数据操作时，资源浪费严重
-</code></pre><h4 id="乐观锁："><a href="#乐观锁：" class="headerlink" title="乐观锁："></a>乐观锁：</h4><pre><code>在表结构基础上添加一个版本冗余字段，没对数据库中数据操作一次该字段进行一次加1，只有比当前版本大的数据才可入库，
-对于大量数据的操作一般都是用乐观锁。
+</code></pre><h4 id="乐观锁："><a href="#乐观锁：" class="headerlink" title="乐观锁："></a>乐观锁：</h4><pre><code>在表结构基础上添加一个版本冗余字段，没对数据库中数据操作一次该字段进行一次加1，只有比当前版本  
+大的数据才可入库，对于大量数据的操作一般都是用乐观锁。
 </code></pre><h2 id="对于大量数据处理："><a href="#对于大量数据处理：" class="headerlink" title="对于大量数据处理："></a>对于大量数据处理：</h2><h3 id="分表存储，如通过时间分，或者某些字段分"><a href="#分表存储，如通过时间分，或者某些字段分" class="headerlink" title="分表存储，如通过时间分，或者某些字段分"></a>分表存储，如通过时间分，或者某些字段分</h3><h3 id="对于大量并发请："><a href="#对于大量并发请：" class="headerlink" title="对于大量并发请："></a>对于大量并发请：</h3><h3 id="1-提高访问带宽，"><a href="#1-提高访问带宽，" class="headerlink" title="1.提高访问带宽，"></a>1.提高访问带宽，</h3><h3 id="2-搭建负载均衡服务器，"><a href="#2-搭建负载均衡服务器，" class="headerlink" title="2.搭建负载均衡服务器，"></a>2.搭建负载均衡服务器，</h3><h3 id="3-oracle分表机制，进行分表，"><a href="#3-oracle分表机制，进行分表，" class="headerlink" title="3.oracle分表机制，进行分表，"></a>3.oracle分表机制，进行分表，</h3><h3 id="4-不持续操作数据库，使用缓存技术，"><a href="#4-不持续操作数据库，使用缓存技术，" class="headerlink" title="4.不持续操作数据库，使用缓存技术，"></a>4.不持续操作数据库，使用缓存技术，</h3><h3 id="5，使用静态页面"><a href="#5，使用静态页面" class="headerlink" title="5，使用静态页面"></a>5，使用静态页面</h3><p>More info: <a href="https://www.cnblogs.com/lr393993507/p/5909804.html" target="_blank" rel="noopener">更多</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/java并发处理/" data-id="cjjy1xmtt0006qc0lm4elt75m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/04/java并发处理/" data-id="cjjy2n4uk0007kw0l4ox4gmk2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -660,29 +701,36 @@ SynchronousQueue作为工作队列；
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="程序计数器："><a href="#程序计数器：" class="headerlink" title="程序计数器："></a>程序计数器：</h2><pre><code>内存空间较小，用于记录字节码执行的行号，多线程切换线程记录执行行数，属于线程私有，并且不会OutOfMemoryError 
-</code></pre><h2 id="java虚拟机栈："><a href="#java虚拟机栈：" class="headerlink" title="java虚拟机栈："></a>java虚拟机栈：</h2><pre><code>java方法执行的内存模型，每个方法执行都会创建一个栈帧用于存储局部变量表，操作栈，动态链接，方法出口。
-方法的执行过程就是进栈和出栈的过程。所说的堆内存和栈内存中栈就是虚拟机栈，也可以说是虚拟机栈中
-的局部变量表。局部变量表存放编译器可知的各种基本数据类型和对象引用。属于线程私有，如果线程请求的
-栈深度大于虚拟机所允许的深度，将抛出StackOverflowError 异常；如果虚拟机栈可以动态扩展
-当扩展时无法申请到足够的内存时会抛出OutOfMemoryError 异常。
-</code></pre><h2 id="本地方法栈与虚拟机栈相似。"><a href="#本地方法栈与虚拟机栈相似。" class="headerlink" title="本地方法栈与虚拟机栈相似。"></a>本地方法栈与虚拟机栈相似。</h2><h2 id="堆："><a href="#堆：" class="headerlink" title="堆："></a>堆：</h2><pre><code>内存中最大的一块，堆是线程共享的，虚拟机启动时创建，用于存放对象实例和数组，几乎所有的对象实例都从
-堆中分配内存。gc回收就是回收这块内存。
-从内存回收的角度看：收集器大多采用分代收集算法，即新生代和老年代或者eden空间、from durvivor 空间、
-to survivor空间等；
-从内存分配角度看: 线程共享的java堆中可能划分出多个线程私有的分配缓冲区。不同的分配是为了更好的管理和分配内存，
-无论怎么分存的都是内存对象，
-不需要物理连续地址，需逻辑连续。
-</code></pre><h2 id="方法区："><a href="#方法区：" class="headerlink" title="方法区："></a>方法区：</h2><pre><code>也是各线程共享的内存区域，用于存已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据，
-gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfMemoryError
-</code></pre><h2 id="运行时常量池："><a href="#运行时常量池：" class="headerlink" title="运行时常量池："></a>运行时常量池：</h2><pre><code>方法区的一部分，class文件除了有类的版本，字段，方法，接口还有常量池，用于放编译期生成的各种字面量和符号引用，
-这部分内容将在类加载后存放到方法区的运行时常量池，
-</code></pre><p>More info: <a href="https://www.cnblogs.com/dingyingsi/p/3760447.html" target="_blank" rel="noopener">更多</a></p>
+        <pre><code class="text">## 程序计数器：  
+    内存空间较小，用于记录字节码执行的行号，多线程切换线程记录执行行数，属于线程私有，并且不会OutOfMemoryError 
+## java虚拟机栈：  
+    java方法执行的内存模型，每个方法执行都会创建一个栈帧用于存储局部变量表，操作栈，动态链接，方法出口。  
+    方法的执行过程就是进栈和出栈的过程。所说的堆内存和栈内存中栈就是虚拟机栈，也可以说是虚拟机栈中  
+    的局部变量表。局部变量表存放编译器可知的各种基本数据类型和对象引用。属于线程私有，如果线程请求的  
+    栈深度大于虚拟机所允许的深度，将抛出StackOverflowError 异常；如果虚拟机栈可以动态扩展  
+    当扩展时无法申请到足够的内存时会抛出OutOfMemoryError 异常。
+## 本地方法栈与虚拟机栈相似。
+## 堆：
+    内存中最大的一块，堆是线程共享的，虚拟机启动时创建，用于存放对象实例和数组，几乎所有的对象实例都从  
+    堆中分配内存。gc回收就是回收这块内存。  
+    从内存回收的角度看：收集器大多采用分代收集算法，即新生代和老年代或者eden空间、from durvivor 空间、  
+    to survivor空间等；  
+    从内存分配角度看: 线程共享的java堆中可能划分出多个线程私有的分配缓冲区。不同的分配是为了更好的管理和分配内存，  
+    无论怎么分存的都是内存对象，  
+    不需要物理连续地址，需逻辑连续。  
+## 方法区：  
+    也是各线程共享的内存区域，用于存已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据，  
+    gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfMemoryError  
+## 运行时常量池：  
+    方法区的一部分，class文件除了有类的版本，字段，方法，接口还有常量池，用于放编译期生成的各种字面量和符号引用，  
+    这部分内容将在类加载后存放到方法区的运行时常量池，  
+</code></pre>
+<p>More info: <a href="https://www.cnblogs.com/dingyingsi/p/3760447.html" target="_blank" rel="noopener">更多</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjjy1xmtu0007qc0lgvp4bqd6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjjy2n4um0008kw0lu7zmb2co" class="article-share-link">Share</a>
       
       
     </footer>
@@ -714,17 +762,21 @@ gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfM
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="新域"><a href="#新域" class="headerlink" title="新域"></a>新域</h2><pre><code>几乎所有对象都在新域里，新域里的对象大多都是短命的，通过GC复制算法将使用空间的存活对象
-复制到保留空间中，然后清空使用空间中不存活的对象，两个空间对换名称，重复复制几次，将最终存活的少量对象
-发到survior里面，survivor再放到老域
-</code></pre><h2 id="老域"><a href="#老域" class="headerlink" title="老域"></a>老域</h2><pre><code>存在对象使用追踪算法，称为标记-清除-压缩（开销大）收集器；满了触发full GC（很耗内存）进行回收
-</code></pre><h2 id="注"><a href="#注" class="headerlink" title="注"></a>注</h2><pre><code>+ 如果GC一次运行周期超过3-5秒，这会很影响应用程序的运行，如果可以，应该减少JVM堆的大小了。
-+ 通常情况下，JVM堆的大小应为物理内存的80%。
+        <pre><code class="text">## 新域
+    几乎所有对象都在新域里，新域里的对象大多都是短命的，通过GC复制算法将使用空间的存活对象
+    复制到保留空间中，然后清空使用空间中不存活的对象，两个空间对换名称，重复复制几次，将最终存活的少量对象
+    发到survior里面，survivor再放到老域
+## 老域
+    存在对象使用追踪算法，称为标记-清除-压缩（开销大）收集器；满了触发full GC（很耗内存）进行回收
+## 注
+    + 如果GC一次运行周期超过3-5秒，这会很影响应用程序的运行，如果可以，应该减少JVM堆的大小了。
+    + 通常情况下，JVM堆的大小应为物理内存的80%。
 </code></pre>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/22/jvmGC机制/" data-id="cjjy1xmtv0008qc0labgdm9fn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/22/jvmGC机制/" data-id="cjjy2n4ui0005kw0lvwp9czj9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -756,65 +808,84 @@ gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfM
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>IO的方式通常分为几种，同步阻塞的BIO、同步非阻塞的NIO、异步非阻塞的AIO。</p>
-<h2 id="BIO"><a href="#BIO" class="headerlink" title="BIO"></a>BIO</h2><pre><code>在JDK1.4出来之前，我们建立网络连接的时候采用BIO模式，需要先在服务端启动一个ServerSocket，
-然后在客户端启动Socket来对服务端进行通信，默认情况下服务端需要对每个请求建立一堆线程等待请求，
-而客户端发送请求后，先咨询服务端是否有线程相应，如果没有则会一直等待或者遭到拒绝请求，如果有的话，
-客户端会线程会等待请求结束后才继续执行。
-</code></pre><h2 id="NIO"><a href="#NIO" class="headerlink" title="NIO"></a>NIO</h2><pre><code> NIO本身是基于事件驱动思想来完成的，其主要想解决的是BIO的大并发问题： 在使用同步I/O的网络应用中，
- 如果要同时处理多个客户端请求，或是在客户端要同时和多个服务器进行通讯，就必须使用多线程来处理。
- 也就是说，将每一个客户端请求分配给一个线程来单独处理。这样做虽然可以达到我们的要求，但同时又会
- 带来另外一个问题。由于每创建一个线程，就要为这个线程分配一定的内存空间（也叫工作存储器），
- 而且操作系统本身也对线程的总数有一定的限制。如果客户端的请求过多，服务端程序可能会因为不堪重
- 负而拒绝客户端的请求，甚至服务器可能会因此而瘫痪。
+        <pre><code class="text">IO的方式通常分为几种，同步阻塞的BIO、同步非阻塞的NIO、异步非阻塞的AIO。
+## BIO  
+    在JDK1.4出来之前，我们建立网络连接的时候采用BIO模式，需要先在服务端启动一个ServerSocket，  
+    然后在客户端启动Socket来对服务端进行通信，默认情况下服务端需要对每个请求建立一堆线程等待请求，  
+    而客户端发送请求后，先咨询服务端是否有线程相应，如果没有则会一直等待或者遭到拒绝请求，如果有的话，  
+    客户端会线程会等待请求结束后才继续执行。
+## NIO
+     NIO本身是基于事件驱动思想来完成的，其主要想解决的是BIO的大并发问题： 在使用同步I/O的网络应用中，  
+     如果要同时处理多个客户端请求，或是在客户端要同时和多个服务器进行通讯，就必须使用多线程来处理。  
+     也就是说，将每一个客户端请求分配给一个线程来单独处理。这样做虽然可以达到我们的要求，但同时又会  
+     带来另外一个问题。由于每创建一个线程，就要为这个线程分配一定的内存空间（也叫工作存储器），  
+     而且操作系统本身也对线程的总数有一定的限制。如果客户端的请求过多，服务端程序可能会因为不堪重  
+     负而拒绝客户端的请求，甚至服务器可能会因此而瘫痪。
 
-NIO基于Reactor，当socket有流可读或可写入socket时，操作系统会相应的通知引用程序进行处理，应用再
-将流读取到缓冲区或写入操作系统。  也就是说，这个时候，已经不是一个连接就要对应一个处理线程了，
-而是有效的请求，对应一个线程，当连接
-没有数据时，是没有工作线程来处理的。
-</code></pre><p>   BIO与NIO一个比较重要的不同，是我们使用BIO的时候往往会引入多线程，每个连接一个单独的线程；而NIO则<br>   是使用单线程或者只使用少量的多线程，每个连接共用一个线程。<br>    NIO的最重要的地方是当一个连接创建后，不需要对应一个线程，这个连接会被注册到多路复用器上面，所以<br>    所有的连接只需要一个线程就可以搞定，当这个线程中的多路复用器进行轮询的时候，发现连接上有请求的话，<br>    才开启一个线程进行处理，也就是一个请求一个线程模式。</p>
-<pre><code>在NIO的处理方式中，当一个请求来的话，开启线程进行处理，可能会等待后端应用的资源(JDBC连接等)，其实这个线程就被阻塞了，当并发上来的话，还是会有BIO一样的问题。
-</code></pre><p>　　HTTP/1.1出现后，有了Http长连接，这样除了超时和指明特定关闭的http header外，<br>    这个链接是一直打开的状态的，这样在NIO处理中可以进一步的进化，在后端资源中可以实现资源池或者队列，<br>    当请求来的话，开启的线程把请求和请求数据传送给后端资源池或者队列里面就返回，并且在全局的地方保<br>    持住这个现场(哪个连接的哪个请求等)，这样前面的线程还是可以去接受其他的请求，而后端的应用的处理<br>    只需要执行队列里面的就可以了，这样请求处理和后端应用是异步的.当后端处理完，到全局地方得到现场，<br>    产生响应，这个就实现了异步处理。</p>
-<h2 id="AIO"><a href="#AIO" class="headerlink" title="AIO"></a>AIO</h2><pre><code>在JDK1.7中，这部分内容被称作NIO.2，主要在java.nio.channels包下增加了下面四个异步通道：
-</code></pre><h3 id="AsynchronousSocketChannel"><a href="#AsynchronousSocketChannel" class="headerlink" title="AsynchronousSocketChannel"></a>AsynchronousSocketChannel</h3><h3 id="AsynchronousServerSocketChannel"><a href="#AsynchronousServerSocketChannel" class="headerlink" title="AsynchronousServerSocketChannel"></a>AsynchronousServerSocketChannel</h3><h3 id="AsynchronousFileChannel"><a href="#AsynchronousFileChannel" class="headerlink" title="AsynchronousFileChannel"></a>AsynchronousFileChannel</h3><h3 id="AsynchronousDatagramChannel"><a href="#AsynchronousDatagramChannel" class="headerlink" title="AsynchronousDatagramChannel"></a>AsynchronousDatagramChannel</h3><pre><code>与NIO不同，当进行读写操作时，只须直接调用API的read或write方法即可。这两种方法均为异步的，对于读
-操作而言，当有流可读取时，操作系统会将可读的流传入read方法的缓冲区，并通知应用程序；对于写操作而言，
-当操作系统将write方法传递的流写入完毕时，操作系统主动通知应用程序。  即可以理解为，read/write方法
-都是异步的，完成后会主动调用回调函数。  
+    NIO基于Reactor，当socket有流可读或可写入socket时，操作系统会相应的通知引用程序进行处理，应用再  
+    将流读取到缓冲区或写入操作系统。  也就是说，这个时候，已经不是一个连接就要对应一个处理线程了，  
+    而是有效的请求，对应一个线程，当连接没有数据时，是没有工作线程来处理的。
 
-其中的read/write方法，会返回一个带回调函数的对象，当执行完读取/写入操作后，直接调用回调函数。
+   BIO与NIO一个比较重要的不同，是我们使用BIO的时候往往会引入多线程，每个连接一个单独的线程；而NIO则  
+   是使用单线程或者只使用少量的多线程，每个连接共用一个线程。  
+    NIO的最重要的地方是当一个连接创建后，不需要对应一个线程，这个连接会被注册到多路复用器上面，所以  
+    所有的连接只需要一个线程就可以搞定，当这个线程中的多路复用器进行轮询的时候，发现连接上有请求的话，  
+    才开启一个线程进行处理，也就是一个请求一个线程模式。
 
-BIO是一个连接一个线程。
+    在NIO的处理方式中，当一个请求来的话，开启线程进行处理，可能会等待后端应用的资源(JDBC连接等)  ，其实这个线程就被阻塞了，当并发上来的话，还是会有BIO一样的问题。
 
-NIO是一个请求一个线程。
+　　HTTP/1.1出现后，有了Http长连接，这样除了超时和指明特定关闭的http header外，  
+    这个链接是一直打开的状态的，这样在NIO处理中可以进一步的进化，在后端资源中可以实现资源池或者队列，  
+    当请求来的话，开启的线程把请求和请求数据传送给后端资源池或者队列里面就返回，并且在全局的地方保  
+    持住这个现场(哪个连接的哪个请求等)，这样前面的线程还是可以去接受其他的请求，而后端的应用的处理  
+    只需要执行队列里面的就可以了，这样请求处理和后端应用是异步的.当后端处理完，到全局地方得到现场，  
+    产生响应，这个就实现了异步处理。
+## AIO
+    在JDK1.7中，这部分内容被称作NIO.2，主要在java.nio.channels包下增加了下面四个异步通道：  
+### AsynchronousSocketChannel
+### AsynchronousServerSocketChannel
+### AsynchronousFileChannel
+### AsynchronousDatagramChannel
+    与NIO不同，当进行读写操作时，只须直接调用API的read或write方法即可。这两种方法均为异步的，对于读  
+    操作而言，当有流可读取时，操作系统会将可读的流传入read方法的缓冲区，并通知应用程序；对于写操作而言，  
+    当操作系统将write方法传递的流写入完毕时，操作系统主动通知应用程序。  即可以理解为，read/write方法  
+    都是异步的，完成后会主动调用回调函数。  
 
-AIO是一个有效请求一个线程。
+    其中的read/write方法，会返回一个带回调函数的对象，当执行完读取/写入操作后，直接调用回调函数。  
+
+    BIO是一个连接一个线程。  
+
+    NIO是一个请求一个线程。  
+
+    AIO是一个有效请求一个线程。  
 
 
-Java BIO ： 同步并阻塞，服务器实现模式为一个连接一个线程，
-即客户端有连接请求时服务器端就需要启动一个线程进行处理，如果这个连接不做任何事情会造成不必要的线程开销，
-当然可以通过线程池机制改善。
+    Java BIO ： 同步并阻塞，服务器实现模式为一个连接一个线程，  
+    即客户端有连接请求时服务器端就需要启动一个线程进行处理，如果这个连接不做任何事情会造成不必要的线程开销，  
+    当然可以通过线程池机制改善。  
 
-Java NIO ： 同步非阻塞，服务器实现模式为一个请求一个线程，即客户端发送的连接请求都会注册到多路复用器上，
-多路复用器轮询到连接有I/O请求时才启动一个线程进行处理。
+    Java NIO ： 同步非阻塞，服务器实现模式为一个请求一个线程，即客户端发送的连接请求都会注册到多路复用器上，  
+    多路复用器轮询到连接有I/O请求时才启动一个线程进行处理。  
 
-Java AIO(NIO.2) ： 异步非阻塞，服务器实现模式为一个有效请求一个线程，客户端的I/O请求都是由OS先完
-成了再通知服务器应用去启动线程进行处理，
+    Java AIO(NIO.2) ： 异步非阻塞，服务器实现模式为一个有效请求一个线程，客户端的I/O请求都是由OS先完  
+    成了再通知服务器应用去启动线程进行处理，  
 
-BIO、NIO、AIO适用场景分析:
+    BIO、NIO、AIO适用场景分析:  
 
-BIO方式适用于连接数目比较小且固定的架构，这种方式对服务器资源要求比较高，
-并发局限于应用中，JDK1.4以前的唯一选择，但程序直观简单易理解。
+    BIO方式适用于连接数目比较小且固定的架构，这种方式对服务器资源要求比较高，  
+    并发局限于应用中，JDK1.4以前的唯一选择，但程序直观简单易理解。  
 
-NIO方式适用于连接数目多且连接比较短（轻操作）的架构，
-比如聊天服务器，并发局限于应用中，编程比较复杂，JDK1.4开始支持。
+    NIO方式适用于连接数目多且连接比较短（轻操作）的架构，  
+    比如聊天服务器，并发局限于应用中，编程比较复杂，JDK1.4开始支持。  
 
-AIO方式使用于连接数目多且连接比较长（重操作）的架构，比如相册服务器，
-充分调用OS参与并发操作，编程比较复杂，JDK7开始支持。
+    AIO方式使用于连接数目多且连接比较长（重操作）的架构，比如相册服务器，  
+    充分调用OS参与并发操作，编程比较复杂，JDK7开始支持。
 </code></pre>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjjy1xmtg0000qc0lwbk5vbqx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjjy2n4ud0002kw0lyvkr2lco" class="article-share-link">Share</a>
       
       
     </footer>
@@ -852,7 +923,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/MySQL时间增加/" data-id="cjjy1xmtq0004qc0layrdczjd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/MySQL时间增加/" data-id="cjjy2n4ug0004kw0lpr1xamic" class="article-share-link">Share</a>
       
       
     </footer>

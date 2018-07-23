@@ -7,17 +7,17 @@
   
   <title>Redis 安装的坑 | 。。。。</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="下载Linux下载地址：wget http://download.redis.io/releases/redis-2.8.3.tar.gz windows :https://github.com/dmajkic/redis/downloads 解压：tar xzf redis-2.8.3.tar.zg cd redis-2.8.3 启动linux启动：./redis-server windows启">
+  <meta name="description" content="## 下载     Linux下载地址：wget http://download.redis.io/releases/redis-2.8.3.tar.gz     windows :https://github.com/dmajkic/redis/downloads     解压：tar xzf redis-2.8.3.tar.zg     cd redis-2.8.3  ## 启动     li">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis 安装的坑">
 <meta property="og:url" content="http://yoursite.com/2018/07/12/redis安装笔记/index.html">
 <meta property="og:site_name" content="。。。。">
-<meta property="og:description" content="下载Linux下载地址：wget http://download.redis.io/releases/redis-2.8.3.tar.gz windows :https://github.com/dmajkic/redis/downloads 解压：tar xzf redis-2.8.3.tar.zg cd redis-2.8.3 启动linux启动：./redis-server windows启">
+<meta property="og:description" content="## 下载     Linux下载地址：wget http://download.redis.io/releases/redis-2.8.3.tar.gz     windows :https://github.com/dmajkic/redis/downloads     解压：tar xzf redis-2.8.3.tar.zg     cd redis-2.8.3  ## 启动     li">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-12T09:23:02.175Z">
+<meta property="og:updated_time" content="2018-07-23T09:25:08.699Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis 安装的坑">
-<meta name="twitter:description" content="下载Linux下载地址：wget http://download.redis.io/releases/redis-2.8.3.tar.gz windows :https://github.com/dmajkic/redis/downloads 解压：tar xzf redis-2.8.3.tar.zg cd redis-2.8.3 启动linux启动：./redis-server windows启">
+<meta name="twitter:description" content="## 下载     Linux下载地址：wget http://download.redis.io/releases/redis-2.8.3.tar.gz     windows :https://github.com/dmajkic/redis/downloads     解压：tar xzf redis-2.8.3.tar.zg     cd redis-2.8.3  ## 启动     li">
   
     <link rel="alternate" href="/atom.xml" title="。。。。" type="application/atom+xml">
   
@@ -92,21 +92,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><pre><code>Linux下载地址：wget http://download.redis.io/releases/redis-2.8.3.tar.gz
-windows :https://github.com/dmajkic/redis/downloads
-解压：tar xzf redis-2.8.3.tar.zg
-cd redis-2.8.3
-</code></pre><h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><pre><code>linux启动：./redis-server
-windows启动：d: &amp; cd D:\Redis\redis-2.4.5
-redis-server.exe redis.conf
-客户端测试是否启动：./redis-cli
-&gt;set foo bar
-Ok 
-&gt;set foo
-&quot;bar&quot;
-连接远程：redis-cli -h host -p port -a password 例：redis-cli -h 127.0.0.1 -p 6379 -a &quot;mypass&quot;
-</code></pre><h2 id="可视化工具下载"><a href="#可视化工具下载" class="headerlink" title="可视化工具下载"></a>可视化工具下载</h2><pre><code>http://redisdesktop.com/download
-</code></pre><h2 id="检查端口"><a href="#检查端口" class="headerlink" title="检查端口"></a>检查端口</h2><h3 id="root-luo-redis-2-8-3-firewall-cmd-–query-port-6379-tcp"><a href="#root-luo-redis-2-8-3-firewall-cmd-–query-port-6379-tcp" class="headerlink" title="[root@luo redis-2.8.3]# firewall-cmd –query-port=6379/tcp"></a>[root@luo redis-2.8.3]# firewall-cmd –query-port=6379/tcp</h3><h3 id="no"><a href="#no" class="headerlink" title="no"></a>no</h3><h3 id="root-luo-redis-2-8-3-firewall-cmd-–add-port-6379-tcp"><a href="#root-luo-redis-2-8-3-firewall-cmd-–add-port-6379-tcp" class="headerlink" title="[root@luo redis-2.8.3]# firewall-cmd –add-port=6379/tcp"></a>[root@luo redis-2.8.3]# firewall-cmd –add-port=6379/tcp</h3><h3 id="设置密码：config-set-requirepass-1234-密码所在redis-conf-http-images2015-cnblogs-com-blog-758998-201612-758998-20161214214725636-1530839128-png"><a href="#设置密码：config-set-requirepass-1234-密码所在redis-conf-http-images2015-cnblogs-com-blog-758998-201612-758998-20161214214725636-1530839128-png" class="headerlink" title="设置密码：config set requirepass 1234 ![密码所在redis.conf] http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png"></a>设置密码：config set requirepass 1234 ![密码所在redis.conf] <a href="http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png" target="_blank" rel="noopener">http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png</a></h3><h3 id="auth-1234"><a href="#auth-1234" class="headerlink" title="auth 1234"></a>auth 1234</h3><pre><code class="bash">1.基本配置
+        <pre><code class="text">## 下载
+    Linux下载地址：wget http://download.redis.io/releases/redis-2.8.3.tar.gz
+    windows :https://github.com/dmajkic/redis/downloads
+    解压：tar xzf redis-2.8.3.tar.zg
+    cd redis-2.8.3
+
+## 启动
+    linux启动：./redis-server
+    windows启动：d: &amp; cd D:\Redis\redis-2.4.5
+    redis-server.exe redis.conf
+    客户端测试是否启动：./redis-cli
+    &gt;set foo bar
+    Ok 
+    &gt;set foo
+    &quot;bar&quot;
+    连接远程：redis-cli -h host -p port -a password 
+    例：redis-cli -h 127.0.0.1 -p 6379 -a &quot;mypass&quot;
+## 可视化工具下载
+    http://redisdesktop.com/download
+## 检查端口                                                               
+###    [root@luo redis-2.8.3]# firewall-cmd --query-port=6379/tcp
+###    no 
+###    [root@luo redis-2.8.3]# firewall-cmd --add-port=6379/tcp
+###    设置密码：config set requirepass 1234 
+![密码所在redis.conf](http://images2015.cnblogs.com/blog/758998/201612/758998-20161214214725636-1530839128.png)
+###        auth 1234
+</code></pre>
+<pre><code class="bash">1.基本配置
 内存单位的表示
 
  1k =&amp;gt; 1000 bytes
@@ -144,7 +157,8 @@ unixsocketperm 755            //sock文件的权限
 
 timeout 0
 
-如果对方down了或者中间网络断了发送ACK到客户端在指定的时间内没有收到对方的回应就断开TCP链接（时间单位秒记），此参数会受到内核参数的影响，推荐配置60。
+如果对方down了或者中间网络断了发送ACK到客户端在指定的时间内没有收到对方的回应就断开TCP链接   
+（时间单位秒记），此参数会受到内核参数的影响，推荐配置60。
 
 tcp-keepalive 0
 
@@ -157,7 +171,8 @@ tcp-keepalive 0
 
 loglevel notice
 
-日志输出文件，默认在前端运行的时候此key的默认值是stdout输出到终端，如果用守护进程运行此key的stdout的时候将日志输入到/dev/null，如果想记录日志，就必须为其指定logfile位置
+日志输出文件，默认在前端运行的时候此key的默认值是stdout输出到终端，如果用守护进程运行此key的stdout  
+的时候将日志输入到/dev/null，如果想记录日志，就必须为其指定logfile位置
 
 logfile /var/<span class="built_in">log</span>/redis.log
 
@@ -177,7 +192,8 @@ syslog-facility local0
 
 databases 16
 
-设置数据库的数量。默认数据库DB 0，你可以选择一个不同的per-connection的使用SELECT&amp;lt;dbid&amp;gt;这儿的DBID是一个介于0和<span class="string">'databases'</span>-1
+设置数据库的数量。默认数据库DB 0，你可以选择一个不同的per-connection的使用SELECT&amp;lt;dbid&amp;gt;这儿的  
+DBID是一个介于0和<span class="string">'databases'</span>-1
 
 databases 16
 
@@ -198,11 +214,13 @@ save 60 10000
 
 stop-writes-on-bgsave-error yes
 
-是否将字符串用LZF压缩到.rdb 数据库中，如果想节省CPU资源可以将其设置成no，但是字符串存储在磁盘上占用空间会很大，默认是yes
+是否将字符串用LZF压缩到.rdb 数据库中，如果想节省CPU资源可以将其设置成no，但是字符串存储在磁盘上占用  
+空间会很大，默认是yes
 
 rdbcompression yes
 
-rdb文件的校验，如果校验将避免文件格式坏掉，如果不校验将在每次操作文件时要付出校验过程的资源新能，将此参数设置为no，将跳过校验
+rdb文件的校验，如果校验将避免文件格式坏掉，如果不校验将在每次操作文件时要付出校验过程的资源新能，  
+将此参数设置为no，将跳过校验
 
 rdbchecksum yes
 
@@ -225,7 +243,8 @@ master的验证密码
 
 masterauth &amp;lt;master-password&amp;gt;
 
-当从主机脱离主的链接时，如果此值为yes当客户端查询从时，回响应客户端，如果是第一次同步回返回一个日期数据或这空值，如果设置为no，则返回“SYNC with master <span class="keyword">in</span> progress”到INFO and SLAVEOF
+当从主机脱离主的链接时，如果此值为yes当客户端查询从时，回响应客户端，如果是第一次同步回返回一个  
+日期数据或这空值，如果设置为no，则返回“SYNC with master <span class="keyword">in</span> progress”到INFO and SLAVEOF
 
 slave-serve-stale-data yes
 
@@ -241,11 +260,14 @@ repl-ping-slave-period 10
 
 repl-timeout 60
 
-此选项如果是“yes”那么Redis的使用数量较少的TCP数据包和更少的带宽将数据发送到，在从主机上延迟40毫秒（linux kernel中的40毫秒）出现。如果是no将在slave中减少延迟，但是流量使用回相对多一些，如果用多个从主机，此处建议设置成yes
+此选项如果是“yes”那么Redis的使用数量较少的TCP数据包和更少的带宽将数据发送到，在从主机上延迟40毫秒  
+（linux kernel中的40毫秒）出现。如果是no将在slave中减少延迟，但是流量使用回相对多一些，如果用多个  
+从主机，此处建议设置成yes
 
 repl-disable-tcp-nodelay no
 
-从主机的优先级，如果当主主机挂了的时候，将从从主机中选取一个作为其他从机的主，首先优先级的数字最低的将成为主，0是一个特殊的级别，0将永远不会成为主。默认值是100.
+从主机的优先级，如果当主主机挂了的时候，将从从主机中选取一个作为其他从机的主，首先优先级的数字最低  
+的将成为主，0是一个特殊的级别，0将永远不会成为主。默认值是100.
 
 slave-priority 100
 </code></pre>
@@ -253,7 +275,7 @@ slave-priority 100
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjjy1xmtw0009qc0l8ifvw0z2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjjy2n4un0009kw0lupovxb68" class="article-share-link">Share</a>
       
       
     </footer>
