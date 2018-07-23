@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="。。。。">
 <meta property="og:description" content="IO的方式通常分为几种，同步阻塞的BIO、同步非阻塞的NIO、异步非阻塞的AIO。 ## BIO       在JDK1.4出来之前，我们建立网络连接的时候采用BIO模式，需要先在服务端启动一个ServerSocket，       然后在客户端启动Socket来对服务端进行通信，默认情况下服务端需要对每个请求建立一堆线程等待请求，       而客户端发送请求后，先咨询服务端是否有线程相应，如果">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-23T09:31:02.732Z">
+<meta property="og:updated_time" content="2018-07-23T09:33:00.650Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BIO,NIO,AIO不同">
 <meta name="twitter:description" content="IO的方式通常分为几种，同步阻塞的BIO、同步非阻塞的NIO、异步非阻塞的AIO。 ## BIO       在JDK1.4出来之前，我们建立网络连接的时候采用BIO模式，需要先在服务端启动一个ServerSocket，       然后在客户端启动Socket来对服务端进行通信，默认情况下服务端需要对每个请求建立一堆线程等待请求，       而客户端发送请求后，先咨询服务端是否有线程相应，如果">
@@ -116,7 +116,8 @@
     所有的连接只需要一个线程就可以搞定，当这个线程中的多路复用器进行轮询的时候，发现连接上有请求的话，  
     才开启一个线程进行处理，也就是一个请求一个线程模式。
 
-    在NIO的处理方式中，当一个请求来的话，开启线程进行处理，可能会等待后端应用的资源(JDBC连接等)  ，其实这个线程就被阻塞了，当并发上来的话，还是会有BIO一样的问题。
+    在NIO的处理方式中，当一个请求来的话，开启线程进行处理，可能会等待后端应用的资源(JDBC连接等)，   
+    其实这个线程就被阻塞了，当并发上来的话，还是会有BIO一样的问题。
 
 　　HTTP/1.1出现后，有了Http长连接，这样除了超时和指明特定关闭的http header外，  
     这个链接是一直打开的状态的，这样在NIO处理中可以进一步的进化，在后端资源中可以实现资源池或者队列，  
@@ -169,7 +170,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjjy2n4ud0002kw0lyvkr2lco" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjjy2pr1g0002b40l78s061be" class="article-share-link">Share</a>
       
       
     </footer>
