@@ -7,17 +7,17 @@
   
   <title>springboot对配置文件的加载 | 。。。。</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Springboot默认使用的配置文件是application.properties文件，但为方便改为application.yml文件属性加载分两种，@Value和@ConfigurationProperties@Value：加载单个属性，一个一个的属性制定@ConfigurationProperties通过配置文件相同部分的路径进行匹配属性名@Value：支持SpEL表达式，@configur">
+  <meta name="description" content="## Springboot默认使用的配置文件是application.properties文件，但为方便改为application.yml ## 文件属性加载分两种， ### @Value和@ConfigurationProperties #### @Value：加载单个属性，一个一个的属性制定@ConfigurationProperties通过配置文件相同部分的路径进行匹配属性名 #### @V">
 <meta property="og:type" content="article">
 <meta property="og:title" content="springboot对配置文件的加载">
 <meta property="og:url" content="http://yoursite.com/2018/07/16/springboot对配置文件的加载/index.html">
 <meta property="og:site_name" content="。。。。">
-<meta property="og:description" content="Springboot默认使用的配置文件是application.properties文件，但为方便改为application.yml文件属性加载分两种，@Value和@ConfigurationProperties@Value：加载单个属性，一个一个的属性制定@ConfigurationProperties通过配置文件相同部分的路径进行匹配属性名@Value：支持SpEL表达式，@configur">
+<meta property="og:description" content="## Springboot默认使用的配置文件是application.properties文件，但为方便改为application.yml ## 文件属性加载分两种， ### @Value和@ConfigurationProperties #### @Value：加载单个属性，一个一个的属性制定@ConfigurationProperties通过配置文件相同部分的路径进行匹配属性名 #### @V">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-20T02:42:19.834Z">
+<meta property="og:updated_time" content="2018-07-23T09:11:10.989Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springboot对配置文件的加载">
-<meta name="twitter:description" content="Springboot默认使用的配置文件是application.properties文件，但为方便改为application.yml文件属性加载分两种，@Value和@ConfigurationProperties@Value：加载单个属性，一个一个的属性制定@ConfigurationProperties通过配置文件相同部分的路径进行匹配属性名@Value：支持SpEL表达式，@configur">
+<meta name="twitter:description" content="## Springboot默认使用的配置文件是application.properties文件，但为方便改为application.yml ## 文件属性加载分两种， ### @Value和@ConfigurationProperties #### @Value：加载单个属性，一个一个的属性制定@ConfigurationProperties通过配置文件相同部分的路径进行匹配属性名 #### @V">
   
     <link rel="alternate" href="/atom.xml" title="。。。。" type="application/atom+xml">
   
@@ -92,7 +92,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Springboot默认使用的配置文件是application-properties文件，但为方便改为application-yml"><a href="#Springboot默认使用的配置文件是application-properties文件，但为方便改为application-yml" class="headerlink" title="Springboot默认使用的配置文件是application.properties文件，但为方便改为application.yml"></a>Springboot默认使用的配置文件是application.properties文件，但为方便改为application.yml</h2><h2 id="文件属性加载分两种，"><a href="#文件属性加载分两种，" class="headerlink" title="文件属性加载分两种，"></a>文件属性加载分两种，</h2><h3 id="Value和-ConfigurationProperties"><a href="#Value和-ConfigurationProperties" class="headerlink" title="@Value和@ConfigurationProperties"></a>@Value和@ConfigurationProperties</h3><h4 id="Value：加载单个属性，一个一个的属性制定-ConfigurationProperties通过配置文件相同部分的路径进行匹配属性名"><a href="#Value：加载单个属性，一个一个的属性制定-ConfigurationProperties通过配置文件相同部分的路径进行匹配属性名" class="headerlink" title="@Value：加载单个属性，一个一个的属性制定@ConfigurationProperties通过配置文件相同部分的路径进行匹配属性名"></a>@Value：加载单个属性，一个一个的属性制定@ConfigurationProperties通过配置文件相同部分的路径进行匹配属性名</h4><h4 id="Value：支持SpEL表达式，-configurationProperties不支持"><a href="#Value：支持SpEL表达式，-configurationProperties不支持" class="headerlink" title="@Value：支持SpEL表达式，@configurationProperties不支持"></a>@Value：支持SpEL表达式，@configurationProperties不支持</h4><h4 id="Value：不支持JSR303数据校验，-configuration支持"><a href="#Value：不支持JSR303数据校验，-configuration支持" class="headerlink" title="@Value：不支持JSR303数据校验，@configuration支持"></a>@Value：不支持JSR303数据校验，@configuration支持</h4><h4 id="value：不支持复杂数据类型封装，-configuration支持"><a href="#value：不支持复杂数据类型封装，-configuration支持" class="headerlink" title="@value：不支持复杂数据类型封装，@configuration支持"></a>@value：不支持复杂数据类型封装，@configuration支持</h4><p>例：</p>
+        <pre><code class="text">## Springboot默认使用的配置文件是application.properties文件，但为方便改为application.yml
+## 文件属性加载分两种，
+### @Value和@ConfigurationProperties
+#### @Value：加载单个属性，一个一个的属性制定@ConfigurationProperties通过配置文件相同部分的路径进行匹配属性名
+#### @Value：支持SpEL表达式，@configurationProperties不支持
+#### @Value：不支持JSR303数据校验，@configuration支持
+#### @value：不支持复杂数据类型封装，@configuration支持
+
+</code></pre>
+<p>例：</p>
 <pre><code class="yml"><span class="attr">spring:</span>
 <span class="attr">    redis:</span>
 <span class="attr">        database:</span> <span class="number">0</span> <span class="comment"># Redis数据库索引（默认为0）</span>
@@ -126,7 +135,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/16/springboot对配置文件的加载/" data-id="cjjy1ht8h000b840lazrrmwq6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/16/springboot对配置文件的加载/" data-id="cjjy1xmty000aqc0lf5mdk6wk" class="article-share-link">Share</a>
       
       
     </footer>

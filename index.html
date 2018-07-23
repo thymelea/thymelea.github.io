@@ -93,7 +93,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Springboot默认使用的配置文件是application-properties文件，但为方便改为application-yml"><a href="#Springboot默认使用的配置文件是application-properties文件，但为方便改为application-yml" class="headerlink" title="Springboot默认使用的配置文件是application.properties文件，但为方便改为application.yml"></a>Springboot默认使用的配置文件是application.properties文件，但为方便改为application.yml</h2><h2 id="文件属性加载分两种，"><a href="#文件属性加载分两种，" class="headerlink" title="文件属性加载分两种，"></a>文件属性加载分两种，</h2><h3 id="Value和-ConfigurationProperties"><a href="#Value和-ConfigurationProperties" class="headerlink" title="@Value和@ConfigurationProperties"></a>@Value和@ConfigurationProperties</h3><h4 id="Value：加载单个属性，一个一个的属性制定-ConfigurationProperties通过配置文件相同部分的路径进行匹配属性名"><a href="#Value：加载单个属性，一个一个的属性制定-ConfigurationProperties通过配置文件相同部分的路径进行匹配属性名" class="headerlink" title="@Value：加载单个属性，一个一个的属性制定@ConfigurationProperties通过配置文件相同部分的路径进行匹配属性名"></a>@Value：加载单个属性，一个一个的属性制定@ConfigurationProperties通过配置文件相同部分的路径进行匹配属性名</h4><h4 id="Value：支持SpEL表达式，-configurationProperties不支持"><a href="#Value：支持SpEL表达式，-configurationProperties不支持" class="headerlink" title="@Value：支持SpEL表达式，@configurationProperties不支持"></a>@Value：支持SpEL表达式，@configurationProperties不支持</h4><h4 id="Value：不支持JSR303数据校验，-configuration支持"><a href="#Value：不支持JSR303数据校验，-configuration支持" class="headerlink" title="@Value：不支持JSR303数据校验，@configuration支持"></a>@Value：不支持JSR303数据校验，@configuration支持</h4><h4 id="value：不支持复杂数据类型封装，-configuration支持"><a href="#value：不支持复杂数据类型封装，-configuration支持" class="headerlink" title="@value：不支持复杂数据类型封装，@configuration支持"></a>@value：不支持复杂数据类型封装，@configuration支持</h4><p>例：</p>
+        <pre><code class="text">## Springboot默认使用的配置文件是application.properties文件，但为方便改为application.yml
+## 文件属性加载分两种，
+### @Value和@ConfigurationProperties
+#### @Value：加载单个属性，一个一个的属性制定@ConfigurationProperties通过配置文件相同部分的路径进行匹配属性名
+#### @Value：支持SpEL表达式，@configurationProperties不支持
+#### @Value：不支持JSR303数据校验，@configuration支持
+#### @value：不支持复杂数据类型封装，@configuration支持
+
+</code></pre>
+<p>例：</p>
 <pre><code class="yml"><span class="attr">spring:</span>
 <span class="attr">    redis:</span>
 <span class="attr">        database:</span> <span class="number">0</span> <span class="comment"># Redis数据库索引（默认为0）</span>
@@ -127,7 +136,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/16/springboot对配置文件的加载/" data-id="cjjy1ht8h000b840lazrrmwq6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/16/springboot对配置文件的加载/" data-id="cjjy1xmty000aqc0lf5mdk6wk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -307,7 +316,7 @@ redis 127.0.0.1:6379&gt; EXEC
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/12/redis语法/" data-id="cjjy1ht8f000a840lgew57n48" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/12/redis语法/" data-id="cjjy1xmtz000bqc0lc6l33hpd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -500,7 +509,7 @@ slave-priority 100
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjjy1ht8e0009840lwtk25ar8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjjy1xmtw0009qc0l8ifvw0z2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -541,7 +550,7 @@ SynchronousQueue作为工作队列；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/09/Java线程池创建配置/" data-id="cjjy1ht870003840l3klp90m2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/09/Java线程池创建配置/" data-id="cjjy1xmtp0003qc0l6u3znmqs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -578,7 +587,7 @@ SynchronousQueue作为工作队列；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/06/ActiveMQ/" data-id="cjjy1ht7y0000840lkoge3rjx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/06/ActiveMQ/" data-id="cjjy1xmtn0002qc0lf5qaowzz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -619,7 +628,7 @@ SynchronousQueue作为工作队列；
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/java并发处理/" data-id="cjjy1ht8c0007840ldbfaxayo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/04/java并发处理/" data-id="cjjy1xmtt0006qc0lm4elt75m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -673,7 +682,7 @@ gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfM
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjjy1ht8b0006840lt5rvf0ix" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjjy1xmtu0007qc0lgvp4bqd6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -715,7 +724,7 @@ gc在该区域回收的是常量池和对数据类型的卸载，会抛出OutOfM
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/22/jvmGC机制/" data-id="cjjy1ht8d0008840lrtvlszdt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/22/jvmGC机制/" data-id="cjjy1xmtv0008qc0labgdm9fn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -805,7 +814,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjjy1ht880004840lbli9oghp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjjy1xmtg0000qc0lwbk5vbqx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -843,7 +852,7 @@ AIO方式使用于连接数目多且连接比较长（重操作）的架构，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/MySQL时间增加/" data-id="cjjy1ht850002840loop5ys1c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/MySQL时间增加/" data-id="cjjy1xmtq0004qc0layrdczjd" class="article-share-link">Share</a>
       
       
     </footer>
