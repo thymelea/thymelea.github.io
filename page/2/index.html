@@ -71,6 +71,44 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-MySQL时间增加" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/21/MySQL时间增加/" class="article-date">
+  <time datetime="2018-06-21T07:35:58.629Z" itemprop="datePublished">2018-06-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/21/MySQL时间增加/">MySQL 为日期增加一个时间间隔</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> @dt = <span class="keyword">now</span>();  </span><br><span class="line"><span class="keyword">select</span> <span class="keyword">date_add</span>(@dt, <span class="built_in">interval</span> <span class="number">1</span> <span class="keyword">day</span>);   - 加1天  </span><br><span class="line"><span class="keyword">select</span> <span class="keyword">date_add</span>(@dt, <span class="built_in">interval</span> <span class="number">1</span> <span class="keyword">hour</span>);   -加1小时  </span><br><span class="line"><span class="keyword">select</span> <span class="keyword">date_add</span>(@dt, <span class="built_in">interval</span> <span class="number">1</span> <span class="keyword">minute</span>);    - 加1分钟  </span><br><span class="line"><span class="keyword">select</span> <span class="keyword">date_add</span>(@dt, <span class="built_in">interval</span> <span class="number">1</span> <span class="keyword">second</span>); -加1秒  </span><br><span class="line"><span class="keyword">select</span> <span class="keyword">date_add</span>(@dt, <span class="built_in">interval</span> <span class="number">1</span> <span class="keyword">microsecond</span>);-加1毫秒  </span><br><span class="line"><span class="keyword">select</span> <span class="keyword">date_add</span>(@dt, <span class="built_in">interval</span> <span class="number">1</span> <span class="keyword">week</span>);-加1周  </span><br><span class="line"><span class="keyword">select</span> <span class="keyword">date_add</span>(@dt, <span class="built_in">interval</span> <span class="number">1</span> <span class="keyword">month</span>);-加1月  </span><br><span class="line"><span class="keyword">select</span> <span class="keyword">date_add</span>(@dt, <span class="built_in">interval</span> <span class="number">1</span> <span class="keyword">quarter</span>);-加1季  </span><br><span class="line"><span class="keyword">select</span> <span class="keyword">date_add</span>(@dt, <span class="built_in">interval</span> <span class="number">1</span> <span class="keyword">year</span>);-加1年</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://blog.csdn.net/mr_linjw/article/details/49849691" target="_blank" rel="noopener">更多</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/21/MySQL时间增加/" data-id="cjk3dsjib0004ic0l25p4nuk8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/06/20/hello-world/" class="article-date">
@@ -106,7 +144,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/20/hello-world/" data-id="cjjy2pr1m0006b40lj3xb8br4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/20/hello-world/" data-id="cjk3dsjic0005ic0ly4l0elwj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -152,6 +190,10 @@
       <ul>
         
           <li>
+            <a href="/2018/07/27/Java自定义注解/">Java自定义注解</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/16/springboot对配置文件的加载/">springboot对配置文件的加载</a>
           </li>
         
@@ -165,10 +207,6 @@
         
           <li>
             <a href="/2018/07/09/Java线程池创建配置/">Executors 提供的5中不同的线程池创建配置</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/06/ActiveMQ/">ActiveMQ总结</a>
           </li>
         
       </ul>

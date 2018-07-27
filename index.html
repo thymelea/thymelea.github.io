@@ -71,6 +71,145 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Java自定义注解" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/27/Java自定义注解/" class="article-date">
+  <time datetime="2018-07-27T02:17:45.427Z" itemprop="datePublished">2018-07-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/27/Java自定义注解/">Java自定义注解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="自定义注解类"><a href="#自定义注解类" class="headerlink" title="自定义注解类"></a>自定义注解类</h2><pre><code class="java"><span class="keyword">import</span> java.lang.annotation.Documented;
+<span class="keyword">import</span> java.lang.annotation.Retention;
+<span class="keyword">import</span> java.lang.annotation.Target;
+
+<span class="keyword">import</span> <span class="keyword">static</span> java.lang.annotation.ElementType.FIELD;
+<span class="keyword">import</span> <span class="keyword">static</span> java.lang.annotation.RetentionPolicy.RUNTIME;
+
+<span class="meta">@Target</span>(FIELD)
+<span class="meta">@Retention</span>(RUNTIME)
+<span class="meta">@Documented</span>
+<span class="keyword">public</span> <span class="meta">@interface</span> FruitName {
+    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> ""</span>;
+}
+</code></pre>
+<pre><code class="java"><span class="keyword">import</span> java.lang.annotation.*;
+
+<span class="meta">@Target</span>(ElementType.FIELD)
+<span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)
+<span class="meta">@Documented</span>
+<span class="keyword">public</span> <span class="meta">@interface</span> FruitColor {
+
+    <span class="keyword">public</span> <span class="keyword">enum</span> Color{BLUE,RED,GREEN}
+
+    <span class="function">Color <span class="title">fruitColor</span><span class="params">()</span> <span class="keyword">default</span> Color.GREEN</span>;
+}
+</code></pre>
+<pre><code class="java"><span class="keyword">import</span> java.lang.annotation.*;
+
+<span class="meta">@Target</span>(ElementType.FIELD)
+<span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)
+<span class="meta">@Documented</span>
+<span class="keyword">public</span> <span class="meta">@interface</span> FruitProvider {
+     <span class="function"><span class="keyword">int</span> <span class="title">id</span><span class="params">()</span> <span class="keyword">default</span> -1</span>;
+     <span class="function">String <span class="title">name</span><span class="params">()</span> <span class="keyword">default</span> ""</span>;
+     <span class="function">String <span class="title">address</span><span class="params">()</span> <span class="keyword">default</span> ""</span>;
+}
+</code></pre>
+<h2 id="注解具体处理工具类"><a href="#注解具体处理工具类" class="headerlink" title="注解具体处理工具类"></a>注解具体处理工具类</h2><pre><code class="java"><span class="keyword">import</span> java.lang.reflect.Field;
+
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FruitInfoUtil</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getFruitInfo</span><span class="params">(Class&lt;?&gt; clazz)</span></span>{
+        String strFruitName=<span class="string">"水果名称："</span>;
+        String strFruitColor=<span class="string">"水果颜色："</span>;
+        String strFruitProvicer=<span class="string">"供应商："</span>;
+        Field[] fields =clazz.getDeclaredFields();
+        <span class="keyword">for</span>(Field field:fields){
+            <span class="keyword">if</span>(field.isAnnotationPresent(FruitName.class)){
+                FruitName fruitName=(FruitName)field.getAnnotation(FruitName.class);
+                strFruitName=strFruitName+fruitName.value();
+                System.out.println(strFruitName);
+            }<span class="keyword">else</span> <span class="keyword">if</span>(field.isAnnotationPresent(FruitColor.class)){
+                FruitColor fruitColor=(FruitColor)field.getAnnotation(FruitColor.class);
+                strFruitColor=strFruitColor+fruitColor.fruitColor().toString();
+                System.out.println(strFruitColor);
+            }<span class="keyword">else</span> <span class="keyword">if</span>(field.isAnnotationPresent(FruitProvider.class)){
+                FruitProvider fruitProvider=(FruitProvider) field.getAnnotation(FruitProvider.class);
+                strFruitProvicer=strFruitProvicer+<span class="string">"供应商编号："</span>+fruitProvider.id()+<span class="string">"供应商名称："</span>+fruitProvider.name()+<span class="string">"供应商地址："</span>+fruitProvider.address();
+                System.out.println(strFruitProvicer);
+            }
+        }
+    }
+}
+</code></pre>
+<h2 id="注解的使用"><a href="#注解的使用" class="headerlink" title="注解的使用"></a>注解的使用</h2><pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Apple</span> </span>{
+
+    <span class="meta">@FruitName</span>(<span class="string">"Apple"</span>)
+    <span class="keyword">private</span> String appleName;
+    <span class="meta">@FruitColor</span>(fruitColor = FruitColor.Color.RED)
+    <span class="keyword">private</span> String appleColor;
+    <span class="meta">@FruitProvider</span>(id = <span class="number">1</span>,name = <span class="string">"苹果"</span>,address = <span class="string">"中国"</span>)
+    <span class="keyword">private</span> String appleProvider;
+
+    <span class="function"><span class="keyword">public</span> String <span class="title">getAppleName</span><span class="params">()</span> </span>{
+        <span class="keyword">return</span> appleName;
+    }
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAppleName</span><span class="params">(String appleName)</span> </span>{
+        <span class="keyword">this</span>.appleName = appleName;
+    }
+
+    <span class="function"><span class="keyword">public</span> String <span class="title">getAppleColor</span><span class="params">()</span> </span>{
+        <span class="keyword">return</span> appleColor;
+    }
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAppleColor</span><span class="params">(String appleColor)</span> </span>{
+        <span class="keyword">this</span>.appleColor = appleColor;
+    }
+
+    <span class="function"><span class="keyword">public</span> String <span class="title">getAppleProvider</span><span class="params">()</span> </span>{
+        <span class="keyword">return</span> appleProvider;
+    }
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAppleProvider</span><span class="params">(String appleProvider)</span> </span>{
+        <span class="keyword">this</span>.appleProvider = appleProvider;
+    }
+}
+</code></pre>
+<h2 id="测试类"><a href="#测试类" class="headerlink" title="测试类"></a>测试类</h2><pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FruitRun</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span></span>{
+        FruitInfoUtil.getFruitInfo(Apple.class);
+    }
+}
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/27/Java自定义注解/" data-id="cjk3dsjia0003ic0lwarjla48" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-springboot对配置文件的加载" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/16/springboot对配置文件的加载/" class="article-date">
@@ -137,7 +276,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/16/springboot对配置文件的加载/" data-id="cjjy2pr1o0008b40lpvknaj7f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/16/springboot对配置文件的加载/" data-id="cjk3dsjiv000cic0l14whfpig" class="article-share-link">Share</a>
       
       
     </footer>
@@ -324,7 +463,7 @@ redis 127.0.0.1:6379&gt; EXEC
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/12/redis语法/" data-id="cjjy2pr1q000ab40lube2r3fa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/12/redis语法/" data-id="cjk3dsjii000aic0lkmenqu1r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -539,7 +678,7 @@ slave-priority 100
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjjy2pr1n0007b40ljb45mds3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjk3dsjih0009ic0l8yg6ssf7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -591,7 +730,7 @@ slave-priority 100
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/09/Java线程池创建配置/" data-id="cjjy2pr1i0003b40lyk8dtu9t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/09/Java线程池创建配置/" data-id="cjk3dsji80002ic0lbmmfh9iv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -628,48 +767,7 @@ slave-priority 100
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/06/ActiveMQ/" data-id="cjjy2pr190000b40lrwh7f6ag" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-java并发处理" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/04/java并发处理/" class="article-date">
-  <time datetime="2018-07-04T09:32:11.913Z" itemprop="datePublished">2018-07-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/04/java并发处理/">处理并发和同步</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="如何处理并发和同步："><a href="#如何处理并发和同步：" class="headerlink" title="如何处理并发和同步："></a>如何处理并发和同步：</h2><h3 id="1-在程序中使用线程的锁机制完成并发控制，"><a href="#1-在程序中使用线程的锁机制完成并发控制，" class="headerlink" title="1. 在程序中使用线程的锁机制完成并发控制，"></a>1. 在程序中使用线程的锁机制完成并发控制，</h3><h3 id="2-在利用数据库的锁机制，如：悲观锁和乐观锁"><a href="#2-在利用数据库的锁机制，如：悲观锁和乐观锁" class="headerlink" title="2. 在利用数据库的锁机制，如：悲观锁和乐观锁"></a>2. 在利用数据库的锁机制，如：悲观锁和乐观锁</h3><h4 id="悲观锁-："><a href="#悲观锁-：" class="headerlink" title="悲观锁 ："></a>悲观锁 ：</h4><pre><code>就是在查询语句后面加上for update，查询时锁住表的字段不可更新操作，直到事务提交，才会释放锁，  
-缺点：对于大量数据操作时，资源浪费严重
-</code></pre><h4 id="乐观锁："><a href="#乐观锁：" class="headerlink" title="乐观锁："></a>乐观锁：</h4><pre><code>在表结构基础上添加一个版本冗余字段，没对数据库中数据操作一次该字段进行一次加1，只有比当前版本  
-大的数据才可入库，对于大量数据的操作一般都是用乐观锁。
-</code></pre><h2 id="对于大量数据处理："><a href="#对于大量数据处理：" class="headerlink" title="对于大量数据处理："></a>对于大量数据处理：</h2><h3 id="分表存储，如通过时间分，或者某些字段分"><a href="#分表存储，如通过时间分，或者某些字段分" class="headerlink" title="分表存储，如通过时间分，或者某些字段分"></a>分表存储，如通过时间分，或者某些字段分</h3><h3 id="对于大量并发请："><a href="#对于大量并发请：" class="headerlink" title="对于大量并发请："></a>对于大量并发请：</h3><h3 id="1-提高访问带宽，"><a href="#1-提高访问带宽，" class="headerlink" title="1.提高访问带宽，"></a>1.提高访问带宽，</h3><h3 id="2-搭建负载均衡服务器，"><a href="#2-搭建负载均衡服务器，" class="headerlink" title="2.搭建负载均衡服务器，"></a>2.搭建负载均衡服务器，</h3><h3 id="3-oracle分表机制，进行分表，"><a href="#3-oracle分表机制，进行分表，" class="headerlink" title="3.oracle分表机制，进行分表，"></a>3.oracle分表机制，进行分表，</h3><h3 id="4-不持续操作数据库，使用缓存技术，"><a href="#4-不持续操作数据库，使用缓存技术，" class="headerlink" title="4.不持续操作数据库，使用缓存技术，"></a>4.不持续操作数据库，使用缓存技术，</h3><h3 id="5，使用静态页面"><a href="#5，使用静态页面" class="headerlink" title="5，使用静态页面"></a>5，使用静态页面</h3><p>More info: <a href="https://www.cnblogs.com/lr393993507/p/5909804.html" target="_blank" rel="noopener">更多</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/java并发处理/" data-id="cjjy2pr1j0004b40laowgiwmv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/06/ActiveMQ/" data-id="cjk3dsji10000ic0lvtgop5ou" class="article-share-link">Share</a>
       
       
     </footer>
@@ -730,7 +828,48 @@ slave-priority 100
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjjy2pr1p0009b40lcwxuay1c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjk3dsjie0007ic0ladtk9qcv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java并发处理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/04/java并发处理/" class="article-date">
+  <time datetime="2018-07-04T09:32:11.913Z" itemprop="datePublished">2018-07-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/04/java并发处理/">处理并发和同步</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="如何处理并发和同步："><a href="#如何处理并发和同步：" class="headerlink" title="如何处理并发和同步："></a>如何处理并发和同步：</h2><h3 id="1-在程序中使用线程的锁机制完成并发控制，"><a href="#1-在程序中使用线程的锁机制完成并发控制，" class="headerlink" title="1. 在程序中使用线程的锁机制完成并发控制，"></a>1. 在程序中使用线程的锁机制完成并发控制，</h3><h3 id="2-在利用数据库的锁机制，如：悲观锁和乐观锁"><a href="#2-在利用数据库的锁机制，如：悲观锁和乐观锁" class="headerlink" title="2. 在利用数据库的锁机制，如：悲观锁和乐观锁"></a>2. 在利用数据库的锁机制，如：悲观锁和乐观锁</h3><h4 id="悲观锁-："><a href="#悲观锁-：" class="headerlink" title="悲观锁 ："></a>悲观锁 ：</h4><pre><code>就是在查询语句后面加上for update，查询时锁住表的字段不可更新操作，直到事务提交，才会释放锁，  
+缺点：对于大量数据操作时，资源浪费严重
+</code></pre><h4 id="乐观锁："><a href="#乐观锁：" class="headerlink" title="乐观锁："></a>乐观锁：</h4><pre><code>在表结构基础上添加一个版本冗余字段，没对数据库中数据操作一次该字段进行一次加1，只有比当前版本  
+大的数据才可入库，对于大量数据的操作一般都是用乐观锁。
+</code></pre><h2 id="对于大量数据处理："><a href="#对于大量数据处理：" class="headerlink" title="对于大量数据处理："></a>对于大量数据处理：</h2><h3 id="分表存储，如通过时间分，或者某些字段分"><a href="#分表存储，如通过时间分，或者某些字段分" class="headerlink" title="分表存储，如通过时间分，或者某些字段分"></a>分表存储，如通过时间分，或者某些字段分</h3><h3 id="对于大量并发请："><a href="#对于大量并发请：" class="headerlink" title="对于大量并发请："></a>对于大量并发请：</h3><h3 id="1-提高访问带宽，"><a href="#1-提高访问带宽，" class="headerlink" title="1.提高访问带宽，"></a>1.提高访问带宽，</h3><h3 id="2-搭建负载均衡服务器，"><a href="#2-搭建负载均衡服务器，" class="headerlink" title="2.搭建负载均衡服务器，"></a>2.搭建负载均衡服务器，</h3><h3 id="3-oracle分表机制，进行分表，"><a href="#3-oracle分表机制，进行分表，" class="headerlink" title="3.oracle分表机制，进行分表，"></a>3.oracle分表机制，进行分表，</h3><h3 id="4-不持续操作数据库，使用缓存技术，"><a href="#4-不持续操作数据库，使用缓存技术，" class="headerlink" title="4.不持续操作数据库，使用缓存技术，"></a>4.不持续操作数据库，使用缓存技术，</h3><h3 id="5，使用静态页面"><a href="#5，使用静态页面" class="headerlink" title="5，使用静态页面"></a>5，使用静态页面</h3><p>More info: <a href="https://www.cnblogs.com/lr393993507/p/5909804.html" target="_blank" rel="noopener">更多</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/04/java并发处理/" data-id="cjk3dsjid0006ic0lgqd6wr4u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -776,7 +915,7 @@ slave-priority 100
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/22/jvmGC机制/" data-id="cjjy2pr1s000bb40limk76xpi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/22/jvmGC机制/" data-id="cjk3dsjig0008ic0l4pdklm6h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -886,45 +1025,7 @@ slave-priority 100
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjjy2pr1g0002b40l78s061be" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-MySQL时间增加" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/21/MySQL时间增加/" class="article-date">
-  <time datetime="2018-06-21T07:35:58.629Z" itemprop="datePublished">2018-06-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/21/MySQL时间增加/">MySQL 为日期增加一个时间间隔</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> @dt = <span class="keyword">now</span>();  </span><br><span class="line"><span class="keyword">select</span> <span class="keyword">date_add</span>(@dt, <span class="built_in">interval</span> <span class="number">1</span> <span class="keyword">day</span>);   - 加1天  </span><br><span class="line"><span class="keyword">select</span> <span class="keyword">date_add</span>(@dt, <span class="built_in">interval</span> <span class="number">1</span> <span class="keyword">hour</span>);   -加1小时  </span><br><span class="line"><span class="keyword">select</span> <span class="keyword">date_add</span>(@dt, <span class="built_in">interval</span> <span class="number">1</span> <span class="keyword">minute</span>);    - 加1分钟  </span><br><span class="line"><span class="keyword">select</span> <span class="keyword">date_add</span>(@dt, <span class="built_in">interval</span> <span class="number">1</span> <span class="keyword">second</span>); -加1秒  </span><br><span class="line"><span class="keyword">select</span> <span class="keyword">date_add</span>(@dt, <span class="built_in">interval</span> <span class="number">1</span> <span class="keyword">microsecond</span>);-加1毫秒  </span><br><span class="line"><span class="keyword">select</span> <span class="keyword">date_add</span>(@dt, <span class="built_in">interval</span> <span class="number">1</span> <span class="keyword">week</span>);-加1周  </span><br><span class="line"><span class="keyword">select</span> <span class="keyword">date_add</span>(@dt, <span class="built_in">interval</span> <span class="number">1</span> <span class="keyword">month</span>);-加1月  </span><br><span class="line"><span class="keyword">select</span> <span class="keyword">date_add</span>(@dt, <span class="built_in">interval</span> <span class="number">1</span> <span class="keyword">quarter</span>);-加1季  </span><br><span class="line"><span class="keyword">select</span> <span class="keyword">date_add</span>(@dt, <span class="built_in">interval</span> <span class="number">1</span> <span class="keyword">year</span>);-加1年</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://blog.csdn.net/mr_linjw/article/details/49849691" target="_blank" rel="noopener">更多</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/MySQL时间增加/" data-id="cjjy2pr1l0005b40lqlb2aasi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjk3dsji60001ic0lwk0sb02h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -970,6 +1071,10 @@ slave-priority 100
       <ul>
         
           <li>
+            <a href="/2018/07/27/Java自定义注解/">Java自定义注解</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/16/springboot对配置文件的加载/">springboot对配置文件的加载</a>
           </li>
         
@@ -983,10 +1088,6 @@ slave-priority 100
         
           <li>
             <a href="/2018/07/09/Java线程池创建配置/">Executors 提供的5中不同的线程池创建配置</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/06/ActiveMQ/">ActiveMQ总结</a>
           </li>
         
       </ul>
