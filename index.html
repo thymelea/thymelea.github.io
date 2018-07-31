@@ -200,7 +200,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/27/Java自定义注解/" data-id="cjk9dp8nl00008o0lg6uvkiom" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/27/Java自定义注解/" data-id="cjk9e32dq0004aw0lcrvrgiua" class="article-share-link">Share</a>
       
       
     </footer>
@@ -276,7 +276,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/16/springboot对配置文件的加载/" data-id="cjk9dp8q7000c8o0ljcfwvo2t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/16/springboot对配置文件的加载/" data-id="cjk9e32e0000caw0lxz2rkjjp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -463,7 +463,7 @@ redis 127.0.0.1:6379&gt; EXEC
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/12/redis语法/" data-id="cjk9dp8pc00068o0l53jo2ew9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/12/redis语法/" data-id="cjk9e32dy000baw0l8ewuurvz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -678,7 +678,7 @@ slave-priority 100
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjk9dp8pc00078o0lq612ca0d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjk9e32dv0008aw0lylegtd7o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -730,7 +730,7 @@ slave-priority 100
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/09/Java线程池创建配置/" data-id="cjk9dp8ow00038o0lbzk6g2kh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/09/Java线程池创建配置/" data-id="cjk9e32do0003aw0l7ktof2ni" class="article-share-link">Share</a>
       
       
     </footer>
@@ -767,7 +767,48 @@ slave-priority 100
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/06/ActiveMQ/" data-id="cjk9dp8ow00058o0lfh5ut7sl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/06/ActiveMQ/" data-id="cjk9e32df0000aw0l7op781om" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java并发处理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/04/java并发处理/" class="article-date">
+  <time datetime="2018-07-04T09:32:11.913Z" itemprop="datePublished">2018-07-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/04/java并发处理/">处理并发和同步</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="如何处理并发和同步："><a href="#如何处理并发和同步：" class="headerlink" title="如何处理并发和同步："></a>如何处理并发和同步：</h2><h3 id="1-在程序中使用线程的锁机制完成并发控制，"><a href="#1-在程序中使用线程的锁机制完成并发控制，" class="headerlink" title="1. 在程序中使用线程的锁机制完成并发控制，"></a>1. 在程序中使用线程的锁机制完成并发控制，</h3><h3 id="2-在利用数据库的锁机制，如：悲观锁和乐观锁"><a href="#2-在利用数据库的锁机制，如：悲观锁和乐观锁" class="headerlink" title="2. 在利用数据库的锁机制，如：悲观锁和乐观锁"></a>2. 在利用数据库的锁机制，如：悲观锁和乐观锁</h3><h4 id="悲观锁-："><a href="#悲观锁-：" class="headerlink" title="悲观锁 ："></a>悲观锁 ：</h4><pre><code>就是在查询语句后面加上for update，查询时锁住表的字段不可更新操作，直到事务提交，才会释放锁，  
+缺点：对于大量数据操作时，资源浪费严重
+</code></pre><h4 id="乐观锁："><a href="#乐观锁：" class="headerlink" title="乐观锁："></a>乐观锁：</h4><pre><code>在表结构基础上添加一个版本冗余字段，没对数据库中数据操作一次该字段进行一次加1，只有比当前版本  
+大的数据才可入库，对于大量数据的操作一般都是用乐观锁。
+</code></pre><h2 id="对于大量数据处理："><a href="#对于大量数据处理：" class="headerlink" title="对于大量数据处理："></a>对于大量数据处理：</h2><h3 id="分表存储，如通过时间分，或者某些字段分"><a href="#分表存储，如通过时间分，或者某些字段分" class="headerlink" title="分表存储，如通过时间分，或者某些字段分"></a>分表存储，如通过时间分，或者某些字段分</h3><h3 id="对于大量并发请："><a href="#对于大量并发请：" class="headerlink" title="对于大量并发请："></a>对于大量并发请：</h3><h3 id="1-提高访问带宽，"><a href="#1-提高访问带宽，" class="headerlink" title="1.提高访问带宽，"></a>1.提高访问带宽，</h3><h3 id="2-搭建负载均衡服务器，"><a href="#2-搭建负载均衡服务器，" class="headerlink" title="2.搭建负载均衡服务器，"></a>2.搭建负载均衡服务器，</h3><h3 id="3-oracle分表机制，进行分表，"><a href="#3-oracle分表机制，进行分表，" class="headerlink" title="3.oracle分表机制，进行分表，"></a>3.oracle分表机制，进行分表，</h3><h3 id="4-不持续操作数据库，使用缓存技术，"><a href="#4-不持续操作数据库，使用缓存技术，" class="headerlink" title="4.不持续操作数据库，使用缓存技术，"></a>4.不持续操作数据库，使用缓存技术，</h3><h3 id="5，使用静态页面"><a href="#5，使用静态页面" class="headerlink" title="5，使用静态页面"></a>5，使用静态页面</h3><p>More info: <a href="https://www.cnblogs.com/lr393993507/p/5909804.html" target="_blank" rel="noopener">更多</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/04/java并发处理/" data-id="cjk9e32dw0009aw0liy496qzc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -828,48 +869,7 @@ slave-priority 100
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjk9dp8ow00048o0l9es1xq5d" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-java并发处理" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/04/java并发处理/" class="article-date">
-  <time datetime="2018-07-04T09:32:11.913Z" itemprop="datePublished">2018-07-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/04/java并发处理/">处理并发和同步</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="如何处理并发和同步："><a href="#如何处理并发和同步：" class="headerlink" title="如何处理并发和同步："></a>如何处理并发和同步：</h2><h3 id="1-在程序中使用线程的锁机制完成并发控制，"><a href="#1-在程序中使用线程的锁机制完成并发控制，" class="headerlink" title="1. 在程序中使用线程的锁机制完成并发控制，"></a>1. 在程序中使用线程的锁机制完成并发控制，</h3><h3 id="2-在利用数据库的锁机制，如：悲观锁和乐观锁"><a href="#2-在利用数据库的锁机制，如：悲观锁和乐观锁" class="headerlink" title="2. 在利用数据库的锁机制，如：悲观锁和乐观锁"></a>2. 在利用数据库的锁机制，如：悲观锁和乐观锁</h3><h4 id="悲观锁-："><a href="#悲观锁-：" class="headerlink" title="悲观锁 ："></a>悲观锁 ：</h4><pre><code>就是在查询语句后面加上for update，查询时锁住表的字段不可更新操作，直到事务提交，才会释放锁，  
-缺点：对于大量数据操作时，资源浪费严重
-</code></pre><h4 id="乐观锁："><a href="#乐观锁：" class="headerlink" title="乐观锁："></a>乐观锁：</h4><pre><code>在表结构基础上添加一个版本冗余字段，没对数据库中数据操作一次该字段进行一次加1，只有比当前版本  
-大的数据才可入库，对于大量数据的操作一般都是用乐观锁。
-</code></pre><h2 id="对于大量数据处理："><a href="#对于大量数据处理：" class="headerlink" title="对于大量数据处理："></a>对于大量数据处理：</h2><h3 id="分表存储，如通过时间分，或者某些字段分"><a href="#分表存储，如通过时间分，或者某些字段分" class="headerlink" title="分表存储，如通过时间分，或者某些字段分"></a>分表存储，如通过时间分，或者某些字段分</h3><h3 id="对于大量并发请："><a href="#对于大量并发请：" class="headerlink" title="对于大量并发请："></a>对于大量并发请：</h3><h3 id="1-提高访问带宽，"><a href="#1-提高访问带宽，" class="headerlink" title="1.提高访问带宽，"></a>1.提高访问带宽，</h3><h3 id="2-搭建负载均衡服务器，"><a href="#2-搭建负载均衡服务器，" class="headerlink" title="2.搭建负载均衡服务器，"></a>2.搭建负载均衡服务器，</h3><h3 id="3-oracle分表机制，进行分表，"><a href="#3-oracle分表机制，进行分表，" class="headerlink" title="3.oracle分表机制，进行分表，"></a>3.oracle分表机制，进行分表，</h3><h3 id="4-不持续操作数据库，使用缓存技术，"><a href="#4-不持续操作数据库，使用缓存技术，" class="headerlink" title="4.不持续操作数据库，使用缓存技术，"></a>4.不持续操作数据库，使用缓存技术，</h3><h3 id="5，使用静态页面"><a href="#5，使用静态页面" class="headerlink" title="5，使用静态页面"></a>5，使用静态页面</h3><p>More info: <a href="https://www.cnblogs.com/lr393993507/p/5909804.html" target="_blank" rel="noopener">更多</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/java并发处理/" data-id="cjk9dp8pc00088o0lo2u4q3p3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjk9e32dt0007aw0l931xbgdt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -915,7 +915,7 @@ slave-priority 100
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/22/jvmGC机制/" data-id="cjk9dp8pc00098o0l610fuhdw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/22/jvmGC机制/" data-id="cjk9e32dx000aaw0lbhkx7vvs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1025,7 +1025,7 @@ slave-priority 100
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjk9dp8ow00018o0lfxzuejdn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjk9e32dm0002aw0lzyii2z36" class="article-share-link">Share</a>
       
       
     </footer>
