@@ -85,7 +85,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/09/docker配置/">docker环境搭建</a>
+      <a class="article-title" href="/2018/11/09/docker配置/">docker环境搭建和Jenkins自动部署</a>
     </h1>
   
 
@@ -97,13 +97,13 @@
 <p> 删除停止的容器<br> docker rm $(docker ps -all -q -f status=exited)<br> 删除没有使用的镜像<br>   docker rmi -f $(docker images | grep “<none>“ | awk “{print \$3}”)<br>   批量删除容器<br>   docker ps -a | awk ‘{print $1}’ | xargs docker rm<br>   批量删除镜像<br>   docker images | awk ‘{print $3}’ | xargs docker rmi<br>   持久化容器与镜像</none></p>
 <pre><code>运行中的镜像称为容器。你可以修改容器（比如删除一个文件），但这些修改不会影响到镜像。不过，你使用docker commit &lt;container-id&gt; &lt;image-name&gt;命令可以把一个正在运行的容器变成一个新的镜像。
 </code></pre><p>   docker commit <container> [repo:tag] 将一个container固化为一个新的image，后面的repo:tag可选</container></p>
-<p>   docker export用于持久化容器<br>   docker save用于持久化镜像<br>    使用docker import，docker load导入镜像容器<br>    <a href="https://blog.csdn.net/albenxie/article/details/74332429" target="_blank" rel="noopener">https://blog.csdn.net/albenxie/article/details/74332429</a></p>
+<p>   docker export用于持久化容器<br>   docker save用于持久化镜像<br>    使用docker import，docker load导入镜像容器<br>    <a href="https://blog.csdn.net/albenxie/article/details/74332429" target="_blank" rel="noopener">https://blog.csdn.net/albenxie/article/details/74332429</a><br>    <a href="https://www.cnblogs.com/rslai/p/8135460.html" target="_blank" rel="noopener">https://www.cnblogs.com/rslai/p/8135460.html</a></p>
 <p><code>`</code> </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/09/docker配置/" data-id="cjo9n09j100052c0ll1zfonrv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/09/docker配置/" data-id="cjo9n4xe00008as0l4lagad0f" class="article-share-link">Share</a>
       
       
     </footer>
@@ -227,7 +227,7 @@ JAVA_OPTS=”‘$JAVA_OPTS” -Xms[初始化内存大小] -Xmx[可以使用的�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/02/Tomcat优化/" data-id="cjo9n09j500082c0lrzj1ui45" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/02/Tomcat优化/" data-id="cjo9n4xdx0006as0lsykxpx1t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -366,7 +366,7 @@ JAVA_OPTS=”‘$JAVA_OPTS” -Xms[初始化内存大小] -Xmx[可以使用的�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/27/Java自定义注解/" data-id="cjo9n09j000042c0lxgtrq7i6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/27/Java自定义注解/" data-id="cjo9n4xdw0005as0lybwz13vw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -442,7 +442,7 @@ JAVA_OPTS=”‘$JAVA_OPTS” -Xms[初始化内存大小] -Xmx[可以使用的�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/16/springboot对配置文件的加载/" data-id="cjo9n09jb000d2c0ltptksvpz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/16/springboot对配置文件的加载/" data-id="cjo9n4xe7000eas0le5qsej3i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -629,7 +629,7 @@ redis 127.0.0.1:6379&gt; EXEC
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/12/redis语法/" data-id="cjo9n09jd000e2c0lwqfqt9pt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/12/redis语法/" data-id="cjo9n4xe6000das0l3py6a9h2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -844,7 +844,7 @@ slave-priority 100
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjo9n09j600092c0lbulh8zo3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/12/redis安装笔记/" data-id="cjo9n4xe4000bas0ld7mptes8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -896,7 +896,7 @@ slave-priority 100
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/09/Java线程池创建配置/" data-id="cjo9n09ip00002c0ln0al2ys6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/09/Java线程池创建配置/" data-id="cjo9n4xdv0004as0leeoo6nxk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -933,7 +933,48 @@ slave-priority 100
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/06/ActiveMQ/" data-id="cjo9n09iz00032c0lg2f9yepy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/06/ActiveMQ/" data-id="cjo9n4xdr0002as0lkgra29sc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java并发处理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/04/java并发处理/" class="article-date">
+  <time datetime="2018-07-04T09:32:11.913Z" itemprop="datePublished">2018-07-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/04/java并发处理/">处理并发和同步</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="如何处理并发和同步："><a href="#如何处理并发和同步：" class="headerlink" title="如何处理并发和同步："></a>如何处理并发和同步：</h2><h3 id="1-在程序中使用线程的锁机制完成并发控制，"><a href="#1-在程序中使用线程的锁机制完成并发控制，" class="headerlink" title="1. 在程序中使用线程的锁机制完成并发控制，"></a>1. 在程序中使用线程的锁机制完成并发控制，</h3><h3 id="2-在利用数据库的锁机制，如：悲观锁和乐观锁"><a href="#2-在利用数据库的锁机制，如：悲观锁和乐观锁" class="headerlink" title="2. 在利用数据库的锁机制，如：悲观锁和乐观锁"></a>2. 在利用数据库的锁机制，如：悲观锁和乐观锁</h3><h4 id="悲观锁-："><a href="#悲观锁-：" class="headerlink" title="悲观锁 ："></a>悲观锁 ：</h4><pre><code>就是在查询语句后面加上for update，查询时锁住表的字段不可更新操作，直到事务提交，才会释放锁，  
+缺点：对于大量数据操作时，资源浪费严重
+</code></pre><h4 id="乐观锁："><a href="#乐观锁：" class="headerlink" title="乐观锁："></a>乐观锁：</h4><pre><code>在表结构基础上添加一个版本冗余字段，没对数据库中数据操作一次该字段进行一次加1，只有比当前版本  
+大的数据才可入库，对于大量数据的操作一般都是用乐观锁。
+</code></pre><h2 id="对于大量数据处理："><a href="#对于大量数据处理：" class="headerlink" title="对于大量数据处理："></a>对于大量数据处理：</h2><h3 id="分表存储，如通过时间分，或者某些字段分"><a href="#分表存储，如通过时间分，或者某些字段分" class="headerlink" title="分表存储，如通过时间分，或者某些字段分"></a>分表存储，如通过时间分，或者某些字段分</h3><h3 id="对于大量并发请："><a href="#对于大量并发请：" class="headerlink" title="对于大量并发请："></a>对于大量并发请：</h3><h3 id="1-提高访问带宽，"><a href="#1-提高访问带宽，" class="headerlink" title="1.提高访问带宽，"></a>1.提高访问带宽，</h3><h3 id="2-搭建负载均衡服务器，"><a href="#2-搭建负载均衡服务器，" class="headerlink" title="2.搭建负载均衡服务器，"></a>2.搭建负载均衡服务器，</h3><h3 id="3-oracle分表机制，进行分表，"><a href="#3-oracle分表机制，进行分表，" class="headerlink" title="3.oracle分表机制，进行分表，"></a>3.oracle分表机制，进行分表，</h3><h3 id="4-不持续操作数据库，使用缓存技术，"><a href="#4-不持续操作数据库，使用缓存技术，" class="headerlink" title="4.不持续操作数据库，使用缓存技术，"></a>4.不持续操作数据库，使用缓存技术，</h3><h3 id="5，使用静态页面"><a href="#5，使用静态页面" class="headerlink" title="5，使用静态页面"></a>5，使用静态页面</h3><p>More info: <a href="https://www.cnblogs.com/lr393993507/p/5909804.html" target="_blank" rel="noopener">更多</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/04/java并发处理/" data-id="cjo9n4xe10009as0lk565zc7f" class="article-share-link">Share</a>
       
       
     </footer>
@@ -994,48 +1035,7 @@ slave-priority 100
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjo9n09j7000a2c0lly4timhy" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-java并发处理" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/04/java并发处理/" class="article-date">
-  <time datetime="2018-07-04T09:32:11.913Z" itemprop="datePublished">2018-07-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/04/java并发处理/">处理并发和同步</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="如何处理并发和同步："><a href="#如何处理并发和同步：" class="headerlink" title="如何处理并发和同步："></a>如何处理并发和同步：</h2><h3 id="1-在程序中使用线程的锁机制完成并发控制，"><a href="#1-在程序中使用线程的锁机制完成并发控制，" class="headerlink" title="1. 在程序中使用线程的锁机制完成并发控制，"></a>1. 在程序中使用线程的锁机制完成并发控制，</h3><h3 id="2-在利用数据库的锁机制，如：悲观锁和乐观锁"><a href="#2-在利用数据库的锁机制，如：悲观锁和乐观锁" class="headerlink" title="2. 在利用数据库的锁机制，如：悲观锁和乐观锁"></a>2. 在利用数据库的锁机制，如：悲观锁和乐观锁</h3><h4 id="悲观锁-："><a href="#悲观锁-：" class="headerlink" title="悲观锁 ："></a>悲观锁 ：</h4><pre><code>就是在查询语句后面加上for update，查询时锁住表的字段不可更新操作，直到事务提交，才会释放锁，  
-缺点：对于大量数据操作时，资源浪费严重
-</code></pre><h4 id="乐观锁："><a href="#乐观锁：" class="headerlink" title="乐观锁："></a>乐观锁：</h4><pre><code>在表结构基础上添加一个版本冗余字段，没对数据库中数据操作一次该字段进行一次加1，只有比当前版本  
-大的数据才可入库，对于大量数据的操作一般都是用乐观锁。
-</code></pre><h2 id="对于大量数据处理："><a href="#对于大量数据处理：" class="headerlink" title="对于大量数据处理："></a>对于大量数据处理：</h2><h3 id="分表存储，如通过时间分，或者某些字段分"><a href="#分表存储，如通过时间分，或者某些字段分" class="headerlink" title="分表存储，如通过时间分，或者某些字段分"></a>分表存储，如通过时间分，或者某些字段分</h3><h3 id="对于大量并发请："><a href="#对于大量并发请：" class="headerlink" title="对于大量并发请："></a>对于大量并发请：</h3><h3 id="1-提高访问带宽，"><a href="#1-提高访问带宽，" class="headerlink" title="1.提高访问带宽，"></a>1.提高访问带宽，</h3><h3 id="2-搭建负载均衡服务器，"><a href="#2-搭建负载均衡服务器，" class="headerlink" title="2.搭建负载均衡服务器，"></a>2.搭建负载均衡服务器，</h3><h3 id="3-oracle分表机制，进行分表，"><a href="#3-oracle分表机制，进行分表，" class="headerlink" title="3.oracle分表机制，进行分表，"></a>3.oracle分表机制，进行分表，</h3><h3 id="4-不持续操作数据库，使用缓存技术，"><a href="#4-不持续操作数据库，使用缓存技术，" class="headerlink" title="4.不持续操作数据库，使用缓存技术，"></a>4.不持续操作数据库，使用缓存技术，</h3><h3 id="5，使用静态页面"><a href="#5，使用静态页面" class="headerlink" title="5，使用静态页面"></a>5，使用静态页面</h3><p>More info: <a href="https://www.cnblogs.com/lr393993507/p/5909804.html" target="_blank" rel="noopener">更多</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/java并发处理/" data-id="cjo9n09j8000b2c0ldt2u59m6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/04/java内存机制/" data-id="cjo9n4xe2000aas0l7aqwvrl9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1081,7 +1081,7 @@ slave-priority 100
       <ul>
         
           <li>
-            <a href="/2018/11/09/docker配置/">docker环境搭建</a>
+            <a href="/2018/11/09/docker配置/">docker环境搭建和Jenkins自动部署</a>
           </li>
         
           <li>

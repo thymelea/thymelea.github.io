@@ -5,18 +5,18 @@
   
 
   
-  <title>docker环境搭建 | 。。。。</title>
+  <title>docker环境搭建和Jenkins自动部署 | 。。。。</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1234567891011121314151617181920用yum install 安装或者用curl -fsSL https://get.docker.com/ | sh安装最新版 docker version 查看docker相关信息 docker info   //本地已有一个docker镜像 搜索可用的centos的docker镜像 docker search centos  构建do">
 <meta property="og:type" content="article">
-<meta property="og:title" content="docker环境搭建">
+<meta property="og:title" content="docker环境搭建和Jenkins自动部署">
 <meta property="og:url" content="http://yoursite.com/2018/11/09/docker配置/index.html">
 <meta property="og:site_name" content="。。。。">
 <meta property="og:description" content="1234567891011121314151617181920用yum install 安装或者用curl -fsSL https://get.docker.com/ | sh安装最新版 docker version 查看docker相关信息 docker info   //本地已有一个docker镜像 搜索可用的centos的docker镜像 docker search centos  构建do">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-09T06:17:30.546Z">
+<meta property="og:updated_time" content="2018-11-09T06:28:57.975Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="docker环境搭建">
+<meta name="twitter:title" content="docker环境搭建和Jenkins自动部署">
 <meta name="twitter:description" content="1234567891011121314151617181920用yum install 安装或者用curl -fsSL https://get.docker.com/ | sh安装最新版 docker version 查看docker相关信息 docker info   //本地已有一个docker镜像 搜索可用的centos的docker镜像 docker search centos  构建do">
   
     <link rel="alternate" href="/atom.xml" title="。。。。" type="application/atom+xml">
@@ -84,7 +84,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      docker环境搭建
+      docker环境搭建和Jenkins自动部署
     </h1>
   
 
@@ -96,13 +96,13 @@
 <p> 删除停止的容器<br> docker rm $(docker ps -all -q -f status=exited)<br> 删除没有使用的镜像<br>   docker rmi -f $(docker images | grep “<none>“ | awk “{print \$3}”)<br>   批量删除容器<br>   docker ps -a | awk ‘{print $1}’ | xargs docker rm<br>   批量删除镜像<br>   docker images | awk ‘{print $3}’ | xargs docker rmi<br>   持久化容器与镜像</none></p>
 <pre><code>运行中的镜像称为容器。你可以修改容器（比如删除一个文件），但这些修改不会影响到镜像。不过，你使用docker commit &lt;container-id&gt; &lt;image-name&gt;命令可以把一个正在运行的容器变成一个新的镜像。
 </code></pre><p>   docker commit <container> [repo:tag] 将一个container固化为一个新的image，后面的repo:tag可选</container></p>
-<p>   docker export用于持久化容器<br>   docker save用于持久化镜像<br>    使用docker import，docker load导入镜像容器<br>    <a href="https://blog.csdn.net/albenxie/article/details/74332429" target="_blank" rel="noopener">https://blog.csdn.net/albenxie/article/details/74332429</a></p>
+<p>   docker export用于持久化容器<br>   docker save用于持久化镜像<br>    使用docker import，docker load导入镜像容器<br>    <a href="https://blog.csdn.net/albenxie/article/details/74332429" target="_blank" rel="noopener">https://blog.csdn.net/albenxie/article/details/74332429</a><br>    <a href="https://www.cnblogs.com/rslai/p/8135460.html" target="_blank" rel="noopener">https://www.cnblogs.com/rslai/p/8135460.html</a></p>
 <p><code>`</code> </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/09/docker配置/" data-id="cjo9n09j100052c0ll1zfonrv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/09/docker配置/" data-id="cjo9n4xe00008as0l4lagad0f" class="article-share-link">Share</a>
       
       
     </footer>
@@ -151,7 +151,7 @@
       <ul>
         
           <li>
-            <a href="/2018/11/09/docker配置/">docker环境搭建</a>
+            <a href="/2018/11/09/docker配置/">docker环境搭建和Jenkins自动部署</a>
           </li>
         
           <li>
