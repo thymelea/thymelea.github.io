@@ -71,6 +71,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-jvmGC机制" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/22/jvmGC机制/" class="article-date">
+  <time datetime="2018-06-22T02:18:08.226Z" itemprop="datePublished">2018-06-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/22/jvmGC机制/">gc垃圾回收机制</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code class="text">## 新域
+    几乎所有对象都在新域里，新域里的对象大多都是短命的，通过GC复制算法将使用空间的存活对象
+    复制到保留空间中，然后清空使用空间中不存活的对象，两个空间对换名称，重复复制几次，将最终存活的少量对象
+    发到survior里面，survivor再放到老域
+## 老域
+    存在对象使用追踪算法，称为标记-清除-压缩（开销大）收集器；满了触发full GC（很耗内存）进行回收
+## 注
+    + 如果GC一次运行周期超过3-5秒，这会很影响应用程序的运行，如果可以，应该减少JVM堆的大小了。
+    + 通常情况下，JVM堆的大小应为物理内存的80%。
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/22/jvmGC机制/" data-id="cjo9mz7bi0009580lt7vbsbab" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-BIO,NIO,AIO不同" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/06/21/BIO,NIO,AIO不同/" class="article-date">
@@ -171,7 +217,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjkbyasua0000as0lzbxkte7k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/BIO,NIO,AIO不同/" data-id="cjo9mz7bb0003580lhz7z0rqs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -209,7 +255,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/MySQL时间增加/" data-id="cjkbyasul0004as0l05eaydpu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/MySQL时间增加/" data-id="cjo9mz7bf0006580lvnyc88kt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -254,7 +300,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/20/hello-world/" data-id="cjkbyasup0007as0lnzvlczts" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/20/hello-world/" data-id="cjo9mz7bg0007580ls47yfkat" class="article-share-link">Share</a>
       
       
     </footer>
@@ -287,7 +333,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li></ul>
     </div>
   </div>
 
@@ -300,7 +346,11 @@
       <ul>
         
           <li>
-            <a href="/2018/08/02/Tomcat优化/">Redis 使用</a>
+            <a href="/2018/11/09/docker配置/">docker环境搭建</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/02/Tomcat优化/">Tomcat优化</a>
           </li>
         
           <li>
@@ -313,10 +363,6 @@
         
           <li>
             <a href="/2018/07/12/redis语法/">Redis 使用</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/12/redis安装笔记/">Redis 安装的坑</a>
           </li>
         
       </ul>
